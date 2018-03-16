@@ -1,5 +1,27 @@
 {
+    "name": "riquest/riquest",
+    "description": "RI Quest project",
+    "license": "MIT",
+    "keywords": [
+        "RI Quest",
+        "ri-quest",
+        "riquest"
+    ],
+    "homepage": "http://re-quest.com",
     "require": {
         "php-di/php-di": "^4.0"
-    }
+    },
+    "require-dev": {
+    },
+    "autoload": {
+        "psr-4": {
+        },
+        "classmap": [
+        ]
+    },
+    "autoload-dev": {
+        "psr-4": {
+        }
+    },
+    "minimum-stability": "stable"
 }
