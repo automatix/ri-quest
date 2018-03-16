@@ -45,3 +45,6 @@
 
 # Composer
 composer.lock
+
+# IDE PhpStorm
+.idea
