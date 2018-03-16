@@ -11,7 +11,8 @@
     "require": {
         "php-di/php-di": "^6.0",
         "symfony/symfony": "^4.0",
-        "doctrine/orm": "^2.5"
+        "doctrine/orm": "^2.5",
+        "php-di/symfony-bridge": "^3.0"
     },
     "require-dev": {
     },
