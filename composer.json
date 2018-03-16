@@ -10,7 +10,8 @@
     "homepage": "http://re-quest.com",
     "require": {
         "php-di/php-di": "^6.0",
-        "symfony/symfony": "^4.0"
+        "symfony/symfony": "^4.0",
+        "doctrine/orm": "^2.5"
     },
     "require-dev": {
     },
