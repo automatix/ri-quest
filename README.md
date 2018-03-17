@@ -1,2 +1,0 @@
-# ri-quest
-RI Quest
