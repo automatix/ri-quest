@@ -5,3 +5,13 @@
 /var/
 /vendor/
 ###< symfony/framework-bundle ###
+
+
+###> Composer ###
+composer.lock
+###< Composer ###
+
+###> IDE ###
+# IDE PhpStorm
+.idea
+###> IDE ###
