@@ -8,9 +8,9 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 class IndexController extends Controller
 {
     /**
-     * @Route("/index", name="index")
+     * @Route("/", name="index")
      */
-    public function index()
+    public function indexAction()
     {
         return $this->render('index/index.html.twig', [
             'controller_name' => 'IndexController',
