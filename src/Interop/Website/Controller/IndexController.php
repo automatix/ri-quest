@@ -1,6 +1,5 @@
 <?php
-
-namespace App\Controller;
+namespace App\Interop\Website\Controller;
 
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
