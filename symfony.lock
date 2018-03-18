@@ -1,4 +1,13 @@
 {
+    "ocramius/package-versions": {
+        "version": "1.3.0"
+    },
+    "ocramius/proxy-manager": {
+        "version": "2.1.1"
+    },
+    "php-di/symfony-bridge": {
+        "version": "3.0.0"
+    },
     "psr/cache": {
         "version": "1.0.1"
     },
@@ -74,6 +83,9 @@
     "symfony/polyfill-mbstring": {
         "version": "v1.7.0"
     },
+    "symfony/proxy-manager-bridge": {
+        "version": "v4.0.6"
+    },
     "symfony/routing": {
         "version": "4.0",
         "recipe": {
@@ -85,5 +97,11 @@
     },
     "symfony/yaml": {
         "version": "v4.0.6"
+    },
+    "zendframework/zend-code": {
+        "version": "3.3.0"
+    },
+    "zendframework/zend-eventmanager": {
+        "version": "3.2.0"
     }
 }
