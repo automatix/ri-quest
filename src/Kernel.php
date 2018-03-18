@@ -8,8 +8,10 @@ use Symfony\Component\Config\Resource\FileResource;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\HttpKernel\Kernel as BaseKernel;
 use Symfony\Component\Routing\RouteCollectionBuilder;
+use DI\Bridge\Symfony\Kernel as PhpDIBridgeSymfonyKernel;
+use DI\ContainerBuilder as PhpDiContainerBuilder;
 
-class Kernel extends BaseKernel
+class Kernel extends PhpDIBridgeSymfonyKernel
 {
     use MicroKernelTrait;
 
@@ -58,4 +60,14 @@ class Kernel extends BaseKernel
         $routes->import($confDir.'/{routes}/'.$this->environment.'/**/*'.self::CONFIG_EXTS, '/', 'glob');
         $routes->import($confDir.'/{routes}'.self::CONFIG_EXTS, '/', 'glob');
     }
+
+    protected function buildPHPDIContainer(PhpDiContainerBuilder $builder)
+    {
+        // Configure your container here
+        // http://php-di.org/doc/container-configuration.html
+        $builder->addDefinitions(__DIR__ . '/../config/dependencies/common.php');
+
+        return $builder->build();
+    }
+
 }
