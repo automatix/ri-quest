@@ -65,7 +65,7 @@ class Kernel extends PhpDIBridgeSymfonyKernel
     {
         // Configure your container here
         // http://php-di.org/doc/container-configuration.html
-        $builder->addDefinitions(__DIR__ . '/../config/dependencies/common.php');
+        $builder->addDefinitions($this->getProjectDir() . '/config/dependencies/common.php');
 
         return $builder->build();
     }
