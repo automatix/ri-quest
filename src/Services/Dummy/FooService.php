@@ -5,16 +5,16 @@ class FooService implements FooServiceInterface
 {
 
     /** @var BarService */
-    private $barbarService;
+    private $barService;
 
-    public function __construct(BarService $barService)
+    public function __construct(BarServiceInterface $barService)
     {
-        $this->barbarService = $barService;
+        $this->barService = $barService;
     }
 
     public function foo()
     {
-        $this->barbarService->bar();
+        $this->barService->bar();
     }
 
 }
