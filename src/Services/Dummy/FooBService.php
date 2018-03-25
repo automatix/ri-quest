@@ -1,7 +1,7 @@
 <?php
 namespace App\Services\Dummy;
 
-class FooService implements FooServiceInterface
+class FooBService implements FooServiceInterface
 {
 
     /** @var BarService */
