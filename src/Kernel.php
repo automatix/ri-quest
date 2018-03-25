@@ -1,15 +1,17 @@
 <?php
-
 namespace App;
 
+use DI\Bridge\Symfony\Kernel as PhpDIBridgeSymfonyKernel;
+use DI\Container;
+use DI\ContainerBuilder as PhpDiContainerBuilder;
+use Exception;
+use Psr\Container\ContainerInterface;
 use Symfony\Bundle\FrameworkBundle\Kernel\MicroKernelTrait;
+use Symfony\Component\Config\Exception\FileLoaderLoadException;
 use Symfony\Component\Config\Loader\LoaderInterface;
 use Symfony\Component\Config\Resource\FileResource;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
-use Symfony\Component\HttpKernel\Kernel as BaseKernel;
 use Symfony\Component\Routing\RouteCollectionBuilder;
-use DI\Bridge\Symfony\Kernel as PhpDIBridgeSymfonyKernel;
-use DI\ContainerBuilder as PhpDiContainerBuilder;
 
 class Kernel extends PhpDIBridgeSymfonyKernel
 {
@@ -29,7 +31,7 @@ class Kernel extends PhpDIBridgeSymfonyKernel
 
     public function registerBundles()
     {
-        $contents = require $this->getProjectDir().'/config/bundles.php';
+        $contents = require $this->getProjectDir() . '/config/bundles.php';
         foreach ($contents as $class => $envs) {
             if (isset($envs['all']) || isset($envs[$this->environment])) {
                 yield new $class();
@@ -37,6 +39,11 @@ class Kernel extends PhpDIBridgeSymfonyKernel
         }
     }
 
+    /**
+     * @param ContainerBuilder $container
+     * @param LoaderInterface $loader
+     * @throws Exception
+     */
     protected function configureContainer(ContainerBuilder $container, LoaderInterface $loader)
     {
         $container->addResource(new FileResource($this->getProjectDir().'/config/bundles.php'));
@@ -52,6 +59,10 @@ class Kernel extends PhpDIBridgeSymfonyKernel
         $loader->load($confDir.'/{services}_'.$this->environment.self::CONFIG_EXTS, 'glob');
     }
 
+    /**
+     * @param RouteCollectionBuilder $routes
+     * @throws FileLoaderLoadException
+     */
     protected function configureRoutes(RouteCollectionBuilder $routes)
     {
         $confDir = $this->getProjectDir().'/config';
@@ -61,6 +72,11 @@ class Kernel extends PhpDIBridgeSymfonyKernel
         $routes->import($confDir.'/{routes}'.self::CONFIG_EXTS, '/', 'glob');
     }
 
+    /**
+     * @param PhpDiContainerBuilder $builder
+     * @return Container|ContainerInterface
+     * @throws Exception
+     */
     protected function buildPHPDIContainer(PhpDiContainerBuilder $builder)
     {
         // Configure your container here
