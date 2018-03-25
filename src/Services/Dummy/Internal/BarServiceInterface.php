@@ -1,5 +1,5 @@
 <?php
-namespace App\Services\Dummy;
+namespace App\Services\Dummy\Internal;
 
 interface BarServiceInterface
 {

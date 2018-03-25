@@ -1,10 +1,12 @@
 <?php
-namespace App\Services\Dummy;
+namespace App\Services\Dummy\External;
 
-class FooAService implements FooServiceInterface
+use App\Services\Dummy\Internal\BarServiceInterface;
+
+class FooBService implements FooServiceInterface
 {
 
-    /** @var BarService */
+    /** @var BarServiceInterface */
     private $barService;
 
     public function __construct(BarServiceInterface $barService)

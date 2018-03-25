@@ -1,8 +1,8 @@
 <?php
-use App\Services\Dummy\BarService;
-use App\Services\Dummy\BarServiceInterface;
-use App\Services\Dummy\FooBService;
-use App\Services\Dummy\FooServiceInterface;
+use App\Services\Dummy\External\FooBService;
+use App\Services\Dummy\External\FooServiceInterface;
+use App\Services\Dummy\Internal\BarService;
+use App\Services\Dummy\Internal\BarServiceInterface;
 
 $commonDependencies = [
     FooServiceInterface::class => DI\autowire(FooBService::class),

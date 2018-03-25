@@ -1,8 +1,7 @@
 <?php
 namespace App\Interop\Website\Controller;
 
-use App\Services\Dummy\FooAService;
-use App\Services\Dummy\FooServiceInterface;
+use App\Services\Dummy\External\FooServiceInterface;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
