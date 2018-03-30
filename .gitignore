@@ -18,8 +18,3 @@ composer.lock
 # IDE PhpStorm
 .idea
 ###< IDE ###
-
-###> symfony/phpunit-bridge ###
-.phpunit
-/phpunit.xml
-###< symfony/phpunit-bridge ###
