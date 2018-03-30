@@ -1,0 +1,3 @@
+controllers:
+    resource: ../../src/Interop/Website/Controller/
+    type: annotation
