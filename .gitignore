@@ -18,3 +18,7 @@ composer.lock
 # IDE PhpStorm
 .idea
 ###< IDE ###
+
+###> phpunit/phpunit ###
+/phpunit.xml
+###< phpunit/phpunit ###
