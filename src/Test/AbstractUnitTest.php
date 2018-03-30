@@ -1,7 +1,8 @@
 <?php
 namespace App\Test;
 
-use PHPUnit\DbUnit\TestCase;
+use PHPUnit\Framework\TestCase;
+use PHPUnit\DbUnit\TestCaseTrait;
 
 /**
  * Class AbstractUnitTest
@@ -10,5 +11,7 @@ use PHPUnit\DbUnit\TestCase;
  */
 abstract class AbstractUnitTest extends TestCase
 {
+
+    use TestCaseTrait;
 
 }

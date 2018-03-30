@@ -1,6 +1,7 @@
 <?php
 namespace App\Test;
 
+use PHPUnit\DbUnit\TestCaseTrait;
 use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
 
 /**
@@ -10,5 +11,7 @@ use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
  */
 abstract class AbstractControllerTest extends KernelTestCase
 {
+
+    use TestCaseTrait;
 
 }
