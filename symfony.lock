@@ -20,6 +20,27 @@
     "doctrine/dbal": {
         "version": "v2.6.3"
     },
+    "doctrine/doctrine-bundle": {
+        "version": "1.6",
+        "recipe": {
+            "repo": "github.com/symfony/recipes",
+            "branch": "master",
+            "version": "1.6",
+            "ref": "c745b67e4dec2771d4d57a60efd224faf445c929"
+        }
+    },
+    "doctrine/doctrine-cache-bundle": {
+        "version": "1.3.3"
+    },
+    "doctrine/doctrine-migrations-bundle": {
+        "version": "1.2",
+        "recipe": {
+            "repo": "github.com/symfony/recipes",
+            "branch": "master",
+            "version": "1.2",
+            "ref": "c1431086fec31f17fbcfe6d6d7e92059458facc1"
+        }
+    },
     "doctrine/inflector": {
         "version": "v1.3.0"
     },
@@ -29,8 +50,14 @@
     "doctrine/lexer": {
         "version": "v1.0.1"
     },
+    "doctrine/migrations": {
+        "version": "v1.6.2"
+    },
     "doctrine/orm": {
         "version": "v2.6.1"
+    },
+    "jdorn/sql-formatter": {
+        "version": "v1.2.17"
     },
     "jeremeamia/superclosure": {
         "version": "2.4.0"
@@ -173,6 +200,9 @@
     "symfony/dependency-injection": {
         "version": "v4.0.6"
     },
+    "symfony/doctrine-bridge": {
+        "version": "v4.0.6"
+    },
     "symfony/dotenv": {
         "version": "v4.0.6"
     },
@@ -211,6 +241,9 @@
     },
     "symfony/lts": {
         "version": "4-dev"
+    },
+    "symfony/orm-pack": {
+        "version": "v1.0.5"
     },
     "symfony/polyfill-mbstring": {
         "version": "v1.7.0"
