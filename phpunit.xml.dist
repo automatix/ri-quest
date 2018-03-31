@@ -6,7 +6,7 @@
         xsi:noNamespaceSchemaLocation="http://schema.phpunit.de/6.1/phpunit.xsd"
         backupGlobals="false"
         colors="true"
-        bootstrap="vendor/autoload.php"
+        bootstrap="tests/bootstrap.php"
 >
     <php>
         <ini name="error_reporting" value="-1" />
@@ -16,6 +16,27 @@
         <env name="APP_SECRET" value="s$cretf0rt3st" />
         <env name="SHELL_VERBOSITY" value="-1" />
         <!-- define your env variables for the test env here -->
+
+        <!-- ###+ doctrine/doctrine-bundle ### -->
+        <!-- Format described at http://docs.doctrine-project.org/projects/doctrine-dbal/en/latest/reference/configuration.html#connecting-using-a-url -->
+        <!-- For an SQLite database, use: "sqlite:///%kernel.project_dir%/var/data.db" -->
+        <!-- Configure your db driver and server_version in config/packages/doctrine.yaml -->
+        <env name="DATABASE_URL" value="mysql://root:pwd@192.168.56.102:3306/riquest_test" />
+        <!-- Don't specify the DBNAME in the DSN! Otherwise: connection error. Since the DSN is needed for creating the DB. -->
+        <env name="DB_DSN" value="mysql:host=192.168.56.102;port=3306" />
+        <env name="DB_USER" value="root" />
+        <env name="DB_PASSWD" value="pwd" />
+        <env name="DB_DBNAME" value="riquest_test" />
+        <!-- ###- doctrine/doctrine-bundle ### -->
+
+        <!-- ###+ test database' content ### -->
+        <env name="DB_CONTENT_ROOT_DIR" value="/data/database" />
+        <env name="DB_CONTENT_TEST_DATA_DIR" value="test-data" />
+        <env name="DB_CONTENT_FILE_SCHEMA" value="schema.sql" />
+        <env name="DB_CONTENT_FILE_STORED_PROCEDURES" value="stored-procedures.sql" />
+        <env name="DB_CONTENT_FILE_BASIC_DATA" value="basic-data.sql" />
+        <env name="DB_CONTENT_FILES_TEST_DATA" value="foo.sql,bar.sql" />
+        <!-- ###- test database' content ### -->
     </php>
 
     <testsuites>
