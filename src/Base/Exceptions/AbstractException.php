@@ -3,6 +3,12 @@ namespace App\Base\Exceptions;
 
 use Exception;
 
+/**
+ * Class AbstractException
+ *
+ * @package App\Base\Exceptions
+ * @author Ilya Khanataev <contact@mevatex.com>
+ */
 abstract class AbstractException extends Exception
 {
 
