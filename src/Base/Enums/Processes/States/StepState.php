@@ -1,5 +1,5 @@
 <?php
-namespace App\Base\Enums;
+namespace App\Base\Enums\Processes\States;
 
 /**
  * @method static QuestState STARTED()

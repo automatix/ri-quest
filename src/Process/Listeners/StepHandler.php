@@ -1,8 +1,8 @@
 <?php
 namespace App\Process\Listeners;
 
-use App\Base\Enums\AbstractProcessEventType;
-use App\Base\Enums\AbstractProcessState;
+use App\Base\Enums\Processes\EventTypes\AbstractEventType;
+use App\Base\Enums\Processes\States\AbstractProcessState;
 use App\Process\EventInStateHandlerInterface;
 use App\Process\StateHandlerInterface;
 use Symfony\Component\EventDispatcher\Event;
@@ -14,7 +14,7 @@ class StepHandler implements StateHandlerInterface
     /** @var EventInStateHandlerInterface[] */
     private $eventInStateHandlers;
 
-    public function handle(AbstractProcessState $processState, Event $event, AbstractProcessEventType $eventType, EventDispatcherInterface $eventDispatcher)
+    public function handle(AbstractProcessState $processState, Event $event, AbstractEventType $eventType, EventDispatcherInterface $eventDispatcher)
     {
         foreach ($this->eventInStateHandlers as $handler) {
             if ($handler->isResponsibleFor($eventType)) {

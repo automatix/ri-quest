@@ -1,7 +1,7 @@
 <?php
 namespace App\Process\Listeners;
 
-use App\Base\Enums\AbstractProcessState;
+use App\Base\Enums\Processes\States\AbstractProcessState;
 use App\Process\StateHandlerInterface;
 use Symfony\Component\EventDispatcher\Event;
 use Symfony\Component\EventDispatcher\EventDispatcherInterface;
