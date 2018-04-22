@@ -1,11 +1,11 @@
 <?php
 namespace App\Process;
 
-use App\Base\Enums\Processes\EventTypes\AbstractEventType;
+use App\Base\Enums\Processes\EventNames\AbstractEventName;
 
 interface ResponsibleForEventInerface
 {
 
-    function isResponsibleFor(AbstractEventType $processEvent);
+    function isResponsibleFor(AbstractEventName $processEvent);
 
 }

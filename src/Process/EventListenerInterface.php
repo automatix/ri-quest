@@ -7,6 +7,6 @@ use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 interface EventListenerInterface
 {
 
-    function handle(Event $event, string $eventName, EventDispatcherInterface $eventDispatcher);
+    function handle(Event $event, AbstractEventName $eventName, EventDispatcherInterface $eventDispatcher);
 
 }

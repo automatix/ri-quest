@@ -1,7 +1,7 @@
 <?php
 namespace App\Process;
 
-use App\Base\Enums\Processes\EventTypes\AbstractEventType;
+use App\Base\Enums\Processes\EventNames\AbstractEventName;
 use App\Process\Listeners\PoiHandler;
 use App\Process\Listeners\QuestHandler;
 use App\Process\Listeners\StepHandler;
@@ -28,9 +28,9 @@ class ProcessHandler implements EventListenerInterface
         ];
     }
 
-    public function handle(Event $event, string $eventName, EventDispatcherInterface $eventDispatcher)
+    public function handle(Event $event, AbstractEventName $eventName, EventDispatcherInterface $eventDispatcher)
     {
-        $eventType = AbstractEventType::search($eventName);
+        $eventType = AbstractEventName::search($eventName);
 
         $currentStepState = $this->stateManagingService->detectStepState();
         $currentPoiState = $this->stateManagingService->detectPoiState();
