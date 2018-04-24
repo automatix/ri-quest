@@ -1,3 +1,6 @@
 index:
     path: /
     controller: App\Interop\Website\Controller\IndexController::indexAction
+quest:
+    path: /quest
+    controller: App\Interop\Website\Controller\QuestController::processUserMessageAction
