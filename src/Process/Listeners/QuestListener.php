@@ -7,7 +7,7 @@ use App\Process\StateHandlerInterface;
 use Symfony\Component\EventDispatcher\Event;
 use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 
-class QuestHandler implements StateHandlerInterface
+class QuestListener extends AbstractProcessListener
 {
 
     public function handle(AbstractProcessState $processState, Event $event, AbstractEventName $eventName, EventDispatcherInterface $eventDispatcher)
