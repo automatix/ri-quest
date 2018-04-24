@@ -1,5 +1,7 @@
 <?php
 
+use App\Base\Utils\CamelCaseToSnakeCaseNameConverter;
+use App\Base\Utils\NameConverterInterface;
 use App\Services\Dummy\External\FooBService;
 use App\Services\Dummy\External\FooServiceInterface;
 use App\Services\Dummy\Internal\BarService;
@@ -14,6 +16,7 @@ use Doctrine\ORM\Mapping\Driver\AnnotationDriver;
 $commonDependencies = [
     FooServiceInterface::class => DI\autowire(FooBService::class),
     BarServiceInterface::class => DI\autowire(BarService::class),
+    NameConverterInterface::class => DI\autowire(CamelCaseToSnakeCaseNameConverter::class),
     EntityManagerInterface::class => function () {
         $config = new Configuration();
         $config->setMetadataDriverImpl(new AnnotationDriver(new AnnotationReader()));
