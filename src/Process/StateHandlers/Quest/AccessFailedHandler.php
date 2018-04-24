@@ -1,5 +1,5 @@
 <?php
-namespace App\Services\Process\Internal\Handlers\Quest;
+namespace App\Services\Process\Internal\StateHandlers\Quest;
 
 use App\Base\Enums\Processes\EventNames\AbstractEventName;
 use App\Base\Enums\Processes\States\AbstractProcessState;
@@ -8,12 +8,12 @@ use Symfony\Component\EventDispatcher\Event;
 use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 
 /**
- * Class StartedHandler implements StateHandlerInterface
+ * Class AccessFailedHandler implements StateHandlerInterface
  *
- * @package App\Services\Process\Internal\Handlers\Quest
+ * @package App\Services\Process\Internal\StateHandlers\Quest
  * @author Ilya Khanataev <contact@mevatex.com>
  */
-class StartedHandler implements StateHandlerInterface
+class AccessFailedHandler implements StateHandlerInterface
 {
 
     public function handle(
