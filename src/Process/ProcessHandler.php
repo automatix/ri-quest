@@ -2,9 +2,9 @@
 namespace App\Process;
 
 use App\Base\Enums\Processes\EventNames\AbstractEventName;
-use App\Process\Listeners\PoiHandler;
-use App\Process\Listeners\QuestHandler;
-use App\Process\Listeners\StepHandler;
+use App\Process\Listeners\PoiListener;
+use App\Process\Listeners\QuestListener;
+use App\Process\Listeners\StepListener;
 use App\Services\Process\StateManagingServiceInterface;
 use Symfony\Component\EventDispatcher\Event;
 use Symfony\Component\EventDispatcher\EventDispatcherInterface;
@@ -14,7 +14,7 @@ class ProcessHandler implements EventListenerInterface
 
     /** @var StateManagingServiceInterface */
     private $stateManagingService;
-    /** @var EventInStateHandlerInterface[] */
+    /** @var StateHandlerInterface[] */
     private $handlers;
 
     public function __construct(StateManagingServiceInterface $stateManagingService)
@@ -22,9 +22,9 @@ class ProcessHandler implements EventListenerInterface
         $this->stateManagingService = $stateManagingService;
 
         $this->handlers = [
-            'step' => new StepHandler(),
-            'poi' => new PoiHandler(),
-            'quest' => new QuestHandler(),
+            'step' => new StepListener(),
+            'poi' => new PoiListener(),
+            'quest' => new QuestListener(),
         ];
     }
 
