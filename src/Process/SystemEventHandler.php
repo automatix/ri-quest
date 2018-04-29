@@ -19,9 +19,9 @@ class SystemEventHandler implements EventHandlerInterface
 
     public function handle(Event $event, AbstractEventName $eventName, EventDispatcherInterface $eventDispatcher)
     {
-        $eventType = AbstractEventName::search($eventName);
+        $eventName = AbstractEventName::search($eventName);
         foreach ($this->stateHandlers as $handler) {
-            $handler->handle($event, $eventType, $eventDispatcher);
+            $handler->handle($event, $eventName, $eventDispatcher);
         }
     }
 
