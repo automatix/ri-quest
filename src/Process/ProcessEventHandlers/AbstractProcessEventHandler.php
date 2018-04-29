@@ -12,7 +12,8 @@ use App\Base\Utils\NameConverterInterface;
 abstract class AbstractProcessEventHandler implements StateHandlerInterface
 {
 
-    const RELEVANT_STATE_HANDLER_NAMESPACE = '';
+    const ROOT_PROCESS_HANDLER_NAMESPACE = '\App\Process\ProcessEventHandlers';
+    const RELEVANT_PROCESS_HANDLER_SUB_NAMESPACE = '';
 
     /** @var StateManagingServiceInterface $stateManagingService */
     private $stateManagingService;
@@ -37,7 +38,7 @@ abstract class AbstractProcessEventHandler implements StateHandlerInterface
     public function buildConcreteHandler(AbstractProcessState $currentState, AbstractEventName $eventName) : callable
     {
         $handlerClass =
-            static::RELEVANT_STATE_HANDLER_NAMESPACE
+            static::RELEVANT_PROCESS_HANDLER_SUB_NAMESPACE
             . '\\'
             . $this->nameConverter->denormalize($currentState->getValue())
             . 'Handler'
