@@ -13,7 +13,7 @@ class PoiListener extends AbstractProcessListener
 
     const RELEVANT_STATE_HANDLER_NAMESPACE = '\App\Services\Process\Internal\StateHandlers\Poi';
 
-    public function handle(Event $event, AbstractEventName $eventName, EventDispatcherInterface $eventDispatcher)
+    public function handle(AbstractProcessState $currentState, Event $event, AbstractEventName $eventName, EventDispatcherInterface $eventDispatcher)
     {
         $currentPoiState = $this->getStateManagingService()->detectPoiState();
         $concreteHandler = $this->buildConcreteHandler($currentPoiState, $eventName);

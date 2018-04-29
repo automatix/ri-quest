@@ -24,7 +24,7 @@ abstract class AbstractProcessListener implements StateHandlerInterface
         $this->stateManagingService = $stateManagingService;
     }
 
-    abstract function handle(Event $event, AbstractEventName $eventName, EventDispatcherInterface $eventDispatcher);
+    abstract function handle(AbstractProcessState $currentState, Event $event, AbstractEventName $eventName, EventDispatcherInterface $eventDispatcher);
 
     /**
      * @return StateManagingServiceInterface
