@@ -2,14 +2,14 @@
 namespace App\Process;
 
 use App\Base\Enums\Processes\EventNames\AbstractEventName;
-use App\Process\StateEventHandlers\StateHandlerInterface;
+use App\Process\EventHandlerInterface;
 use Symfony\Component\EventDispatcher\Event;
 use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 
 class SystemEventHandler implements EventHandlerInterface
 {
 
-    /** @var StateHandlerInterface[] */
+    /** @var EventHandlerInterface[] */
     private $stateHandlers;
 
     public function __construct(... $listeners)
