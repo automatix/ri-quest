@@ -1,5 +1,5 @@
 <?php
-namespace App\Process\StateHandlers;
+namespace App\Process\StateEventHandlers;
 
 use App\Base\Enums\Processes\EventNames\AbstractEventName;
 use Symfony\Component\EventDispatcher\Event;

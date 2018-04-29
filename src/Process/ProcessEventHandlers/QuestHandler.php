@@ -1,12 +1,12 @@
 <?php
-namespace App\Process\Listeners;
+namespace App\Process\ProcessEventHandlers;
 
 use App\Base\Enums\Processes\EventNames\AbstractEventName;
 use App\Base\Enums\Processes\States\AbstractProcessState;
 use Symfony\Component\EventDispatcher\Event;
 use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 
-class QuestListener extends AbstractProcessListener
+class QuestHandler extends AbstractProcessEventHandler
 {
 
     const RELEVANT_STATE_HANDLER_NAMESPACE = '\App\Services\Process\Internal\StateHandlers\Quest';

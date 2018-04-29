@@ -2,11 +2,11 @@
 namespace App\Process;
 
 use App\Base\Enums\Processes\EventNames\AbstractEventName;
-use App\Process\StateHandlers\StateHandlerInterface;
+use App\Process\StateEventHandlers\StateHandlerInterface;
 use Symfony\Component\EventDispatcher\Event;
 use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 
-class EventHandler implements EventHandlerInterface
+class SystemEventHandler implements EventHandlerInterface
 {
 
     /** @var StateHandlerInterface[] */

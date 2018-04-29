@@ -15,8 +15,8 @@ class QuestController extends Controller
 
     /** @var StateManagingServiceInterface $stateManagingService */
     private $stateManagingService;
-    /** @var EventHandlerInterface $eventHandler */
-    private $eventHandler;
+    /** @var EventHandlerInterface $systemEventHandler */
+    private $systemEventHandler;
     /** @var EventDispatcherInterface */
     private $eventDispatcher;
 
@@ -32,14 +32,14 @@ class QuestController extends Controller
         EventDispatcherInterface $eventDispatcher
     ) {
         $this->stateManagingService = $stateManagingService;
-        $this->eventHandler = $processHandlingService;
+        $this->systemEventHandler = $processHandlingService;
         $this->eventDispatcher = $eventDispatcher;
     }
 
     public function processUserMessageAction(Request $request)
     {
         $message = $request->get('message');
-        $this->eventHandler->handle(new GenericEvent($message), GeneralEventName::USER_MESSAGE_RECEIVED(), $this->eventDispatcher);
+        $this->systemEventHandler->handle(new GenericEvent($message), GeneralEventName::USER_MESSAGE_RECEIVED(), $this->eventDispatcher);
 
         return new Response();
     }

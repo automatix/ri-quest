@@ -2,17 +2,17 @@
 namespace App\Services\Process\Internal\StateHandlers\Quest;
 
 use App\Base\Enums\Processes\EventNames\AbstractEventName;
-use App\Process\StateHandlers\StateHandlerInterface;
+use App\Process\StateEventHandlers\AbstractStateEventHandler;
 use Symfony\Component\EventDispatcher\Event;
 use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 
 /**
- * Class AccessProcessingHandler implements StateHandlerInterface
+ * Class AccessProcessingHandler extends AbstractStateEventHandler
  *
  * @package App\Services\Process\Internal\StateHandlers\Quest
  * @author Ilya Khanataev <contact@mevatex.com>
  */
-class AccessProcessingHandler implements StateHandlerInterface
+class AccessProcessingHandler extends AbstractStateEventHandler
 {
 
     public function handle(

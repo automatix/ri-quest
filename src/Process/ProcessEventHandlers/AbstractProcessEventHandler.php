@@ -1,15 +1,15 @@
 <?php
-namespace App\Process\Listeners;
+namespace App\Process\ProcessEventHandlers;
 
 use App\Base\Enums\Processes\EventNames\AbstractEventName;
 use App\Base\Enums\Processes\States\AbstractProcessState;
-use App\Process\StateHandlers\StateHandlerInterface;
+use App\Process\StateEventHandlers\StateHandlerInterface;
 use App\Services\Process\StateManagingServiceInterface;
 use Symfony\Component\EventDispatcher\Event;
 use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 use App\Base\Utils\NameConverterInterface;
 
-abstract class AbstractProcessListener implements StateHandlerInterface
+abstract class AbstractProcessEventHandler implements StateHandlerInterface
 {
 
     const RELEVANT_STATE_HANDLER_NAMESPACE = '';

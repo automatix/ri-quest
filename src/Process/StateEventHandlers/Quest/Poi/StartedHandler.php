@@ -1,18 +1,18 @@
 <?php
-namespace App\Services\Process\Internal\StateHandlers\Quest;
+namespace App\Services\Process\Internal\StateHandlers\Poi;
 
 use App\Base\Enums\Processes\EventNames\AbstractEventName;
-use App\Process\StateHandlers\StateHandlerInterface;
+use App\Process\StateEventHandlers\AbstractStateEventHandler;
 use Symfony\Component\EventDispatcher\Event;
 use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 
 /**
- * Class PlayingHandler implements StateHandlerInterface
+ * Class StartedHandler extends AbstractStateEventHandler
  *
  * @package App\Services\Process\Internal\StateHandlers\Quest
  * @author Ilya Khanataev <contact@mevatex.com>
  */
-class PlayingHandler implements StateHandlerInterface
+class StartedHandler extends AbstractStateEventHandler
 {
 
     public function handle(

@@ -1,12 +1,11 @@
 <?php
-
 use App\Base\Utils\CamelCaseToSnakeCaseNameConverter;
 use App\Base\Utils\NameConverterInterface;
 use App\Process\EventHandlerInterface;
-use App\Process\Listeners\PoiListener;
-use App\Process\Listeners\QuestListener;
-use App\Process\Listeners\StepListener;
-use App\Process\EventHandler;
+use App\Process\ProcessEventHandlers\PoiHandler;
+use App\Process\ProcessEventHandlers\QuestHandler;
+use App\Process\ProcessEventHandlers\StepHandler;
+use App\Process\SystemEventHandler;
 use App\Services\Dummy\External\FooBService;
 use App\Services\Dummy\External\FooServiceInterface;
 use App\Services\Dummy\Internal\BarService;
@@ -36,16 +35,16 @@ $commonDependencies = [
         return EntityManager::create($connection, $config);
     },
     StateManagingServiceInterface::class => DI\autowire(StateManagingServiceInterface::class),
-    'process_listener.step' => DI\autowire(StepListener::class),
-    'process_listener.poi' => DI\autowire(PoiListener::class),
-    'process_listener.quest' => DI\autowire(QuestListener::class),
+    'process_listener.step' => DI\autowire(StepHandler::class),
+    'process_listener.poi' => DI\autowire(PoiHandler::class),
+    'process_listener.quest' => DI\autowire(QuestHandler::class),
     EventHandlerInterface::class => DI\factory(function(ContainerInterface $container) {
         $listeners = [
             'process_listener.step',
             'process_listener.poi',
             'process_listener.quest',
         ];
-        return new EventHandler($container->get(StateManagingServiceInterface::class), $listeners);
+        return new SystemEventHandler($container->get(StateManagingServiceInterface::class), $listeners);
     }),
 
 ];
