@@ -7,6 +7,6 @@ namespace App\Base\Enums\Processes\EventNames;
 class GeneralEventName extends AbstractEventName
 {
 
-    const USER_MESSAGE_RECEIVED = 'user_message_received';
+    const USER_MESSAGE_RECEIVED = 'general.user_message_received';
 
 }
