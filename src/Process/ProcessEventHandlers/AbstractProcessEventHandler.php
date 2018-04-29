@@ -12,7 +12,7 @@ use App\Base\Utils\NameConverterInterface;
 abstract class AbstractProcessEventHandler implements EventHandlerInterface
 {
 
-    const ROOT_PROCESS_HANDLER_NAMESPACE = '\App\Process\ProcessEventHandlers';
+    const ROOT_PROCESS_HANDLER_NAMESPACE = '\App\Process\StateEventHandlers';
     const RELEVANT_PROCESS_HANDLER_SUB_NAMESPACE = '';
 
     /** @var StateManagingServiceInterface $stateManagingService */
@@ -27,7 +27,7 @@ abstract class AbstractProcessEventHandler implements EventHandlerInterface
 
     abstract function handle(Event $event, AbstractEventName $eventName, EventDispatcherInterface $eventDispatcher);
 
-        /**
+    /**
      * @return StateManagingServiceInterface
      */
     public function getStateManagingService(): StateManagingServiceInterface
