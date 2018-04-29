@@ -2,7 +2,6 @@
 namespace App\Services\Process\Internal\StateHandlers\Poi;
 
 use App\Base\Enums\Processes\EventNames\AbstractEventName;
-use App\Base\Enums\Processes\States\AbstractProcessState;
 use App\Process\StateHandlers\StateHandlerInterface;
 use Symfony\Component\EventDispatcher\Event;
 use Symfony\Component\EventDispatcher\EventDispatcherInterface;

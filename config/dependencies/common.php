@@ -2,7 +2,7 @@
 
 use App\Base\Utils\CamelCaseToSnakeCaseNameConverter;
 use App\Base\Utils\NameConverterInterface;
-use App\Process\EventHanderInterface;
+use App\Process\EventHandlerInterface;
 use App\Process\Listeners\PoiListener;
 use App\Process\Listeners\QuestListener;
 use App\Process\Listeners\StepListener;
@@ -39,7 +39,7 @@ $commonDependencies = [
     'process_listener.step' => DI\autowire(StepListener::class),
     'process_listener.poi' => DI\autowire(PoiListener::class),
     'process_listener.quest' => DI\autowire(QuestListener::class),
-    EventHanderInterface::class => DI\factory(function(ContainerInterface $container) {
+    EventHandlerInterface::class => DI\factory(function(ContainerInterface $container) {
         $listeners = [
             'process_listener.step',
             'process_listener.poi',

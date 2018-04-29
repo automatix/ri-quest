@@ -5,7 +5,7 @@ use App\Base\Enums\Processes\EventNames\AbstractEventName;
 use Symfony\Component\EventDispatcher\Event;
 use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 
-class EventHandler implements EventHanderInterface
+class EventHandler implements EventHandlerInterface
 {
 
     /** @var StateHandlerInterface[] */
