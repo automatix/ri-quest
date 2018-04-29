@@ -2,6 +2,8 @@
 use App\Base\Utils\CamelCaseToSnakeCaseNameConverter;
 use App\Base\Utils\NameConverterInterface;
 use App\Process\EventHandlerInterface;
+use App\Process\ProcessEventHandlers\AccessHandler;
+use App\Process\ProcessEventHandlers\CompletionHandler;
 use App\Process\ProcessEventHandlers\PoiHandler;
 use App\Process\ProcessEventHandlers\QuestHandler;
 use App\Process\ProcessEventHandlers\StepHandler;
@@ -38,11 +40,16 @@ $commonDependencies = [
     'process_listener.step' => DI\autowire(StepHandler::class),
     'process_listener.poi' => DI\autowire(PoiHandler::class),
     'process_listener.quest' => DI\autowire(QuestHandler::class),
+    'process_listener.access' => DI\autowire(AccessHandler::class),
+    'process_listener.completion' => DI\autowire(CompletionHandler::class),
     EventHandlerInterface::class => DI\factory(function(ContainerInterface $container) {
+        // The array index determines the priority and so the handling order!
         $listeners = [
             'process_listener.step',
             'process_listener.poi',
             'process_listener.quest',
+            'process_listener.access',
+            'process_listener.completion',
         ];
         return new SystemEventHandler($container->get(StateManagingServiceInterface::class), $listeners);
     }),

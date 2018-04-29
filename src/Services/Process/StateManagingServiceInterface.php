@@ -28,4 +28,8 @@ interface StateManagingServiceInterface
 
     function detectStepState();
 
+    function detectAccessState();
+
+    function detectCompletionState();
+
 }
