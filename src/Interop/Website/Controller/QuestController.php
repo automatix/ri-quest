@@ -1,6 +1,7 @@
 <?php
 namespace App\Interop\Website\Controller;
 
+use App\Process\EventListenerInterface;
 use App\Services\Dummy\External\FooServiceInterface;
 use App\Services\Process\ProcessHandlingServiceInterface;
 use App\Services\Process\StateManagingServiceInterface;
@@ -25,7 +26,7 @@ class QuestController extends Controller
      */
     public function __construct(
         StateManagingServiceInterface $stateManagingService,
-        ProcessHandlingServiceInterface $processHandlingService
+        EventListenerInterface $processHandlingService
     ) {
         $this->stateManagingService = $stateManagingService;
         $this->processHandlingService = $processHandlingService;
