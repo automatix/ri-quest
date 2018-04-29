@@ -3,7 +3,7 @@ namespace App\Services\Process\Internal\StateHandlers\Quest;
 
 use App\Base\Enums\Processes\EventNames\AbstractEventName;
 use App\Base\Enums\Processes\States\AbstractProcessState;
-use App\Process\StateHandlerInterface;
+use App\Process\StateHandlers\StateHandlerInterface;
 use Symfony\Component\EventDispatcher\Event;
 use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 
