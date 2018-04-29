@@ -2,9 +2,9 @@
 namespace App\Base\Enums\Processes\States;
 
 /**
- * @method static PoiState STARTED()
+ * @method static AccessState STARTED()
  */
-class PoiState extends AbstractProcessState
+class AccessState extends AbstractProcessState
 {
 
     const STARTED = 'started';

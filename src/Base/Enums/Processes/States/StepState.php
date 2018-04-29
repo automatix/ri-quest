@@ -2,7 +2,7 @@
 namespace App\Base\Enums\Processes\States;
 
 /**
- * @method static QuestState STARTED()
+ * @method static StepState STARTED()
  */
 class StepState extends AbstractProcessState
 {
