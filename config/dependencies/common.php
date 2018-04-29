@@ -37,19 +37,19 @@ $commonDependencies = [
         return EntityManager::create($connection, $config);
     },
     StateManagingServiceInterface::class => DI\autowire(StateManagingServiceInterface::class),
-    'process_listener.step' => DI\autowire(StepHandler::class),
-    'process_listener.poi' => DI\autowire(PoiHandler::class),
-    'process_listener.quest' => DI\autowire(QuestHandler::class),
-    'process_listener.access' => DI\autowire(AccessHandler::class),
-    'process_listener.completion' => DI\autowire(CompletionHandler::class),
+    'process_handler.step' => DI\autowire(StepHandler::class),
+    'process_handler.poi' => DI\autowire(PoiHandler::class),
+    'process_handler.quest' => DI\autowire(QuestHandler::class),
+    'process_handler.access' => DI\autowire(AccessHandler::class),
+    'process_handler.completion' => DI\autowire(CompletionHandler::class),
     EventHandlerInterface::class => DI\factory(function(ContainerInterface $container) {
         // The array index determines the priority and so the handling order!
         $listeners = [
-            'process_listener.step',
-            'process_listener.poi',
-            'process_listener.quest',
-            'process_listener.access',
-            'process_listener.completion',
+            'process_handler.step',
+            'process_handler.poi',
+            'process_handler.quest',
+            'process_handler.access',
+            'process_handler.completion',
         ];
         return new SystemEventHandler($container->get(StateManagingServiceInterface::class), $listeners);
     }),
