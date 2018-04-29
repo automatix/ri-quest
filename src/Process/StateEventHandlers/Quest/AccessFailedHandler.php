@@ -1,7 +1,7 @@
 <?php
 namespace App\Services\Process\Internal\StateHandlers\Quest;
 
-use App\Base\Enums\Processes\EventNames\AbstractEventName;
+use App\Base\Enums\Processes\EventNames\EventName;
 use App\Process\StateEventHandlers\AbstractStateEventHandler;
 use Symfony\Component\EventDispatcher\Event;
 use Symfony\Component\EventDispatcher\EventDispatcherInterface;
@@ -17,7 +17,7 @@ class AccessFailedHandler extends AbstractStateEventHandler
 
     public function handle(
         Event $event,
-        AbstractEventName $eventName,
+        EventName $eventName,
         EventDispatcherInterface $eventDispatcher
     ) {
         // TODO: Implement handle() method.

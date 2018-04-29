@@ -1,7 +1,7 @@
 <?php
 namespace App\Process\ProcessEventHandlers;
 
-use App\Base\Enums\Processes\EventNames\AbstractEventName;
+use App\Base\Enums\Processes\EventNames\EventName;
 use App\Base\Enums\Processes\States\AbstractProcessState;
 use App\Process\EventHandlerInterface;
 use App\Services\Process\StateManagingServiceInterface;
@@ -25,7 +25,7 @@ abstract class AbstractProcessEventHandler implements EventHandlerInterface
         $this->stateManagingService = $stateManagingService;
     }
 
-    abstract function handle(Event $event, AbstractEventName $eventName, EventDispatcherInterface $eventDispatcher);
+    abstract function handle(Event $event, EventName $eventName, EventDispatcherInterface $eventDispatcher);
 
     /**
      * @return StateManagingServiceInterface
@@ -35,7 +35,7 @@ abstract class AbstractProcessEventHandler implements EventHandlerInterface
         return $this->stateManagingService;
     }
 
-    public function buildConcreteHandler(AbstractProcessState $currentState, AbstractEventName $eventName) : callable
+    public function buildConcreteHandler(AbstractProcessState $currentState, EventName $eventName) : callable
     {
         $handlerClass =
             static::RELEVANT_PROCESS_HANDLER_SUB_NAMESPACE

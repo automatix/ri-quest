@@ -1,6 +1,7 @@
 <?php
 namespace App\Interop\Website\Controller;
 
+use App\Base\Enums\Processes\EventNames\EventName;
 use App\Base\Enums\Processes\EventNames\GeneralEventName;
 use App\Base\Enums\Processes\Events\GenericEvent;
 use App\Process\EventHandlerInterface;
@@ -39,7 +40,7 @@ class QuestController extends Controller
     public function processUserMessageAction(Request $request)
     {
         $message = $request->get('message');
-        $this->systemEventHandler->handle(new GenericEvent($message), GeneralEventName::USER_MESSAGE_RECEIVED(), $this->eventDispatcher);
+        $this->systemEventHandler->handle(new GenericEvent($message), EventName::USER_MESSAGE_RECEIVED(), $this->eventDispatcher);
 
         return new Response();
     }
