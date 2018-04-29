@@ -2,11 +2,11 @@
 
 use App\Base\Utils\CamelCaseToSnakeCaseNameConverter;
 use App\Base\Utils\NameConverterInterface;
-use App\Process\EventListenerInterface;
+use App\Process\EventHanderInterface;
 use App\Process\Listeners\PoiListener;
 use App\Process\Listeners\QuestListener;
 use App\Process\Listeners\StepListener;
-use App\Process\ProcessHandler;
+use App\Process\EventHandler;
 use App\Services\Dummy\External\FooBService;
 use App\Services\Dummy\External\FooServiceInterface;
 use App\Services\Dummy\Internal\BarService;
@@ -39,13 +39,13 @@ $commonDependencies = [
     'process_listener.step' => DI\autowire(StepListener::class),
     'process_listener.poi' => DI\autowire(PoiListener::class),
     'process_listener.quest' => DI\autowire(QuestListener::class),
-    EventListenerInterface::class => DI\factory(function(ContainerInterface $container) {
+    EventHanderInterface::class => DI\factory(function(ContainerInterface $container) {
         $listeners = [
             'process_listener.step',
             'process_listener.poi',
             'process_listener.quest',
         ];
-        return new ProcessHandler($container->get(StateManagingServiceInterface::class), $listeners);
+        return new EventHandler($container->get(StateManagingServiceInterface::class), $listeners);
     }),
 
 ];
