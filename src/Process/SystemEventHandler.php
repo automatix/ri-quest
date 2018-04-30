@@ -10,17 +10,17 @@ class SystemEventHandler implements SystemEventHandlerInterface
 {
 
     /** @var ProcessEventHandlerInterface[] */
-    private $stateHandlers;
+    private $processEventHandlers;
 
-    public function __construct(ProcessEventHandlerInterface ... $listeners)
+    public function __construct(ProcessEventHandlerInterface ... $processEventHandlers)
     {
-        $this->stateHandlers = $listeners;
+        $this->processEventHandlers = $processEventHandlers;
     }
 
     public function handle(Event $event, string $eventName, EventDispatcherInterface $eventDispatcher)
     {
         $eventName = EventName::search($eventName);
-        foreach ($this->stateHandlers as $handler) {
+        foreach ($this->processEventHandlers as $handler) {
             $handler->handle($event, EventName::$eventName(), $eventDispatcher);
         }
     }
