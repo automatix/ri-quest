@@ -22,6 +22,7 @@ abstract class AbstractProcessEventHandler implements ProcessEventHandlerInterfa
     public function __construct(StateManagingServiceInterface $stateManagingService, NameConverterInterface $nameConverter)
     {
         $this->stateManagingService = $stateManagingService;
+        $this->nameConverter = $nameConverter;
     }
 
     abstract function handle(Event $event, EventName $eventName, EventDispatcherInterface $eventDispatcher);
@@ -39,13 +40,15 @@ abstract class AbstractProcessEventHandler implements ProcessEventHandlerInterfa
         $handlerClass =
             static::RELEVANT_PROCESS_HANDLER_SUB_NAMESPACE
             . '\\'
-            . $this->nameConverter->denormalize($currentState->getValue())
+            . $this->nameConverter->denormalize(ucfirst($currentState->getValue()))
             . 'Handler'
         ;
         $handlerObject = new $handlerClass();
+        $eventNameValue = $eventName->getValue();
+        $eventNameValueUnderscoresOnly = str_replace('.', '_', $eventNameValue);
         $handlerMethod =
             'on'
-            . $this->nameConverter->denormalize($eventName->getValue())
+            . $this->nameConverter->denormalize(ucfirst($eventNameValueUnderscoresOnly))
         ;
 
         return [$handlerObject, $handlerMethod];
