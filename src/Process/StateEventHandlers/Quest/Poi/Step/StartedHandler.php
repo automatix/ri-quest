@@ -2,6 +2,7 @@
 namespace App\Process\StateEventHandlers\Quest\Poi\Step;
 
 use App\Base\Enums\Processes\EventNames\EventName;
+use App\Base\Enums\Processes\Events\GenericEvent;
 use App\Process\StateEventHandlers\AbstractStateEventHandler;
 use Symfony\Component\EventDispatcher\Event;
 use Symfony\Component\EventDispatcher\EventDispatcherInterface;
@@ -17,7 +18,12 @@ class StartedHandler extends AbstractStateEventHandler
 
     public function onGeneralUserMessageReceived(Event $event, EventName $eventName, EventDispatcherInterface $eventDispatcher)
     {
-        die('Yeah!');
+        $eventDispatcher->dispatch(EventName::STEP_FOO, new GenericEvent(__METHOD__));
+    }
+
+    public function onStepFoo(Event $event, EventName $eventName, EventDispatcherInterface $eventDispatcher)
+    {
+        die($event->getSubject() .  __METHOD__ . 'Yeah!!!');
     }
 
 }
