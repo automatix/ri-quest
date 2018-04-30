@@ -3,13 +3,12 @@ namespace App\Process\ProcessEventHandlers;
 
 use App\Base\Enums\Processes\EventNames\EventName;
 use App\Base\Enums\Processes\States\AbstractProcessState;
-use App\Process\EventHandlerInterface;
+use App\Base\Utils\NameConverterInterface;
 use App\Services\Process\StateManagingServiceInterface;
 use Symfony\Component\EventDispatcher\Event;
 use Symfony\Component\EventDispatcher\EventDispatcherInterface;
-use App\Base\Utils\NameConverterInterface;
 
-abstract class AbstractProcessEventHandler implements EventHandlerInterface
+abstract class AbstractProcessEventHandler implements ProcessEventHandlerInterface
 {
 
     const ROOT_PROCESS_HANDLER_NAMESPACE = '\App\Process\StateEventHandlers';

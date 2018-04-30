@@ -4,6 +4,7 @@ namespace App\Interop\Website\Controller;
 use App\Base\Enums\Processes\EventNames\EventName;
 use App\Base\Enums\Processes\Events\GenericEvent;
 use App\Process\EventHandlerInterface;
+use App\Process\SystemEventHandlerInterface;
 use App\Services\Process\StateManagingServiceInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\EventDispatcher\EventDispatcherInterface;
@@ -24,15 +25,15 @@ class QuestController extends Controller
      * QuestController constructor.
      *
      * @param StateManagingServiceInterface $stateManagingService
-     * @param EventHandlerInterface $processHandlingService
+     * @param EventHandlerInterface $systemEventHandler
      */
     public function __construct(
         StateManagingServiceInterface $stateManagingService,
-        EventHandlerInterface $processHandlingService,
+        SystemEventHandlerInterface $systemEventHandler,
         EventDispatcherInterface $eventDispatcher
     ) {
         $this->stateManagingService = $stateManagingService;
-        $this->systemEventHandler = $processHandlingService;
+        $this->systemEventHandler = $systemEventHandler;
         $this->eventDispatcher = $eventDispatcher;
     }
 
