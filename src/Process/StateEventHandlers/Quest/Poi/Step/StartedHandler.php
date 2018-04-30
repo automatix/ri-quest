@@ -23,4 +23,9 @@ class StartedHandler extends AbstractStateEventHandler
         // TODO: Implement handle() method.
     }
 
+    public function onGeneralUserMessageReceived(Event $event, EventName $eventName, EventDispatcherInterface $eventDispatcher)
+    {
+        die('Yeah!');
+    }
+
 }
