@@ -29,6 +29,16 @@ services:
     # please note that last definitions always *replace* previous ones
     App\Services\Dummy\External\FooServiceInterface:
         class: App\Services\Dummy\External\FooBService
+    App\Process\ProcessEventHandlers\StepHandler:
+        public: true
+    App\Process\ProcessEventHandlers\PoiHandler:
+        public: true
+    App\Process\ProcessEventHandlers\AccessHandler:
+        public: true
+    App\Process\ProcessEventHandlers\CompletionHandler:
+        public: true
+    App\Process\ProcessEventHandlers\QuestHandler:
+        public: true
 
     # events
 #    App\Process\SystemEventHandlerFactory: ~
