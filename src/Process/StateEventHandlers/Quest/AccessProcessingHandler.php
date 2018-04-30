@@ -1,5 +1,5 @@
 <?php
-namespace App\Services\Process\Internal\StateHandlers\Quest;
+namespace App\Process\StateEventHandlers\Quest;
 
 use App\Base\Enums\Processes\EventNames\EventName;
 use App\Process\StateEventHandlers\AbstractStateEventHandler;

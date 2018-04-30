@@ -1,5 +1,5 @@
 <?php
-namespace App\Services\Process\Internal\StateHandlers\Poi;
+namespace App\Process\StateEventHandlers\Quest\Poi;
 
 use App\Base\Enums\Processes\EventNames\EventName;
 use App\Process\StateEventHandlers\AbstractStateEventHandler;
