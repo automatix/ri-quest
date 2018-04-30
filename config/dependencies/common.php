@@ -1,4 +1,5 @@
 <?php
+
 use App\Base\Utils\CamelCaseToSnakeCaseNameConverter;
 use App\Base\Utils\NameConverterInterface;
 use App\Process\EventHandlerInterface;
@@ -7,11 +8,12 @@ use App\Process\ProcessEventHandlers\CompletionHandler;
 use App\Process\ProcessEventHandlers\PoiHandler;
 use App\Process\ProcessEventHandlers\QuestHandler;
 use App\Process\ProcessEventHandlers\StepHandler;
-use App\Process\SystemEventHandler;
+use App\Process\SystemEventHandlerFactory;
 use App\Services\Dummy\External\FooBService;
 use App\Services\Dummy\External\FooServiceInterface;
 use App\Services\Dummy\Internal\BarService;
 use App\Services\Dummy\Internal\BarServiceInterface;
+use App\Services\Process\Internal\StateManagingService;
 use App\Services\Process\StateManagingServiceInterface;
 use Doctrine\Common\Annotations\AnnotationReader;
 use Doctrine\DBAL\DriverManager;
@@ -19,7 +21,7 @@ use Doctrine\ORM\Configuration;
 use Doctrine\ORM\EntityManager;
 use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\ORM\Mapping\Driver\AnnotationDriver;
-use Psr\Container\ContainerInterface;
+use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 
 $commonDependencies = [
     FooServiceInterface::class => DI\autowire(FooBService::class),
@@ -36,24 +38,15 @@ $commonDependencies = [
         $connection = DriverManager::getConnection($connectionParams, $config);
         return EntityManager::create($connection, $config);
     },
-    StateManagingServiceInterface::class => DI\autowire(StateManagingServiceInterface::class),
+    StateManagingServiceInterface::class => DI\autowire(StateManagingService::class),
     'process_handler.step' => DI\autowire(StepHandler::class),
     'process_handler.poi' => DI\autowire(PoiHandler::class),
     'process_handler.quest' => DI\autowire(QuestHandler::class),
     'process_handler.access' => DI\autowire(AccessHandler::class),
     'process_handler.completion' => DI\autowire(CompletionHandler::class),
-    EventHandlerInterface::class => DI\factory(function(ContainerInterface $container) {
-        // The array index determines the priority and so the handling order!
-        $listeners = [
-            'process_handler.step',
-            'process_handler.poi',
-            'process_handler.quest',
-            'process_handler.access',
-            'process_handler.completion',
-        ];
-        return new SystemEventHandler($container->get(StateManagingServiceInterface::class), $listeners);
-    }),
-
+    EventHandlerInterface::class => DI\factory([new SystemEventHandlerFactory(), 'create']),
+    'system.event_handler' => DI\get(EventHandlerInterface::class),
+    EventDispatcherInterface::class => DI\get('event_dispatcher'),
 ];
 
 $commonLocalDependenciesPath = __DIR__ . DIRECTORY_SEPARATOR . 'common.local.php';
