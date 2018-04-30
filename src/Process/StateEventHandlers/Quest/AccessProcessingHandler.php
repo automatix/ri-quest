@@ -15,12 +15,4 @@ use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 class AccessProcessingHandler extends AbstractStateEventHandler
 {
 
-    public function handle(
-        Event $event,
-        EventName $eventName,
-        EventDispatcherInterface $eventDispatcher
-    ) {
-        // TODO: Implement handle() method.
-    }
-
 }

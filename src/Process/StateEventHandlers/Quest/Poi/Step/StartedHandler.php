@@ -15,14 +15,6 @@ use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 class StartedHandler extends AbstractStateEventHandler
 {
 
-    public function handle(
-        Event $event,
-        EventName $eventName,
-        EventDispatcherInterface $eventDispatcher
-    ) {
-        // TODO: Implement handle() method.
-    }
-
     public function onGeneralUserMessageReceived(Event $event, EventName $eventName, EventDispatcherInterface $eventDispatcher)
     {
         die('Yeah!');

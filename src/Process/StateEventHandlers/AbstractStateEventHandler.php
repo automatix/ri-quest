@@ -1,7 +1,7 @@
 <?php
 namespace App\Process\StateEventHandlers;
 
-abstract class AbstractStateEventHandler implements StateEventHandlerInterface
+abstract class AbstractStateEventHandler
 {
 
 }
