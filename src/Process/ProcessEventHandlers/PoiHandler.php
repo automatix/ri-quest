@@ -9,7 +9,7 @@ use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 class PoiHandler extends AbstractProcessEventHandler
 {
 
-    const RELEVANT_PROCESS_HANDLER_SUB_NAMESPACE = self::ROOT_PROCESS_HANDLER_NAMESPACE . '\Poi';
+    const RELEVANT_PROCESS_HANDLER_SUB_NAMESPACE = self::ROOT_PROCESS_HANDLER_NAMESPACE . '\Quest\Poi';
 
     public function handle(Event $event, EventName $eventName, EventDispatcherInterface $eventDispatcher)
     {
