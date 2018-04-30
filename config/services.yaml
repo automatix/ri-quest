@@ -21,3 +21,16 @@ services:
 
     # add more service definitions when explicit configuration is needed
     # please note that last definitions always *replace* previous ones
+
+    # events
+    App\Process\SystemEventHandlerFactory: ~
+    App\Process\SystemEventHandlerInterface:
+        factory: 'App\Process\SystemEventHandlerFactory:create'
+        arguments: ['@Psr\Container\ContainerInterface']
+        tags:
+            - { name: kernel.event_handler, event: general.user_message_received, method: handle }
+            - { name: kernel.event_handler, event: step.foo, method: handle }
+            - { name: kernel.event_handler, event: poi.foo, method: handle }
+            - { name: kernel.event_handler, event: access.foo, method: handle }
+            - { name: kernel.event_handler, event: completion.foo, method: handle }
+            - { name: kernel.event_handler, event: quest.foo, method: handle }
