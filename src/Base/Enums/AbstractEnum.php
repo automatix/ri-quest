@@ -41,7 +41,7 @@ abstract class AbstractEnum extends MyCLabsEnum
         if (! self::isValidKey($key)) {
             throw new EnumException(
                 'The given key "' . $key . '" is invalid for the Enum ' . static::class . '.',
-                EnumErrorContextCode::IVALID_KEY()
+                EnumErrorContextCode::INVALID_KEY()
             );
         }
 

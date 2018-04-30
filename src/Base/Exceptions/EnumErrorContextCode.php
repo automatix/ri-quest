@@ -5,12 +5,12 @@ namespace App\Base\Exceptions;
  * Class EnumErrorContextCode
  *
  * @method static EnumErrorContextCode GENERAL_ERROR()
- * @method static EnumErrorContextCode IVALID_KEY()
+ * @method static EnumErrorContextCode INVALID_KEY()
  */
 class EnumErrorContextCode extends AbstractErrorCode
 {
 
     const GENERAL_ERROR = 1;
-    const IVALID_KEY = 2;
+    const INVALID_KEY = 2;
 
 }

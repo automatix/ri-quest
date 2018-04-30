@@ -15,7 +15,7 @@ abstract class AbstractException extends Exception
     public function __construct(string $message, AbstractErrorCode $code, Exception $previous = null)
     {
         parent::__construct(
-            sprintf("ERROR: %s%'.03d", $this->getContext(), $code) . ($message ? PHP_EOL . $message : null),
+            sprintf("ERROR: %s%'.03d", $this->getContext(), $code->getValue()) . ($message ? PHP_EOL . $message : null),
             $code->getValue(),
             $previous
         );
