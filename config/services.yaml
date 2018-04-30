@@ -14,23 +14,31 @@ services:
     # makes classes in src/ available to be used as services
     # this creates a service per class whose id is the fully-qualified class name
     # -
+    App\:
+        resource: '../src/*'
+        exclude: '../src/{Kernel.php,Tests},../src/Base/{Entity,Enums,Exceptions,Messages,Migrations,Repository,Utils}'
 
     # controllers are imported separately to make sure services can be injected
     # as action arguments even if you don't extend any base controller class
     # -
+    App\Interop\Website\Controller\:
+        resource: '../src/Interop/Website/Controller'
+        tags: ['controller.service_arguments']
 
     # add more service definitions when explicit configuration is needed
     # please note that last definitions always *replace* previous ones
+    App\Services\Dummy\External\FooServiceInterface:
+        class: App\Services\Dummy\External\FooBService
 
     # events
-    App\Process\SystemEventHandlerFactory: ~
-    App\Process\SystemEventHandlerInterface:
-        factory: 'App\Process\SystemEventHandlerFactory:create'
-        arguments: ['@Psr\Container\ContainerInterface']
-        tags:
-            - { name: kernel.event_handler, event: general.user_message_received, method: handle }
-            - { name: kernel.event_handler, event: step.foo, method: handle }
-            - { name: kernel.event_handler, event: poi.foo, method: handle }
-            - { name: kernel.event_handler, event: access.foo, method: handle }
-            - { name: kernel.event_handler, event: completion.foo, method: handle }
-            - { name: kernel.event_handler, event: quest.foo, method: handle }
+#    App\Process\SystemEventHandlerFactory: ~
+#    App\Process\SystemEventHandlerInterface:
+#        factory: 'App\Process\SystemEventHandlerFactory:create'
+#        arguments: ['@Psr\Container\ContainerInterface']
+#        tags:
+#            - { name: kernel.event_handler, event: general.user_message_received, method: handle }
+#            - { name: kernel.event_handler, event: step.foo, method: handle }
+#            - { name: kernel.event_handler, event: poi.foo, method: handle }
+#            - { name: kernel.event_handler, event: access.foo, method: handle }
+#            - { name: kernel.event_handler, event: completion.foo, method: handle }
+#            - { name: kernel.event_handler, event: quest.foo, method: handle }

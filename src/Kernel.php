@@ -1,19 +1,16 @@
 <?php
 namespace App;
 
-use DI\Bridge\Symfony\Kernel as PhpDIBridgeSymfonyKernel;
-use DI\Container;
-use DI\ContainerBuilder as PhpDiContainerBuilder;
 use Exception;
-use Psr\Container\ContainerInterface;
 use Symfony\Bundle\FrameworkBundle\Kernel\MicroKernelTrait;
 use Symfony\Component\Config\Exception\FileLoaderLoadException;
 use Symfony\Component\Config\Loader\LoaderInterface;
 use Symfony\Component\Config\Resource\FileResource;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
+use Symfony\Component\HttpKernel\Kernel as SymfonyKernel;
 use Symfony\Component\Routing\RouteCollectionBuilder;
 
-class Kernel extends PhpDIBridgeSymfonyKernel
+class Kernel extends SymfonyKernel
 {
     use MicroKernelTrait;
 
@@ -70,20 +67,6 @@ class Kernel extends PhpDIBridgeSymfonyKernel
         $routes->import($confDir.'/{routes}/*'.self::CONFIG_EXTS, '/', 'glob');
         $routes->import($confDir.'/{routes}/'.$this->environment.'/**/*'.self::CONFIG_EXTS, '/', 'glob');
         $routes->import($confDir.'/{routes}'.self::CONFIG_EXTS, '/', 'glob');
-    }
-
-    /**
-     * @param PhpDiContainerBuilder $builder
-     * @return Container|ContainerInterface
-     * @throws Exception
-     */
-    protected function buildPHPDIContainer(PhpDiContainerBuilder $builder)
-    {
-        // Configure your container here
-        // http://php-di.org/doc/container-configuration.html
-        $builder->addDefinitions($this->getProjectDir() . '/config/dependencies/common.php');
-
-        return $builder->build();
     }
 
 }
