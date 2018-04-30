@@ -8,6 +8,6 @@ use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 interface SystemEventHandlerInterface
 {
 
-    function handle(Event $event, EventName $eventName, EventDispatcherInterface $eventDispatcher);
+    function handle(Event $event, string $eventName, EventDispatcherInterface $eventDispatcher);
 
 }

@@ -17,11 +17,11 @@ class SystemEventHandler implements SystemEventHandlerInterface
         $this->stateHandlers = $listeners;
     }
 
-    public function handle(Event $event, EventName $eventName, EventDispatcherInterface $eventDispatcher)
+    public function handle(Event $event, string $eventName, EventDispatcherInterface $eventDispatcher)
     {
         $eventName = EventName::search($eventName);
         foreach ($this->stateHandlers as $handler) {
-            $handler->handle($event, $eventName, $eventDispatcher);
+            $handler->handle($event, EventName::$eventName(), $eventDispatcher);
         }
     }
 
