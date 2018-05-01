@@ -9,7 +9,7 @@ use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 class CompletionHandler extends AbstractProcessEventHandler
 {
 
-    const RELEVANT_PROCESS_HANDLER_SUB_NAMESPACE = self::ROOT_PROCESS_HANDLER_NAMESPACE . '\Quest\Completion';
+    const RELEVANT_PROCESS_HANDLER_SUB_NAMESPACE = self::ROOT_PROCESS_HANDLER_NAMESPACE . '\Route\Completion';
 
     public function handle(Event $event, EventName $eventName, EventDispatcherInterface $eventDispatcher)
     {

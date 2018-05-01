@@ -9,7 +9,7 @@ use App\Base\Enums\AbstractEnum;
  * @method static EventName COMPLETION_FOO()
  * @method static EventName STEP_FOO()
  * @method static EventName POI_FOO()
- * @method static EventName QUEST_FOO()
+ * @method static EventName ROUTE_FOO()
  *
  * @package App\Base\Enums\Processes\EventNames
  * @author Ilya Khanataev <contact@mevatex.com>
@@ -22,6 +22,6 @@ class EventName extends AbstractEnum
     const COMPLETION_FOO = 'completion.foo';
     const STEP_FOO = 'step.foo';
     const POI_FOO = 'poi.foo';
-    const QUEST_FOO = 'general.foo';
+    const ROUTE_FOO = 'ruote.foo';
 
 }

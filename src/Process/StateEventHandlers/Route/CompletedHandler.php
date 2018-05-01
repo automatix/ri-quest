@@ -1,5 +1,5 @@
 <?php
-namespace App\Process\StateEventHandlers\Quest;
+namespace App\Process\StateEventHandlers\Route;
 
 use App\Base\Enums\Processes\EventNames\EventName;
 use App\Process\StateEventHandlers\AbstractStateEventHandler;
@@ -7,12 +7,12 @@ use Symfony\Component\EventDispatcher\Event;
 use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 
 /**
- * Class StartedHandler extends AbstractStateEventHandler
+ * Class CompletedHandler extends AbstractStateEventHandler
  *
- * @package App\Services\Process\Internal\StateHandlers\Quest
+ * @package App\Services\Process\Internal\StateHandlers\Route
  * @author Ilya Khanataev <contact@mevatex.com>
  */
-class StartedHandler extends AbstractStateEventHandler
+class CompletedHandler extends AbstractStateEventHandler
 {
 
 }

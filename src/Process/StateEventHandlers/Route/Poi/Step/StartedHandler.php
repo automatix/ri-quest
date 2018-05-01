@@ -1,5 +1,5 @@
 <?php
-namespace App\Process\StateEventHandlers\Quest\Poi\Step;
+namespace App\Process\StateEventHandlers\Route\Poi\Step;
 
 use App\Base\Enums\Processes\EventNames\EventName;
 use App\Base\Enums\Processes\Events\GenericEvent;
@@ -10,7 +10,7 @@ use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 /**
  * Class StartedHandler extends AbstractStateEventHandler
  *
- * @package App\Services\Process\Internal\StateHandlers\Quest
+ * @package App\Services\Process\Internal\StateHandlers\Route
  * @author Ilya Khanataev <contact@mevatex.com>
  */
 class StartedHandler extends AbstractStateEventHandler

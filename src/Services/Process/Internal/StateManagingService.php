@@ -4,7 +4,7 @@ namespace App\Services\Process\Internal;
 use App\Base\Enums\Processes\States\AccessState;
 use App\Base\Enums\Processes\States\CompletionState;
 use App\Base\Enums\Processes\States\PoiState;
-use App\Base\Enums\Processes\States\QuestState;
+use App\Base\Enums\Processes\States\RouteState;
 use App\Base\Enums\Processes\States\StepState;
 use App\Services\Process\StateManagingServiceInterface;
 
@@ -15,9 +15,9 @@ use App\Services\Process\StateManagingServiceInterface;
 class StateManagingService implements StateManagingServiceInterface
 {
 
-    public function detectQuestState()
+    public function detectRouteState()
     {
-        return QuestState::STARTED();
+        return RouteState::STARTED();
     }
 
     public function detectPoiState()
