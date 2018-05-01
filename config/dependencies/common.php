@@ -6,7 +6,7 @@ use App\Process\EventHandlerInterface;
 use App\Process\ProcessEventHandlers\AccessHandler;
 use App\Process\ProcessEventHandlers\CompletionHandler;
 use App\Process\ProcessEventHandlers\PoiHandler;
-use App\Process\ProcessEventHandlers\RouteHandler;
+use App\Process\ProcessEventHandlers\ScenarioHandler;
 use App\Process\ProcessEventHandlers\StepHandler;
 use App\Process\SystemEventHandlerFactory;
 use App\Process\SystemEventHandlerInterface;
@@ -42,7 +42,7 @@ $commonDependencies = [
     StateManagingServiceInterface::class => DI\autowire(StateManagingService::class),
     'process_handler.step' => DI\autowire(StepHandler::class),
     'process_handler.poi' => DI\autowire(PoiHandler::class),
-    'process_handler.route' => DI\autowire(RouteHandler::class),
+    'process_handler.scenario' => DI\autowire(ScenarioHandler::class),
     'process_handler.access' => DI\autowire(AccessHandler::class),
     'process_handler.completion' => DI\autowire(CompletionHandler::class),
     SystemEventHandlerInterface::class => DI\factory([new SystemEventHandlerFactory(), 'create']),

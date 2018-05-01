@@ -37,7 +37,7 @@ services:
         public: true
     App\Process\ProcessEventHandlers\CompletionHandler:
         public: true
-    App\Process\ProcessEventHandlers\RouteHandler:
+    App\Process\ProcessEventHandlers\ScenarioHandler:
         public: true
 
     # events
@@ -51,4 +51,4 @@ services:
             - { name: kernel.event_listener, event: poi.foo, method: handle }
             - { name: kernel.event_listener, event: access.foo, method: handle }
             - { name: kernel.event_listener, event: completion.foo, method: handle }
-            - { name: kernel.event_listener, event: route.foo, method: handle }
+            - { name: kernel.event_listener, event: scenario.foo, method: handle }

@@ -1,5 +1,5 @@
 <?php
-namespace App\Process\StateEventHandlers\Route\Poi;
+namespace App\Process\StateEventHandlers\Scenario\Poi;
 
 use App\Base\Enums\Processes\EventNames\EventName;
 use App\Process\StateEventHandlers\AbstractStateEventHandler;
@@ -9,7 +9,7 @@ use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 /**
  * Class StartedHandler extends AbstractStateEventHandler
  *
- * @package App\Services\Process\Internal\StateHandlers\Route
+ * @package App\Services\Process\Internal\StateHandlers\Scenario
  * @author Ilya Khanataev <contact@mevatex.com>
  */
 class StartedHandler extends AbstractStateEventHandler

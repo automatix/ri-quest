@@ -1,5 +1,5 @@
 <?php
-namespace App\Process\StateEventHandlers\Route;
+namespace App\Process\StateEventHandlers\Scenario;
 
 use App\Base\Enums\Processes\EventNames\EventName;
 use App\Process\StateEventHandlers\AbstractStateEventHandler;
@@ -7,12 +7,12 @@ use Symfony\Component\EventDispatcher\Event;
 use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 
 /**
- * Class PlayingHandler extends AbstractStateEventHandler
+ * Class FinishedHandler extends AbstractStateEventHandler
  *
- * @package App\Services\Process\Internal\StateHandlers\Route
+ * @package App\Services\Process\Internal\StateHandlers\Scenario
  * @author Ilya Khanataev <contact@mevatex.com>
  */
-class PlayingHandler extends AbstractStateEventHandler
+class FinishedHandler extends AbstractStateEventHandler
 {
 
 }
