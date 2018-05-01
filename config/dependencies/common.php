@@ -9,6 +9,7 @@ use App\Process\ProcessEventHandlers\PoiHandler;
 use App\Process\ProcessEventHandlers\QuestHandler;
 use App\Process\ProcessEventHandlers\StepHandler;
 use App\Process\SystemEventHandlerFactory;
+use App\Process\SystemEventHandlerInterface;
 use App\Services\Dummy\External\FooBService;
 use App\Services\Dummy\External\FooServiceInterface;
 use App\Services\Dummy\Internal\BarService;
@@ -44,8 +45,8 @@ $commonDependencies = [
     'process_handler.quest' => DI\autowire(QuestHandler::class),
     'process_handler.access' => DI\autowire(AccessHandler::class),
     'process_handler.completion' => DI\autowire(CompletionHandler::class),
-    EventHandlerInterface::class => DI\factory([new SystemEventHandlerFactory(), 'create']),
-    'system.event_handler' => DI\get(EventHandlerInterface::class),
+    SystemEventHandlerInterface::class => DI\factory([new SystemEventHandlerFactory(), 'create']),
+    'system.event_handler' => DI\get(SystemEventHandlerInterface::class),
     EventDispatcherInterface::class => DI\get('event_dispatcher'),
 ];
 
