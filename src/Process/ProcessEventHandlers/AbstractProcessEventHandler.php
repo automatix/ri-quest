@@ -35,7 +35,7 @@ abstract class AbstractProcessEventHandler implements ProcessEventHandlerInterfa
         return $this->stateManagingService;
     }
 
-    public function buildConcreteHandler(AbstractProcessState $currentState, EventName $eventName) : callable
+    protected function buildConcreteHandler(AbstractProcessState $currentState, EventName $eventName) : callable
     {
         $handlerClass =
             static::RELEVANT_PROCESS_HANDLER_SUB_NAMESPACE
