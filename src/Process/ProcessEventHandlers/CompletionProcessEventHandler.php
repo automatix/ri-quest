@@ -6,7 +6,7 @@ use App\Base\Enums\Processes\States\AbstractProcessState;
 use Symfony\Component\EventDispatcher\Event;
 use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 
-class CompletionHandler extends AbstractProcessEventHandler
+class CompletionProcessEventHandler extends AbstractProcessEventHandler
 {
 
     const RELEVANT_PROCESS_HANDLER_SUB_NAMESPACE = self::ROOT_PROCESS_HANDLER_NAMESPACE . '\Scenario\Completion';

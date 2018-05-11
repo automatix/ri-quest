@@ -6,14 +6,14 @@ use App\Base\Enums\Processes\States\AbstractProcessState;
 use Symfony\Component\EventDispatcher\Event;
 use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 
-class PoiHandler extends AbstractProcessEventHandler
+class StepProcessEventHandler extends AbstractProcessEventHandler
 {
 
-    const RELEVANT_PROCESS_HANDLER_SUB_NAMESPACE = self::ROOT_PROCESS_HANDLER_NAMESPACE . '\Scenario\Poi';
+    const RELEVANT_PROCESS_HANDLER_SUB_NAMESPACE = self::ROOT_PROCESS_HANDLER_NAMESPACE . '\Scenario\Poi\Step';
 
     public function handle(Event $event, EventName $eventName, EventDispatcherInterface $eventDispatcher)
     {
-        $currentState = $this->getStateManagingService()->detectPoiState();
+        $currentState = $this->getStateManagingService()->detectStepState();
         $concreteHandler = $this->buildConcreteHandler($currentState, $eventName);
         call_user_func($concreteHandler, $event, $eventName, $eventDispatcher);
     }

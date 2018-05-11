@@ -3,11 +3,11 @@
 use App\Base\Utils\CamelCaseToSnakeCaseNameConverter;
 use App\Base\Utils\NameConverterInterface;
 use App\Process\EventHandlerInterface;
-use App\Process\ProcessEventHandlers\AccessHandler;
-use App\Process\ProcessEventHandlers\CompletionHandler;
-use App\Process\ProcessEventHandlers\PoiHandler;
-use App\Process\ProcessEventHandlers\ScenarioHandler;
-use App\Process\ProcessEventHandlers\StepHandler;
+use App\Process\ProcessEventHandlers\AccessProcessEventHandler;
+use App\Process\ProcessEventHandlers\CompletionProcessEventHandler;
+use App\Process\ProcessEventHandlers\PoiProcessEventHandler;
+use App\Process\ProcessEventHandlers\ScenarioProcessEventHandler;
+use App\Process\ProcessEventHandlers\StepProcessEventHandler;
 use App\Process\SystemEventHandlerFactory;
 use App\Process\SystemEventHandlerInterface;
 use App\Services\Dummy\External\FooBService;
@@ -40,11 +40,11 @@ $commonDependencies = [
         return EntityManager::create($connection, $config);
     },
     StateManagingServiceInterface::class => DI\autowire(StateManagingService::class),
-    'process_handler.step' => DI\autowire(StepHandler::class),
-    'process_handler.poi' => DI\autowire(PoiHandler::class),
-    'process_handler.scenario' => DI\autowire(ScenarioHandler::class),
-    'process_handler.access' => DI\autowire(AccessHandler::class),
-    'process_handler.completion' => DI\autowire(CompletionHandler::class),
+    'process_handler.step' => DI\autowire(StepProcessEventHandler::class),
+    'process_handler.poi' => DI\autowire(PoiProcessEventHandler::class),
+    'process_handler.scenario' => DI\autowire(ScenarioProcessEventHandler::class),
+    'process_handler.access' => DI\autowire(AccessProcessEventHandler::class),
+    'process_handler.completion' => DI\autowire(CompletionProcessEventHandler::class),
     SystemEventHandlerInterface::class => DI\factory([new SystemEventHandlerFactory(), 'create']),
     'system.event_handler' => DI\get(SystemEventHandlerInterface::class),
     EventDispatcherInterface::class => DI\get('event_dispatcher'),
