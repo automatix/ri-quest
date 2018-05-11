@@ -40,4 +40,12 @@ class ScenarioStateEventHandlerRegistry extends AbstractProcessStateEventHandler
         ];
     }
 
+    /**
+     * @return array
+     */
+    public function getStateEventHandlers() : array
+    {
+        return $this->stateEventHandlers;
+    }
+
 }

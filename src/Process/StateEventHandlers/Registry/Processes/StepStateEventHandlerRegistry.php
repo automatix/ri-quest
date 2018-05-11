@@ -20,4 +20,12 @@ class StepStateEventHandlerRegistry extends AbstractProcessStateEventHandlerRegi
         ];
     }
 
+    /**
+     * @return array
+     */
+    public function getStateEventHandlers() : array
+    {
+        return $this->stateEventHandlers;
+    }
+
 }

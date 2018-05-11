@@ -13,15 +13,9 @@ use App\Process\StateEventHandlers\AbstractStateEventHandler;
 abstract class AbstractProcessStateEventHandlerRegistry
 {
 
-    /** @var AbstractStateEventHandler[] */
-    private $stateEventHandlers;
-
     /**
      * @return array
      */
-    public function getStateEventHandlers() : array
-    {
-        return $this->stateEventHandlers;
-    }
+    abstract function getStateEventHandlers() : array;
 
 }

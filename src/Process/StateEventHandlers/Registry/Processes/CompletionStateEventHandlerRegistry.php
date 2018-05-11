@@ -20,4 +20,12 @@ class CompletionStateEventHandlerRegistry extends AbstractProcessStateEventHandl
         ];
     }
 
+    /**
+     * @return array
+     */
+    public function getStateEventHandlers() : array
+    {
+        return $this->stateEventHandlers;
+    }
+
 }

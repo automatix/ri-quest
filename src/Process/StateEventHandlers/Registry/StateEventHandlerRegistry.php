@@ -46,7 +46,7 @@ class StateEventHandlerRegistry implements StateEventHandlerRegistryInterface
      */
     public function get(ProcessName $processName, AbstractProcessState $processState, EventName $eventName): callable
     {
-        $handlerObject = $this->stateEventHandlers[$processName->getKey()][$processState->getKey()];
+        $handlerObject = $this->stateEventHandlers[$processName->getValue()][$processState->getValue()];
         $eventNameValue = $eventName->getValue();
         $eventNameValueUnderscoresOnly = str_replace('.', '_', $eventNameValue);
         $handlerMethod =

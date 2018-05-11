@@ -21,4 +21,12 @@ class PoiStateEventHandlerRegistry extends AbstractProcessStateEventHandlerRegis
         ];
     }
 
+    /**
+     * @return array
+     */
+    public function getStateEventHandlers() : array
+    {
+        return $this->stateEventHandlers;
+    }
+
 }
