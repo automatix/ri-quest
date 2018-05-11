@@ -14,6 +14,7 @@ class SystemEventHandler implements SystemEventHandlerInterface
 
     public function __construct(ProcessEventHandlerInterface ... $processEventHandlers)
     {
+        // The array index determines the priority and so the handling order!
         $this->processEventHandlers = $processEventHandlers;
     }
 

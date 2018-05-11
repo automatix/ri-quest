@@ -31,9 +31,8 @@ services:
         class: App\Services\Dummy\External\FooBService
 
     # events
-    App\Process\SystemEventHandlerFactory: ~
     App\Process\SystemEventHandlerInterface:
-        factory: 'App\Process\SystemEventHandlerFactory:create'
+        class: 'App\Process\SystemEventHandler'
         arguments:
             - '@App\Process\ProcessEventHandlers\StepProcessEventHandler'
             - '@App\Process\ProcessEventHandlers\PoiProcessEventHandler'
