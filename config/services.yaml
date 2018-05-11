@@ -29,22 +29,17 @@ services:
     # please note that last definitions always *replace* previous ones
     App\Services\Dummy\External\FooServiceInterface:
         class: App\Services\Dummy\External\FooBService
-#    App\Process\ProcessEventHandlers\StepProcessEventHandler:
-#        public: true
-#    App\Process\ProcessEventHandlers\PoiProcessEventHandler:
-#        public: true
-#    App\Process\ProcessEventHandlers\AccessProcessEventHandler:
-#        public: true
-#    App\Process\ProcessEventHandlers\CompletionProcessEventHandler:
-#        public: true
-#    App\Process\ProcessEventHandlers\ScenarioProcessEventHandler:
-#        public: true
 
     # events
     App\Process\SystemEventHandlerFactory: ~
     App\Process\SystemEventHandlerInterface:
         factory: 'App\Process\SystemEventHandlerFactory:create'
-        arguments: ['@App\Process\ProcessEventHandlers\StepProcessEventHandler', '@App\Process\ProcessEventHandlers\PoiProcessEventHandler', '@App\Process\ProcessEventHandlers\ScenarioProcessEventHandler', '@App\Process\ProcessEventHandlers\AccessProcessEventHandler', '@App\Process\ProcessEventHandlers\CompletionProcessEventHandler']
+        arguments:
+            - '@App\Process\ProcessEventHandlers\StepProcessEventHandler'
+            - '@App\Process\ProcessEventHandlers\PoiProcessEventHandler'
+            - '@App\Process\ProcessEventHandlers\ScenarioProcessEventHandler'
+            - '@App\Process\ProcessEventHandlers\AccessProcessEventHandler'
+            - '@App\Process\ProcessEventHandlers\CompletionProcessEventHandler'
         tags:
             - { name: kernel.event_listener, event: general.user_message_received, method: handle }
             - { name: kernel.event_listener, event: step.foo, method: handle }
