@@ -15,7 +15,7 @@ class ScenarioProcessEventHandler extends AbstractProcessEventHandler
     {
         $currentState = $this->getStateManagingService()->detectScenarioState();
         try {
-            $concreteHandler = $this->buildConcreteHandler(ProcessName::SCENARIO(), $currentState, $eventName);
+            $concreteHandler = $this->getEventHandlerRegistry()->get(ProcessName::SCENARIO(), $currentState, $eventName);
             call_user_func($concreteHandler, $event, $eventName, $eventDispatcher);
         } catch (EventHandlingException $e) {
             $breakpoint = null;

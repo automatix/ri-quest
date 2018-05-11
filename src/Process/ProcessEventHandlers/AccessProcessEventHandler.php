@@ -15,7 +15,7 @@ class AccessProcessEventHandler extends AbstractProcessEventHandler
     {
         $currentState = $this->getStateManagingService()->detectAccessState();
         try {
-            $concreteHandler = $this->buildConcreteHandler(ProcessName::ACCESS(), $currentState, $eventName);
+            $concreteHandler = $this->getEventHandlerRegistry()->get(ProcessName::ACCESS(), $currentState, $eventName);
             call_user_func($concreteHandler, $event, $eventName, $eventDispatcher);
         } catch (EventHandlingException $e) {
             $breakpoint = null;

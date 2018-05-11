@@ -15,7 +15,7 @@ class CompletionProcessEventHandler extends AbstractProcessEventHandler
     {
         $currentState = $this->getStateManagingService()->detectCompletionState();
         try {
-            $concreteHandler = $this->buildConcreteHandler(ProcessName::COMPLETION(), $currentState, $eventName);
+            $concreteHandler = $this->getEventHandlerRegistry()->get(ProcessName::COMPLETION(), $currentState, $eventName);
             call_user_func($concreteHandler, $event, $eventName, $eventDispatcher);
         } catch (EventHandlingException $e) {
             $breakpoint = null;

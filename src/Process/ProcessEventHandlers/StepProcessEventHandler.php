@@ -15,7 +15,7 @@ class StepProcessEventHandler extends AbstractProcessEventHandler
     {
         $currentState = $this->getStateManagingService()->detectStepState();
         try {
-            $concreteHandler = $this->buildConcreteHandler(ProcessName::STEP(), $currentState, $eventName);
+            $concreteHandler = $this->getEventHandlerRegistry()->get(ProcessName::STEP(), $currentState, $eventName);
             call_user_func($concreteHandler, $event, $eventName, $eventDispatcher);
         } catch (EventHandlingException $e) {
             $breakpoint = null;

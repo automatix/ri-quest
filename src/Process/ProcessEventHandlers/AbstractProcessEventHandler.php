@@ -35,15 +35,11 @@ abstract class AbstractProcessEventHandler implements ProcessEventHandlerInterfa
     }
 
     /**
-     * @param ProcessName $processName
-     * @param AbstractProcessState $currentState
-     * @param EventName $eventName
-     * @return callable
-     * @throws EventHandlingException
+     * @return StateEventHandlerRegistryInterface
      */
-    protected function buildConcreteHandler(ProcessName $processName, AbstractProcessState $currentState, EventName $eventName) : callable
+    public function getEventHandlerRegistry(): StateEventHandlerRegistryInterface
     {
-        return $this->stateEventHandlerRegistry->get($processName, $currentState, $eventName);
+        return $this->stateEventHandlerRegistry;
     }
 
 }
