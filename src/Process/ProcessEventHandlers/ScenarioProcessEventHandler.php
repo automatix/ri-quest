@@ -2,6 +2,7 @@
 namespace App\Process\ProcessEventHandlers;
 
 use App\Base\Enums\Processes\EventNames\EventName;
+use App\Base\Enums\Processes\ProcessName;
 use App\Base\Enums\Processes\States\AbstractProcessState;
 use Symfony\Component\EventDispatcher\Event;
 use Symfony\Component\EventDispatcher\EventDispatcherInterface;
@@ -14,7 +15,7 @@ class ScenarioProcessEventHandler extends AbstractProcessEventHandler
     public function handle(Event $event, EventName $eventName, EventDispatcherInterface $eventDispatcher)
     {
         $currentState = $this->getStateManagingService()->detectScenarioState();
-        $concreteHandler = $this->buildConcreteHandler($currentState, $eventName);
+        $concreteHandler = $this->buildConcreteHandler(ProcessName::SCENARIO(), $currentState, $eventName);
         call_user_func($concreteHandler, $event, $eventName, $eventDispatcher);
     }
 

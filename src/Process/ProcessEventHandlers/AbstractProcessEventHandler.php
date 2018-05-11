@@ -2,8 +2,9 @@
 namespace App\Process\ProcessEventHandlers;
 
 use App\Base\Enums\Processes\EventNames\EventName;
+use App\Base\Enums\Processes\ProcessName;
 use App\Base\Enums\Processes\States\AbstractProcessState;
-use App\Base\Utils\NameConverterInterface;
+use App\Process\StateEventHandlers\Registry\StateEventHandlerRegistryInterface;
 use App\Services\Process\StateManagingServiceInterface;
 use Symfony\Component\EventDispatcher\Event;
 use Symfony\Component\EventDispatcher\EventDispatcherInterface;
@@ -16,13 +17,13 @@ abstract class AbstractProcessEventHandler implements ProcessEventHandlerInterfa
 
     /** @var StateManagingServiceInterface $stateManagingService */
     private $stateManagingService;
-    /** @var NameConverterInterface $nameConverter */
-    private $nameConverter;
+    /** @var StateEventHandlerRegistryInterface $stateEventHandlerRegistry */
+    private $stateEventHandlerRegistry;
 
-    public function __construct(StateManagingServiceInterface $stateManagingService, NameConverterInterface $nameConverter)
+    public function __construct(StateManagingServiceInterface $stateManagingService, StateEventHandlerRegistryInterface $stateEventHandlerRegistry)
     {
         $this->stateManagingService = $stateManagingService;
-        $this->nameConverter = $nameConverter;
+        $this->stateEventHandlerRegistry = $stateEventHandlerRegistry;
     }
 
     abstract function handle(Event $event, EventName $eventName, EventDispatcherInterface $eventDispatcher);
@@ -35,23 +36,9 @@ abstract class AbstractProcessEventHandler implements ProcessEventHandlerInterfa
         return $this->stateManagingService;
     }
 
-    protected function buildConcreteHandler(AbstractProcessState $currentState, EventName $eventName) : callable
+    protected function buildConcreteHandler(ProcessName $processName, AbstractProcessState $currentState, EventName $eventName) : callable
     {
-        $handlerClass =
-            static::RELEVANT_PROCESS_HANDLER_SUB_NAMESPACE
-            . '\\'
-            . $this->nameConverter->denormalize(ucfirst($currentState->getValue()))
-            . 'Handler'
-        ;
-        $handlerObject = new $handlerClass();
-        $eventNameValue = $eventName->getValue();
-        $eventNameValueUnderscoresOnly = str_replace('.', '_', $eventNameValue);
-        $handlerMethod =
-            'on'
-            . $this->nameConverter->denormalize(ucfirst($eventNameValueUnderscoresOnly))
-        ;
-
-        return [$handlerObject, $handlerMethod];
+        return $this->stateEventHandlerRegistry->get($processName, $currentState, $eventName);
     }
 
 }
