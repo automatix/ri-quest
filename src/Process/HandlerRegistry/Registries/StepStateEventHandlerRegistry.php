@@ -1,9 +1,9 @@
 <?php
-namespace App\Process\HandlerRegistry\Processes;
+namespace App\Process\HandlerRegistry\Registries;
 
 use App\Base\Enums\Processes\States\StepState;
 use App\Process\StateEventHandlers\AbstractStateEventHandler;
-use App\Process\HandlerRegistry\Processes\AbstractProcessStateEventHandlerRegistry;
+use App\Process\HandlerRegistry\Registries\AbstractProcessStateEventHandlerRegistry;
 use App\Process\StateEventHandlers\Scenario\Poi\Step\StartedHandler;
 
 class StepStateEventHandlerRegistry extends AbstractProcessStateEventHandlerRegistry

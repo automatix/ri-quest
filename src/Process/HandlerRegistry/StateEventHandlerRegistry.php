@@ -6,11 +6,11 @@ use App\Base\Enums\Processes\ProcessName;
 use App\Base\Enums\Processes\States\AbstractProcessState;
 use App\Base\Utils\NameConverterInterface;
 use App\Process\StateEventHandlers\AbstractStateEventHandler;
-use App\Process\HandlerRegistry\Processes\AccessStateEventHandlerRegistry;
-use App\Process\HandlerRegistry\Processes\CompletionStateEventHandlerRegistry;
-use App\Process\HandlerRegistry\Processes\PoiStateEventHandlerRegistry;
-use App\Process\HandlerRegistry\Processes\ScenarioStateEventHandlerRegistry;
-use App\Process\HandlerRegistry\Processes\StepStateEventHandlerRegistry;
+use App\Process\HandlerRegistry\Registries\AccessStateEventHandlerRegistry;
+use App\Process\HandlerRegistry\Registries\CompletionStateEventHandlerRegistry;
+use App\Process\HandlerRegistry\Registries\PoiStateEventHandlerRegistry;
+use App\Process\HandlerRegistry\Registries\ScenarioStateEventHandlerRegistry;
+use App\Process\HandlerRegistry\Registries\StepStateEventHandlerRegistry;
 
 class StateEventHandlerRegistry implements StateEventHandlerRegistryInterface
 {

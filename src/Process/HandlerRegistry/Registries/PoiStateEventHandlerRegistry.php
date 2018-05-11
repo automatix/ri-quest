@@ -1,9 +1,9 @@
 <?php
-namespace App\Process\HandlerRegistry\Processes;
+namespace App\Process\HandlerRegistry\Registries;
 
 use App\Base\Enums\Processes\States\PoiState;
 use App\Process\StateEventHandlers\AbstractStateEventHandler;
-use App\Process\HandlerRegistry\Processes\AbstractProcessStateEventHandlerRegistry;
+use App\Process\HandlerRegistry\Registries\AbstractProcessStateEventHandlerRegistry;
 use App\Process\StateEventHandlers\Scenario\Poi\StartedHandler;
 
 class PoiStateEventHandlerRegistry extends AbstractProcessStateEventHandlerRegistry
