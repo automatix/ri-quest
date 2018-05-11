@@ -51,7 +51,7 @@ class StateEventHandlerRegistry implements StateEventHandlerRegistryInterface
         $eventNameValueUnderscoresOnly = str_replace('.', '_', $eventNameValue);
         $handlerMethod =
             'on'
-            . $this->nameConverter->denormalize(ucfirst($eventNameValueUnderscoresOnly))
+            . ucfirst($this->nameConverter->denormalize($eventNameValueUnderscoresOnly))
         ;
 
         return [$handlerObject, $handlerMethod];
