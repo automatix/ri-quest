@@ -1,7 +1,8 @@
 <?php
-namespace App\Process\StateEventHandlers;
+namespace App\Process\StateEventHandlers\Registry;
 
 use App\Base\Enums\Processes\EventNames\EventName;
+use App\Base\Enums\Processes\ProcessName;
 use App\Base\Enums\Processes\States\AbstractProcessState;
 
 /**
@@ -13,10 +14,11 @@ interface StateEventHandlerRegistryInterface
 
 
     /**
+     * @param ProcessName $processName
      * @param AbstractProcessState $processState
      * @param EventName $eventName
-     * @return AbstractStateEventHandler
+     * @return callable
      */
-    function get(AbstractProcessState $processState, EventName $eventName) : AbstractStateEventHandler;
+    function get(ProcessName $processName, AbstractProcessState $processState, EventName $eventName) : callable;
 
 }
