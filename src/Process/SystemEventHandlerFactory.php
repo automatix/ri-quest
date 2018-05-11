@@ -6,20 +6,24 @@ use App\Process\ProcessEventHandlers\CompletionProcessEventHandler;
 use App\Process\ProcessEventHandlers\PoiProcessEventHandler;
 use App\Process\ProcessEventHandlers\ScenarioProcessEventHandler;
 use App\Process\ProcessEventHandlers\StepProcessEventHandler;
-use Psr\Container\ContainerInterface;
 
 class SystemEventHandlerFactory
 {
 
-    public function create(ContainerInterface $container)
-    {
+    public function create(
+        StepProcessEventHandler $stepProcessEventHandler,
+        PoiProcessEventHandler $poiProcessEventHandler,
+        ScenarioProcessEventHandler $scenarioProcessEventHandler,
+        AccessProcessEventHandler $accessProcessEventHandler,
+        CompletionProcessEventHandler $completionProcessEventHandler
+    ) {
         // The array index determines the priority and so the handling order!
         return new SystemEventHandler(
-            $container->get(StepProcessEventHandler::class),
-            $container->get(PoiProcessEventHandler::class),
-            $container->get(ScenarioProcessEventHandler::class),
-            $container->get(AccessProcessEventHandler::class),
-            $container->get(CompletionProcessEventHandler::class)
+            $stepProcessEventHandler,
+            $poiProcessEventHandler,
+            $scenarioProcessEventHandler,
+            $accessProcessEventHandler,
+            $completionProcessEventHandler
         );
     }
 
