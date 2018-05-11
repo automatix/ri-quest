@@ -11,8 +11,6 @@ use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 class StepProcessEventHandler extends AbstractProcessEventHandler
 {
 
-    const RELEVANT_PROCESS_HANDLER_SUB_NAMESPACE = self::ROOT_PROCESS_HANDLER_NAMESPACE . '\Scenario\Poi\Step';
-
     public function handle(Event $event, EventName $eventName, EventDispatcherInterface $eventDispatcher)
     {
         $currentState = $this->getStateManagingService()->detectStepState();

@@ -13,9 +13,6 @@ use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 abstract class AbstractProcessEventHandler implements ProcessEventHandlerInterface
 {
 
-    const ROOT_PROCESS_HANDLER_NAMESPACE = '\App\Process\StateEventHandlers';
-    const RELEVANT_PROCESS_HANDLER_SUB_NAMESPACE = '';
-
     /** @var StateManagingServiceInterface $stateManagingService */
     private $stateManagingService;
     /** @var StateEventHandlerRegistryInterface $stateEventHandlerRegistry */
