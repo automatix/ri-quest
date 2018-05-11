@@ -1,12 +1,12 @@
 <?php
-namespace App\Process\StateEventHandlers\HandlerRegistry\Processes;
+namespace App\Process\HandlerRegistry\Processes;
 
-use App\Base\Enums\Processes\States\StepState;
+use App\Base\Enums\Processes\States\CompletionState;
 use App\Process\StateEventHandlers\AbstractStateEventHandler;
-use App\Process\StateEventHandlers\HandlerRegistry\Processes\AbstractProcessStateEventHandlerRegistry;
-use App\Process\StateEventHandlers\Scenario\Poi\Step\StartedHandler;
+use App\Process\HandlerRegistry\Processes\AbstractProcessStateEventHandlerRegistry;
+use App\Process\StateEventHandlers\Scenario\Completion\StartedHandler;
 
-class StepStateEventHandlerRegistry extends AbstractProcessStateEventHandlerRegistry
+class CompletionStateEventHandlerRegistry extends AbstractProcessStateEventHandlerRegistry
 {
 
     /** @var AbstractStateEventHandler[] */
@@ -16,7 +16,7 @@ class StepStateEventHandlerRegistry extends AbstractProcessStateEventHandlerRegi
         StartedHandler $startedHandler
     ) {
         $this->stateEventHandlers = [
-            StepState::STARTED => $startedHandler,
+            CompletionState::STARTED => $startedHandler,
         ];
     }
 

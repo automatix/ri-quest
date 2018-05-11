@@ -1,5 +1,5 @@
 <?php
-namespace App\Process\StateEventHandlers\HandlerRegistry\Processes;
+namespace App\Process\HandlerRegistry\Processes;
 
 use App\Base\Enums\Processes\EventNames\EventName;
 use App\Base\Enums\Processes\ProcessName;
@@ -8,7 +8,7 @@ use App\Process\StateEventHandlers\AbstractStateEventHandler;
 
 /**
  * @author Ilya Khanataev <contact@mevatex.com>
- * @package App\Process\StateEventHandlers\HandlerRegistry\Processes
+ * @package App\Process\HandlerRegistry\Processes
  */
 abstract class AbstractProcessStateEventHandlerRegistry
 {

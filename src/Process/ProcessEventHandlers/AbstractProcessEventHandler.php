@@ -4,7 +4,7 @@ namespace App\Process\ProcessEventHandlers;
 use App\Base\Enums\Processes\EventNames\EventName;
 use App\Base\Enums\Processes\ProcessName;
 use App\Base\Enums\Processes\States\AbstractProcessState;
-use App\Process\StateEventHandlers\HandlerRegistry\StateEventHandlerRegistryInterface;
+use App\Process\HandlerRegistry\StateEventHandlerRegistryInterface;
 use App\Services\Process\StateManagingServiceInterface;
 use Symfony\Component\EventDispatcher\Event;
 use Symfony\Component\EventDispatcher\EventDispatcherInterface;

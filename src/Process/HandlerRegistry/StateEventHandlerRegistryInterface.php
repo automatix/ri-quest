@@ -1,5 +1,5 @@
 <?php
-namespace App\Process\StateEventHandlers\HandlerRegistry;
+namespace App\Process\HandlerRegistry;
 
 use App\Base\Enums\Processes\EventNames\EventName;
 use App\Base\Enums\Processes\ProcessName;
