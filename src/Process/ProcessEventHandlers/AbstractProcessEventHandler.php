@@ -4,6 +4,7 @@ namespace App\Process\ProcessEventHandlers;
 use App\Base\Enums\Processes\EventNames\EventName;
 use App\Base\Enums\Processes\ProcessName;
 use App\Base\Enums\Processes\States\AbstractProcessState;
+use App\Base\Exceptions\EventHandlingException;
 use App\Process\HandlerRegistry\StateEventHandlerRegistryInterface;
 use App\Services\Process\StateManagingServiceInterface;
 use Symfony\Component\EventDispatcher\Event;
@@ -36,6 +37,13 @@ abstract class AbstractProcessEventHandler implements ProcessEventHandlerInterfa
         return $this->stateManagingService;
     }
 
+    /**
+     * @param ProcessName $processName
+     * @param AbstractProcessState $currentState
+     * @param EventName $eventName
+     * @return callable
+     * @throws EventHandlingException
+     */
     protected function buildConcreteHandler(ProcessName $processName, AbstractProcessState $currentState, EventName $eventName) : callable
     {
         return $this->stateEventHandlerRegistry->get($processName, $currentState, $eventName);

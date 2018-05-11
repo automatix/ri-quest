@@ -4,6 +4,8 @@ namespace App\Process\HandlerRegistry;
 use App\Base\Enums\Processes\EventNames\EventName;
 use App\Base\Enums\Processes\ProcessName;
 use App\Base\Enums\Processes\States\AbstractProcessState;
+use App\Base\Exceptions\EventHandlingErrorContextCode;
+use App\Base\Exceptions\EventHandlingException;
 use App\Base\Utils\NameConverterInterface;
 use App\Process\StateEventHandlers\AbstractStateEventHandler;
 use App\Process\HandlerRegistry\Registries\AccessStateEventHandlerRegistry;
@@ -43,6 +45,7 @@ class StateEventHandlerRegistry implements StateEventHandlerRegistryInterface
      * @param AbstractProcessState $processState
      * @param EventName $eventName
      * @return callable
+     * @throws EventHandlingException
      */
     public function get(ProcessName $processName, AbstractProcessState $processState, EventName $eventName): callable
     {
@@ -53,8 +56,11 @@ class StateEventHandlerRegistry implements StateEventHandlerRegistryInterface
             'on'
             . ucfirst($this->nameConverter->denormalize($eventNameValueUnderscoresOnly))
         ;
-
-        return [$handlerObject, $handlerMethod];
+        $stateEventHandler = [$handlerObject, $handlerMethod];
+        if (! is_callable($stateEventHandler)) {
+            throw new EventHandlingException('', EventHandlingErrorContextCode::NO_STATE_EVENT_HANDLER_FOUND());
+        }
+        return $stateEventHandler;
     }
 
 }
