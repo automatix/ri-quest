@@ -23,7 +23,7 @@ class StartedHandler extends AbstractStateEventHandler
 
     public function onStepFoo(Event $event, EventName $eventName, EventDispatcherInterface $eventDispatcher)
     {
-        die($event->getSubject() .  __METHOD__ . 'Yeah!!!');
+        echo $event->getSubject() .  __METHOD__ . 'Yeah!!!';
     }
 
 }
