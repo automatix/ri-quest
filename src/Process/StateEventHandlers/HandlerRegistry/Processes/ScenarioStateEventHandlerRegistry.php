@@ -1,9 +1,9 @@
 <?php
-namespace App\Process\StateEventHandlers\Registry\Processes;
+namespace App\Process\StateEventHandlers\HandlerRegistry\Processes;
 
 use App\Base\Enums\Processes\States\ScenarioState;
 use App\Process\StateEventHandlers\AbstractStateEventHandler;
-use App\Process\StateEventHandlers\Registry\Processes\AbstractProcessStateEventHandlerRegistry;
+use App\Process\StateEventHandlers\HandlerRegistry\Processes\AbstractProcessStateEventHandlerRegistry;
 use App\Process\StateEventHandlers\Scenario\AccessFailedHandler;
 use App\Process\StateEventHandlers\Scenario\AccessProcessingHandler;
 use App\Process\StateEventHandlers\Scenario\CompletedHandler;

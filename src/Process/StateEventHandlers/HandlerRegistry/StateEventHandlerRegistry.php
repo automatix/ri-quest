@@ -1,16 +1,16 @@
 <?php
-namespace App\Process\StateEventHandlers\Registry;
+namespace App\Process\StateEventHandlers\HandlerRegistry;
 
 use App\Base\Enums\Processes\EventNames\EventName;
 use App\Base\Enums\Processes\ProcessName;
 use App\Base\Enums\Processes\States\AbstractProcessState;
 use App\Base\Utils\NameConverterInterface;
 use App\Process\StateEventHandlers\AbstractStateEventHandler;
-use App\Process\StateEventHandlers\Registry\Processes\AccessStateEventHandlerRegistry;
-use App\Process\StateEventHandlers\Registry\Processes\CompletionStateEventHandlerRegistry;
-use App\Process\StateEventHandlers\Registry\Processes\PoiStateEventHandlerRegistry;
-use App\Process\StateEventHandlers\Registry\Processes\ScenarioStateEventHandlerRegistry;
-use App\Process\StateEventHandlers\Registry\Processes\StepStateEventHandlerRegistry;
+use App\Process\StateEventHandlers\HandlerRegistry\Processes\AccessStateEventHandlerRegistry;
+use App\Process\StateEventHandlers\HandlerRegistry\Processes\CompletionStateEventHandlerRegistry;
+use App\Process\StateEventHandlers\HandlerRegistry\Processes\PoiStateEventHandlerRegistry;
+use App\Process\StateEventHandlers\HandlerRegistry\Processes\ScenarioStateEventHandlerRegistry;
+use App\Process\StateEventHandlers\HandlerRegistry\Processes\StepStateEventHandlerRegistry;
 
 class StateEventHandlerRegistry implements StateEventHandlerRegistryInterface
 {
