@@ -1,6 +1,8 @@
 <?php
 namespace App\Services\Process;
 
+use App\Base\Enums\Processes\ProcessName;
+
 /**
  * Interface StateDetectingServiceInterface.
  * Provides functionality to detect,
@@ -22,14 +24,6 @@ interface StateManagingServiceInterface
      */
     function detectFullState();
 
-    function detectScenarioState();
-
-    function detectPoiState();
-
-    function detectStepState();
-
-    function detectAccessState();
-
-    function detectCompletionState();
+    function detectProcessState(ProcessName $processName);
 
 }

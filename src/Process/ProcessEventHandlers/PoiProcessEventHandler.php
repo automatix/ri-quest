@@ -13,7 +13,7 @@ class PoiProcessEventHandler extends AbstractProcessEventHandler
 
     public function handle(Event $event, EventName $eventName, EventDispatcherInterface $eventDispatcher)
     {
-        $currentState = $this->getStateManagingService()->detectPoiState();
+        $currentState = $this->getStateManagingService()->detectProcessState(ProcessName::POI());
         try {
             $concreteHandler = $this->getEventHandlerRegistry()->get(ProcessName::POI(), $currentState, $eventName);
             call_user_func($concreteHandler, $event, $eventName, $eventDispatcher);

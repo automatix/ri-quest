@@ -1,6 +1,7 @@
 <?php
 namespace App\Services\Process\Internal;
 
+use App\Base\Enums\Processes\ProcessName;
 use App\Base\Enums\Processes\States\AccessState;
 use App\Base\Enums\Processes\States\CompletionState;
 use App\Base\Enums\Processes\States\PoiState;
@@ -15,27 +16,50 @@ use App\Services\Process\StateManagingServiceInterface;
 class StateManagingService implements StateManagingServiceInterface
 {
 
-    public function detectScenarioState()
+    public function detectProcessState(ProcessName $processName)
+    {
+        $processState = null;
+        switch ($processName) {
+            case ProcessName::SCENARIO():
+                $processState = $this->detectScenarioState();
+                break;
+            case ProcessName::POI():
+                $processState = $this->detectPoiState();
+                break;
+            case ProcessName::STEP():
+                $processState = $this->detectStepState();
+                break;
+            case ProcessName::ACCESS():
+                $processState = $this->detectAccessState();
+                break;
+            case ProcessName::COMPLETION():
+                $processState = $this->detectCompletionState();
+                break;
+        }
+        return $processState;
+    }
+
+    private function detectScenarioState()
     {
         return ScenarioState::STARTED();
     }
 
-    public function detectPoiState()
+    private function detectPoiState()
     {
         return PoiState::STARTED();
     }
 
-    public function detectStepState()
+    private function detectStepState()
     {
         return StepState::STARTED();
     }
 
-    public function detectAccessState()
+    private function detectAccessState()
     {
         return AccessState::STARTED();
     }
 
-    public function detectCompletionState()
+    private function detectCompletionState()
     {
         return CompletionState::STARTED();
     }
