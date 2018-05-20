@@ -34,6 +34,7 @@ services:
     App\Process\SystemEventHandlerInterface:
         class: 'App\Process\SystemEventHandler'
         arguments:
+            - '@App\Process\ProcessEventHandlers\GenericProcessEventHandler'
             - '@App\Process\ProcessEventHandlers\StepProcessEventHandler'
             - '@App\Process\ProcessEventHandlers\PoiProcessEventHandler'
             - '@App\Process\ProcessEventHandlers\ScenarioProcessEventHandler'
