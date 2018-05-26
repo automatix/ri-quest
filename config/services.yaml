@@ -33,9 +33,6 @@ services:
     # events
     App\Process\SystemEventHandlerInterface:
         class: 'App\Process\SystemEventHandler'
-        arguments:
-            - '@App\Services\Process\StateManagingServiceInterface'
-            - '@App\Process\HandlerRegistry\StateEventHandlerRegistryInterface'
         tags:
             - { name: kernel.event_listener, event: general.user_message_received, method: handle }
             - { name: kernel.event_listener, event: step.foo, method: handle }
