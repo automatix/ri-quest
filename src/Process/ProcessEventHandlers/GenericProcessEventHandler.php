@@ -11,7 +11,7 @@ use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 class GenericProcessEventHandler extends AbstractProcessEventHandler
 {
 
-    public function handle(Event $event, EventName $eventName, EventDispatcherInterface $eventDispatcher, ProcessName $processName = null)
+    public function handle(ProcessName $processName, Event $event, EventName $eventName, EventDispatcherInterface $eventDispatcher)
     {
         $currentState = $this->getStateManagingService()->detectProcessState($processName);
         try {

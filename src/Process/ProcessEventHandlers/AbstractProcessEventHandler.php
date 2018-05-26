@@ -24,7 +24,7 @@ abstract class AbstractProcessEventHandler implements ProcessEventHandlerInterfa
         $this->stateEventHandlerRegistry = $stateEventHandlerRegistry;
     }
 
-    abstract function handle(Event $event, EventName $eventName, EventDispatcherInterface $eventDispatcher);
+    abstract function handle(ProcessName $processName, Event $event, EventName $eventName, EventDispatcherInterface $eventDispatcher);
 
     /**
      * @return StateManagingServiceInterface

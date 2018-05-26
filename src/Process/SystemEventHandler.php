@@ -23,7 +23,7 @@ class SystemEventHandler implements SystemEventHandlerInterface
     {
         $eventName = EventName::search($eventName);
         foreach ($this->getProcessNames() as $processName) {
-            $this->genericProcessEventHandler->handle($event, EventName::$eventName(), $eventDispatcher, $processName);
+            $this->genericProcessEventHandler->handle($processName, $event, EventName::$eventName(), $eventDispatcher);
         }
     }
 
