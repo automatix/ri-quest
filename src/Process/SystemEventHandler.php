@@ -3,27 +3,54 @@ namespace App\Process;
 
 use App\Base\Enums\Processes\EventNames\EventName;
 use App\Base\Enums\Processes\ProcessName;
-use App\Process\ProcessEventHandlers\GenericProcessEventHandler;
+use App\Base\Exceptions\EventHandlingException;
+use App\Process\HandlerRegistry\StateEventHandlerRegistryInterface;
+use App\Services\Process\StateManagingServiceInterface;
 use Symfony\Component\EventDispatcher\Event;
 use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 
 class SystemEventHandler implements SystemEventHandlerInterface
 {
 
-    /** @var GenericProcessEventHandler */
-    private $genericProcessEventHandler;
+    /** @var StateManagingServiceInterface $stateManagingService */
+    private $stateManagingService;
+    /** @var StateEventHandlerRegistryInterface $stateEventHandlerRegistry */
+    private $stateEventHandlerRegistry;
 
-    public function __construct(
-        GenericProcessEventHandler $genericProcessEventHandler
-    ) {
-        $this->genericProcessEventHandler = $genericProcessEventHandler;
+    public function __construct(StateManagingServiceInterface $stateManagingService, StateEventHandlerRegistryInterface $stateEventHandlerRegistry)
+    {
+        $this->stateManagingService = $stateManagingService;
+        $this->stateEventHandlerRegistry = $stateEventHandlerRegistry;
+    }
+
+    /**
+     * @return StateManagingServiceInterface
+     */
+    public function getStateManagingService(): StateManagingServiceInterface
+    {
+        return $this->stateManagingService;
+    }
+
+    /**
+     * @return StateEventHandlerRegistryInterface
+     */
+    public function getEventHandlerRegistry(): StateEventHandlerRegistryInterface
+    {
+        return $this->stateEventHandlerRegistry;
     }
 
     public function handle(Event $event, string $eventName, EventDispatcherInterface $eventDispatcher)
     {
         $eventName = EventName::search($eventName);
         foreach ($this->getProcessNames() as $processName) {
-            $this->genericProcessEventHandler->handle($processName, $event, EventName::$eventName(), $eventDispatcher);
+            $currentState = $this->getStateManagingService()->detectProcessState($processName);
+            try {
+                $concreteHandler = $this->getEventHandlerRegistry()->get($processName, $currentState, EventName::$eventName());
+                call_user_func($concreteHandler, $event, EventName::$eventName(), $eventDispatcher);
+            } catch (EventHandlingException $e) {
+                $breakpoint = null;
+                // do nothing...
+            }
         }
     }
 
