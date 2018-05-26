@@ -32,11 +32,11 @@ class StateEventHandlerRegistry implements StateEventHandlerRegistryInterface
     ) {
         $this->nameConverter = $nameConverter;
         $this->stateEventHandlers = [
-            ProcessName::SCENARIO => $scenarioStateEventHandlerRegistry->getStateEventHandlers(),
+            ProcessName::STEP => $stepStateEventHandlerRegistry->getStateEventHandlers(),
+            ProcessName::POI => $poiStateEventHandlerRegistry->getStateEventHandlers(),
             ProcessName::ACCESS => $accessStateEventHandlerRegistry->getStateEventHandlers(),
             ProcessName::COMPLETION => $completionStateEventHandlerRegistry->getStateEventHandlers(),
-            ProcessName::POI => $poiStateEventHandlerRegistry->getStateEventHandlers(),
-            ProcessName::STEP => $stepStateEventHandlerRegistry->getStateEventHandlers(),
+            ProcessName::SCENARIO => $scenarioStateEventHandlerRegistry->getStateEventHandlers(),
         ];
     }
 

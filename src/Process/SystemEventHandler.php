@@ -33,9 +33,9 @@ class SystemEventHandler implements SystemEventHandlerInterface
         return [
             ProcessName::STEP => ProcessName::STEP(),
             ProcessName::POI => ProcessName::POI(),
-            ProcessName::SCENARIO => ProcessName::SCENARIO(),
             ProcessName::ACCESS => ProcessName::ACCESS(),
             ProcessName::COMPLETION => ProcessName::COMPLETION(),
+            ProcessName::SCENARIO => ProcessName::SCENARIO(),
         ];
     }
 
