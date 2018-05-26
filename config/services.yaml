@@ -35,11 +35,6 @@ services:
         class: 'App\Process\SystemEventHandler'
         arguments:
             - '@App\Process\ProcessEventHandlers\GenericProcessEventHandler'
-            - '@App\Process\ProcessEventHandlers\StepProcessEventHandler'
-            - '@App\Process\ProcessEventHandlers\PoiProcessEventHandler'
-            - '@App\Process\ProcessEventHandlers\ScenarioProcessEventHandler'
-            - '@App\Process\ProcessEventHandlers\AccessProcessEventHandler'
-            - '@App\Process\ProcessEventHandlers\CompletionProcessEventHandler'
         tags:
             - { name: kernel.event_listener, event: general.user_message_received, method: handle }
             - { name: kernel.event_listener, event: step.foo, method: handle }
