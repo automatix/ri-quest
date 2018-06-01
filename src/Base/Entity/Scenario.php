@@ -1,0 +1,52 @@
+<?php
+
+namespace App\Base\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Scenario
+ *
+ * @ORM\Table(name="scenarios", indexes={@ORM\Index(name="fk_scenario_message_stack_idx", columns={"message_stack_id"})})
+ * @ORM\Entity
+ */
+class Scenario
+{
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="id", type="integer", nullable=false, options={"unsigned"=true})
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $id;
+
+    /**
+     * @var MessageStack
+     *
+     * @ORM\ManyToOne(targetEntity="MessageStack")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="message_stack_id", referencedColumnName="id")
+     * })
+     */
+    private $messageStack;
+
+    public function getId(): ?int
+    {
+        return $this->id;
+    }
+
+    public function getMessageStack(): ?MessageStack
+    {
+        return $this->messageStack;
+    }
+
+    public function setMessageStack(?MessageStack $messageStack): self
+    {
+        $this->messageStack = $messageStack;
+
+        return $this;
+    }
+
+
+}
