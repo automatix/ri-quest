@@ -12,14 +12,6 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Answer
 {
-    /**
-     * @var int
-     *
-     * @ORM\Column(name="id", type="integer", nullable=false, options={"unsigned"=true})
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="IDENTITY")
-     */
-    private $id;
 
     /**
      * @var MessageStack

@@ -12,17 +12,6 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class PlaceStep
 {
-    /**
-     * @var Step
-     *
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="NONE")
-     * @ORM\OneToOne(targetEntity="Step")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="id", referencedColumnName="id")
-     * })
-     */
-    private $id;
 
     public function getId(): ?Step
     {
