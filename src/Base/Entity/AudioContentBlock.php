@@ -13,17 +13,4 @@ use Doctrine\ORM\Mapping as ORM;
 class AudioContentBlock
 {
 
-    public function getId(): ?ContentBlock
-    {
-        return $this->id;
-    }
-
-    public function setId(?ContentBlock $id): self
-    {
-        $this->id = $id;
-
-        return $this;
-    }
-
-
 }

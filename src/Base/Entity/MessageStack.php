@@ -20,11 +20,6 @@ class MessageStack
      */
     private $context;
 
-    public function getId(): ?int
-    {
-        return $this->id;
-    }
-
     public function getContext(): ?string
     {
         return $this->context;

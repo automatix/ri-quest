@@ -33,11 +33,6 @@ class Quest
      */
     private $scenario;
 
-    public function getId(): ?int
-    {
-        return $this->id;
-    }
-
     public function getProcess(): ?Process
     {
         return $this->process;

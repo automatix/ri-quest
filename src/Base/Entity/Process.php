@@ -37,11 +37,6 @@ class Process
      */
     private $process;
 
-    public function getId(): ?int
-    {
-        return $this->id;
-    }
-
     public function getType(): ?string
     {
         return $this->type;

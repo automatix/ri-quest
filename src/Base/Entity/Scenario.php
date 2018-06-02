@@ -23,11 +23,6 @@ class Scenario
      */
     private $messageStack;
 
-    public function getId(): ?int
-    {
-        return $this->id;
-    }
-
     public function getMessageStack(): ?MessageStack
     {
         return $this->messageStack;

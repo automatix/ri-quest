@@ -32,17 +32,4 @@ class Question
         return $this;
     }
 
-    public function getId(): ?Task
-    {
-        return $this->id;
-    }
-
-    public function setId(?Task $id): self
-    {
-        $this->id = $id;
-
-        return $this;
-    }
-
-
 }

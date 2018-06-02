@@ -13,17 +13,4 @@ use Doctrine\ORM\Mapping as ORM;
 class PlaceStep
 {
 
-    public function getId(): ?Step
-    {
-        return $this->id;
-    }
-
-    public function setId(?Step $id): self
-    {
-        $this->id = $id;
-
-        return $this;
-    }
-
-
 }

@@ -30,11 +30,6 @@ class ContentBlock
      */
     private $message;
 
-    public function getId(): ?int
-    {
-        return $this->id;
-    }
-
     public function getOrder(): ?bool
     {
         return $this->order;

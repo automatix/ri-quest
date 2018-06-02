@@ -33,11 +33,6 @@ class Answer
      */
     private $question;
 
-    public function getId(): ?int
-    {
-        return $this->id;
-    }
-
     public function getMessageStack(): ?MessageStack
     {
         return $this->messageStack;
