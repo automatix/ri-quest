@@ -10,7 +10,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table(name="pois", indexes={@ORM\Index(name="fk_poi_scenario_idx", columns={"scenario_id"}), @ORM\Index(name="fk_poi_message_stack_idx", columns={"message_stack_id"})})
  * @ORM\Entity
  */
-class Poi
+class Poi extends AbstractEntity
 {
 
     /**

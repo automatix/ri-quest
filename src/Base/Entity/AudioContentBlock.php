@@ -10,7 +10,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table(name="audio_content_blocks")
  * @ORM\Entity
  */
-class AudioContentBlock
+class AudioContentBlock extends AbstractEntity
 {
 
 }

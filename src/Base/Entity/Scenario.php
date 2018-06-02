@@ -10,7 +10,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table(name="scenarios", indexes={@ORM\Index(name="fk_scenario_message_stack_idx", columns={"message_stack_id"})})
  * @ORM\Entity
  */
-class Scenario
+class Scenario extends AbstractEntity
 {
 
     /**

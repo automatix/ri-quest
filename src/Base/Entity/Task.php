@@ -10,7 +10,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table(name="tasks", indexes={@ORM\Index(name="fk_task_task_step_idx", columns={"task_steps_id"}), @ORM\Index(name="fk_task_message_stack_idx", columns={"message_stack_id"})})
  * @ORM\Entity
  */
-class Task
+class Task extends AbstractEntity
 {
 
     /**

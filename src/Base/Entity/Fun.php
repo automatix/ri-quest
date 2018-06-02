@@ -10,7 +10,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table(name="funs")
  * @ORM\Entity
  */
-class Fun
+class Fun extends AbstractEntity
 {
 
 }

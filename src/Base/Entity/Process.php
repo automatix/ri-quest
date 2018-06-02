@@ -10,7 +10,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table(name="processes", indexes={@ORM\Index(name="fk_process_process_idx", columns={"process_id"})})
  * @ORM\Entity
  */
-class Process
+class Process extends AbstractEntity
 {
 
     /**

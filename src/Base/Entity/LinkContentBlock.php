@@ -10,7 +10,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table(name="link_content_blocks")
  * @ORM\Entity
  */
-class LinkContentBlock
+class LinkContentBlock extends AbstractEntity
 {
 
 }

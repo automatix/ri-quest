@@ -10,7 +10,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table(name="video_content_blocks")
  * @ORM\Entity
  */
-class VideoContentBlock
+class VideoContentBlock extends AbstractEntity
 {
 
 }
