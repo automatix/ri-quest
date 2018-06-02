@@ -10,7 +10,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table(name="task_steps")
  * @ORM\Entity
  */
-class TaskStep extends AbstractEntity
+class TaskStep extends AbstractStep
 {
 
 }

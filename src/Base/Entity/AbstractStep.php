@@ -7,10 +7,23 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Step
  *
- * @ORM\Table(name="steps", indexes={@ORM\Index(name="fk_step_poi_idx", columns={"poi_id"}), @ORM\Index(name="fk_step_message_stack_idx", columns={"message_stack_id"})})
+ * @ORM\Table(
+ *     name="steps",
+ *     indexes={
+ *         @ORM\Index(name="fk_step_poi_idx", columns={"poi_id"}),
+ *         @ORM\Index(name="fk_step_message_stack_idx", columns={"message_stack_id"})
+ *     }
+ * )
  * @ORM\Entity
+ * @ORM\InheritanceType("JOINED")
+ * @ORM\DiscriminatorColumn(name="type", type="string")
+ * @ORM\DiscriminatorMap({
+ *     "info" = "InfoStep",
+ *     "place" = "PlaceStep",
+ *     "task" = "TaskStep",
+ * })
  */
-class Step extends AbstractEntity
+class AbstractStep extends AbstractEntity
 {
 
     /**
