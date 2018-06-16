@@ -2,6 +2,7 @@
 
 namespace App\Base\Entity;
 
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -34,7 +35,7 @@ class ProcessMessageStacks
     private $event;
 
     /**
-     * @var \MessageStacks
+     * @var MessageStacks
      *
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="NONE")
@@ -46,7 +47,7 @@ class ProcessMessageStacks
     private $id;
 
     /**
-     * @var \Doctrine\Common\Collections\Collection
+     * @var Collection
      *
      * @ORM\ManyToMany(targetEntity="Processes", mappedBy="processMessageStack")
      */

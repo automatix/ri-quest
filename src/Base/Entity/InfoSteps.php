@@ -20,7 +20,7 @@ class InfoSteps
     private $stepType;
 
     /**
-     * @var \Processes
+     * @var Processes
      *
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="NONE")

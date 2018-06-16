@@ -13,7 +13,7 @@ use Doctrine\ORM\Mapping as ORM;
 class Pois
 {
     /**
-     * @var \Processes
+     * @var Processes
      *
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="NONE")

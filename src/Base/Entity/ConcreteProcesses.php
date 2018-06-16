@@ -36,7 +36,7 @@ class ConcreteProcesses
     private $state = 'unknown';
 
     /**
-     * @var \ConcreteProcesses
+     * @var ConcreteProcesses
      *
      * @ORM\ManyToOne(targetEntity="ConcreteProcesses")
      * @ORM\JoinColumns({

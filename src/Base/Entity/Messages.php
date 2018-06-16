@@ -29,7 +29,7 @@ class Messages
     private $order;
 
     /**
-     * @var \MessageStacks
+     * @var MessageStacks
      *
      * @ORM\ManyToOne(targetEntity="MessageStacks")
      * @ORM\JoinColumns({

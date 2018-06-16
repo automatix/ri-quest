@@ -2,6 +2,7 @@
 
 namespace App\Base\Entity;
 
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -20,7 +21,7 @@ class SemanticalMessageStacks
     private $semantic;
 
     /**
-     * @var \MessageStacks
+     * @var MessageStacks
      *
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="NONE")
@@ -32,14 +33,14 @@ class SemanticalMessageStacks
     private $id;
 
     /**
-     * @var \Doctrine\Common\Collections\Collection
+     * @var Collection
      *
      * @ORM\ManyToMany(targetEntity="Answers", mappedBy="semanticalMessageStack")
      */
     private $answer;
 
     /**
-     * @var \Doctrine\Common\Collections\Collection
+     * @var Collection
      *
      * @ORM\ManyToMany(targetEntity="Tasks", mappedBy="semanticalMessageStack")
      */

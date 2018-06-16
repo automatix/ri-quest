@@ -22,7 +22,7 @@ class Quests
     private $id;
 
     /**
-     * @var \ConcreteProcesses
+     * @var ConcreteProcesses
      *
      * @ORM\ManyToOne(targetEntity="ConcreteProcesses")
      * @ORM\JoinColumns({
@@ -32,7 +32,7 @@ class Quests
     private $concreteProcess;
 
     /**
-     * @var \Scenarios
+     * @var Scenarios
      *
      * @ORM\ManyToOne(targetEntity="Scenarios")
      * @ORM\JoinColumns({

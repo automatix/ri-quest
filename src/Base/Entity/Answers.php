@@ -2,6 +2,7 @@
 
 namespace App\Base\Entity;
 
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -36,7 +37,7 @@ class Answers
     private $type;
 
     /**
-     * @var \QuestionTasks
+     * @var QuestionTasks
      *
      * @ORM\ManyToOne(targetEntity="QuestionTasks")
      * @ORM\JoinColumns({
@@ -46,7 +47,7 @@ class Answers
     private $question;
 
     /**
-     * @var \Doctrine\Common\Collections\Collection
+     * @var Collection
      *
      * @ORM\ManyToMany(targetEntity="SemanticalMessageStacks", inversedBy="answer")
      * @ORM\JoinTable(name="answers_semantical_message_stacks",

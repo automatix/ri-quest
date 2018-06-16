@@ -20,7 +20,7 @@ class AudioContentBlocks
     private $src;
 
     /**
-     * @var \ContentBlocks
+     * @var ContentBlocks
      *
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="NONE")

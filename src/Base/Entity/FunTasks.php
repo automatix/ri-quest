@@ -13,7 +13,7 @@ use Doctrine\ORM\Mapping as ORM;
 class FunTasks
 {
     /**
-     * @var \Tasks
+     * @var Tasks
      *
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="NONE")

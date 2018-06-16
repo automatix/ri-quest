@@ -2,6 +2,7 @@
 
 namespace App\Base\Entity;
 
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -22,7 +23,7 @@ class Tasks
     private $id;
 
     /**
-     * @var \TaskSteps
+     * @var TaskSteps
      *
      * @ORM\ManyToOne(targetEntity="TaskSteps")
      * @ORM\JoinColumns({
@@ -32,7 +33,7 @@ class Tasks
     private $taskStep;
 
     /**
-     * @var \Doctrine\Common\Collections\Collection
+     * @var Collection
      *
      * @ORM\ManyToMany(targetEntity="SemanticalMessageStacks", inversedBy="task")
      * @ORM\JoinTable(name="tasks_semantical_message_stacks",

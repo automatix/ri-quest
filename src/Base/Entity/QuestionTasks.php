@@ -20,7 +20,7 @@ class QuestionTasks
     private $text;
 
     /**
-     * @var \Tasks
+     * @var Tasks
      *
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="NONE")

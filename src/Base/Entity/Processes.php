@@ -2,6 +2,7 @@
 
 namespace App\Base\Entity;
 
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -29,7 +30,7 @@ class Processes
     private $order;
 
     /**
-     * @var \Processes
+     * @var Processes
      *
      * @ORM\ManyToOne(targetEntity="Processes")
      * @ORM\JoinColumns({
@@ -39,7 +40,7 @@ class Processes
     private $parent;
 
     /**
-     * @var \Doctrine\Common\Collections\Collection
+     * @var Collection
      *
      * @ORM\ManyToMany(targetEntity="ProcessMessageStacks", inversedBy="process")
      * @ORM\JoinTable(name="process_process_message_stack",

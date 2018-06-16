@@ -20,7 +20,7 @@ class TextContentBlocks
     private $text;
 
     /**
-     * @var \ContentBlocks
+     * @var ContentBlocks
      *
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="NONE")

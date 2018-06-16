@@ -29,7 +29,7 @@ class ContentBlocks
     private $order;
 
     /**
-     * @var \Messages
+     * @var Messages
      *
      * @ORM\ManyToOne(targetEntity="Messages")
      * @ORM\JoinColumns({
