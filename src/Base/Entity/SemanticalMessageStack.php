@@ -33,27 +33,4 @@ class SemanticalMessageStack
      */
     private $id;
 
-    /**
-     * @var Collection
-     *
-     * @ORM\ManyToMany(targetEntity="Answer", mappedBy="semanticalMessageStack")
-     */
-    private $answer;
-
-    /**
-     * @var Collection
-     *
-     * @ORM\ManyToMany(targetEntity="Task", mappedBy="semanticalMessageStack")
-     */
-    private $task;
-
-    /**
-     * Constructor
-     */
-    public function __construct()
-    {
-        $this->answer = new ArrayCollection();
-        $this->task = new ArrayCollection();
-    }
-
 }

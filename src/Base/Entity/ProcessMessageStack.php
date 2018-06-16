@@ -47,19 +47,4 @@ class ProcessMessageStack
      */
     private $id;
 
-    /**
-     * @var Collection
-     *
-     * @ORM\ManyToMany(targetEntity="Process", mappedBy="processMessageStack")
-     */
-    private $process;
-
-    /**
-     * Constructor
-     */
-    public function __construct()
-    {
-        $this->process = new ArrayCollection();
-    }
-
 }
