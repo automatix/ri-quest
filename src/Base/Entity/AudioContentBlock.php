@@ -5,26 +5,26 @@ namespace App\Base\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * InfoSteps
+ * AudioContentBlock
  *
- * @ORM\Table(name="info_steps")
+ * @ORM\Table(name="audio_content_blocks")
  * @ORM\Entity
  */
-class InfoSteps
+class AudioContentBlock
 {
     /**
-     * @var string
+     * @var string|null
      *
-     * @ORM\Column(name="step_type", type="string", length=0, nullable=false)
+     * @ORM\Column(name="src", type="string", length=1000, nullable=true)
      */
-    private $stepType;
+    private $src;
 
     /**
-     * @var Processes
+     * @var ContentBlock
      *
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="NONE")
-     * @ORM\OneToOne(targetEntity="Processes")
+     * @ORM\OneToOne(targetEntity="ContentBlock")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="id", referencedColumnName="id")
      * })

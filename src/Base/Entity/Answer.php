@@ -6,12 +6,12 @@ use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Tasks
+ * Answer
  *
- * @ORM\Table(name="tasks", indexes={@ORM\Index(name="fk_task_task_step_idx", columns={"task_step_id"})})
+ * @ORM\Table(name="answers", indexes={@ORM\Index(name="fk_answer_question_idx", columns={"question_id"})})
  * @ORM\Entity
  */
-class Tasks
+class Answer
 {
     /**
      * @var int
@@ -23,22 +23,36 @@ class Tasks
     private $id;
 
     /**
-     * @var TaskSteps
+     * @var string
      *
-     * @ORM\ManyToOne(targetEntity="TaskSteps")
+     * @ORM\Column(name="text", type="string", length=50, nullable=false)
+     */
+    private $text;
+
+    /**
+     * @var string|null
+     *
+     * @ORM\Column(name="type", type="string", length=0, nullable=true)
+     */
+    private $type;
+
+    /**
+     * @var QuestionTask
+     *
+     * @ORM\ManyToOne(targetEntity="QuestionTask")
      * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="task_step_id", referencedColumnName="id")
+     *   @ORM\JoinColumn(name="question_id", referencedColumnName="id")
      * })
      */
-    private $taskStep;
+    private $question;
 
     /**
      * @var Collection
      *
-     * @ORM\ManyToMany(targetEntity="SemanticalMessageStacks", inversedBy="task")
-     * @ORM\JoinTable(name="tasks_semantical_message_stacks",
+     * @ORM\ManyToMany(targetEntity="SemanticalMessageStack", inversedBy="answer")
+     * @ORM\JoinTable(name="answers_semantical_message_stacks",
      *   joinColumns={
-     *     @ORM\JoinColumn(name="task_id", referencedColumnName="id")
+     *     @ORM\JoinColumn(name="answer_id", referencedColumnName="id")
      *   },
      *   inverseJoinColumns={
      *     @ORM\JoinColumn(name="semantical_message_stack_id", referencedColumnName="id")

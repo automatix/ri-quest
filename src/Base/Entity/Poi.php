@@ -5,26 +5,19 @@ namespace App\Base\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * QuestionTasks
+ * Poi
  *
- * @ORM\Table(name="question_tasks")
+ * @ORM\Table(name="pois")
  * @ORM\Entity
  */
-class QuestionTasks
+class Poi
 {
     /**
-     * @var string|null
-     *
-     * @ORM\Column(name="text", type="string", length=50, nullable=true)
-     */
-    private $text;
-
-    /**
-     * @var Tasks
+     * @var Process
      *
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="NONE")
-     * @ORM\OneToOne(targetEntity="Tasks")
+     * @ORM\OneToOne(targetEntity="Process")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="id", referencedColumnName="id")
      * })

@@ -6,12 +6,12 @@ use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * SemanticalMessageStacks
+ * SemanticalMessageStack
  *
  * @ORM\Table(name="semantical_message_stacks")
  * @ORM\Entity
  */
-class SemanticalMessageStacks
+class SemanticalMessageStack
 {
     /**
      * @var string|null
@@ -21,11 +21,11 @@ class SemanticalMessageStacks
     private $semantic;
 
     /**
-     * @var MessageStacks
+     * @var MessageStack
      *
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="NONE")
-     * @ORM\OneToOne(targetEntity="MessageStacks")
+     * @ORM\OneToOne(targetEntity="MessageStack")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="id", referencedColumnName="id")
      * })
@@ -35,14 +35,14 @@ class SemanticalMessageStacks
     /**
      * @var Collection
      *
-     * @ORM\ManyToMany(targetEntity="Answers", mappedBy="semanticalMessageStack")
+     * @ORM\ManyToMany(targetEntity="Answer", mappedBy="semanticalMessageStack")
      */
     private $answer;
 
     /**
      * @var Collection
      *
-     * @ORM\ManyToMany(targetEntity="Tasks", mappedBy="semanticalMessageStack")
+     * @ORM\ManyToMany(targetEntity="Task", mappedBy="semanticalMessageStack")
      */
     private $task;
 

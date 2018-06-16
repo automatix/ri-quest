@@ -6,12 +6,12 @@ use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * ProcessMessageStacks
+ * ProcessMessageStack
  *
  * @ORM\Table(name="process_message_stacks")
  * @ORM\Entity
  */
-class ProcessMessageStacks
+class ProcessMessageStack
 {
     /**
      * @var string
@@ -35,11 +35,11 @@ class ProcessMessageStacks
     private $event;
 
     /**
-     * @var MessageStacks
+     * @var MessageStack
      *
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="NONE")
-     * @ORM\OneToOne(targetEntity="MessageStacks")
+     * @ORM\OneToOne(targetEntity="MessageStack")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="id", referencedColumnName="id")
      * })
@@ -49,7 +49,7 @@ class ProcessMessageStacks
     /**
      * @var Collection
      *
-     * @ORM\ManyToMany(targetEntity="Processes", mappedBy="processMessageStack")
+     * @ORM\ManyToMany(targetEntity="Process", mappedBy="processMessageStack")
      */
     private $process;
 

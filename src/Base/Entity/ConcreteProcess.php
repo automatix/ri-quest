@@ -5,12 +5,12 @@ namespace App\Base\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * ConcreteProcesses
+ * ConcreteProcess
  *
  * @ORM\Table(name="concrete_processes", indexes={@ORM\Index(name="fk_concrete_process_concrete_process_idx", columns={"parent_id"})})
  * @ORM\Entity
  */
-class ConcreteProcesses
+class ConcreteProcess
 {
     /**
      * @var int
@@ -36,9 +36,9 @@ class ConcreteProcesses
     private $state = 'unknown';
 
     /**
-     * @var ConcreteProcesses
+     * @var ConcreteProcess
      *
-     * @ORM\ManyToOne(targetEntity="ConcreteProcesses")
+     * @ORM\ManyToOne(targetEntity="ConcreteProcess")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="parent_id", referencedColumnName="id")
      * })

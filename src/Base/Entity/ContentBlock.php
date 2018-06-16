@@ -5,12 +5,12 @@ namespace App\Base\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Messages
+ * ContentBlock
  *
- * @ORM\Table(name="messages", indexes={@ORM\Index(name="fk_message_message_stack_idx", columns={"message_stack_id"})})
+ * @ORM\Table(name="content_blocks", indexes={@ORM\Index(name="fk_content_block_message_idx", columns={"message_id"})})
  * @ORM\Entity
  */
-class Messages
+class ContentBlock
 {
     /**
      * @var int
@@ -29,14 +29,14 @@ class Messages
     private $order;
 
     /**
-     * @var MessageStacks
+     * @var Message
      *
-     * @ORM\ManyToOne(targetEntity="MessageStacks")
+     * @ORM\ManyToOne(targetEntity="Message")
      * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="message_stack_id", referencedColumnName="id")
+     *   @ORM\JoinColumn(name="message_id", referencedColumnName="id")
      * })
      */
-    private $messageStack;
+    private $message;
 
 
 }

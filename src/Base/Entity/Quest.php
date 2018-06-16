@@ -5,12 +5,12 @@ namespace App\Base\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Quests
+ * Quest
  *
  * @ORM\Table(name="quests", indexes={@ORM\Index(name="fk_quest_scenario_idx", columns={"scenario_id"}), @ORM\Index(name="fk_quest_concrete_process_idx", columns={"concrete_process_id"})})
  * @ORM\Entity
  */
-class Quests
+class Quest
 {
     /**
      * @var int
@@ -22,9 +22,9 @@ class Quests
     private $id;
 
     /**
-     * @var ConcreteProcesses
+     * @var ConcreteProcess
      *
-     * @ORM\ManyToOne(targetEntity="ConcreteProcesses")
+     * @ORM\ManyToOne(targetEntity="ConcreteProcess")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="concrete_process_id", referencedColumnName="id")
      * })
@@ -32,9 +32,9 @@ class Quests
     private $concreteProcess;
 
     /**
-     * @var Scenarios
+     * @var Scenario
      *
-     * @ORM\ManyToOne(targetEntity="Scenarios")
+     * @ORM\ManyToOne(targetEntity="Scenario")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="scenario_id", referencedColumnName="id")
      * })

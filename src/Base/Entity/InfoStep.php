@@ -5,19 +5,26 @@ namespace App\Base\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * FunTasks
+ * InfoStep
  *
- * @ORM\Table(name="fun_tasks")
+ * @ORM\Table(name="info_steps")
  * @ORM\Entity
  */
-class FunTasks
+class InfoStep
 {
     /**
-     * @var Tasks
+     * @var string
+     *
+     * @ORM\Column(name="step_type", type="string", length=0, nullable=false)
+     */
+    private $stepType;
+
+    /**
+     * @var Process
      *
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="NONE")
-     * @ORM\OneToOne(targetEntity="Tasks")
+     * @ORM\OneToOne(targetEntity="Process")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="id", referencedColumnName="id")
      * })

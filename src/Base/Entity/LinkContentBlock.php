@@ -5,26 +5,26 @@ namespace App\Base\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * TextContentBlocks
+ * LinkContentBlock
  *
- * @ORM\Table(name="text_content_blocks")
+ * @ORM\Table(name="link_content_blocks")
  * @ORM\Entity
  */
-class TextContentBlocks
+class LinkContentBlock
 {
     /**
-     * @var string
+     * @var string|null
      *
-     * @ORM\Column(name="text", type="string", length=1000, nullable=false)
+     * @ORM\Column(name="text", type="string", length=1000, nullable=true)
      */
     private $text;
 
     /**
-     * @var ContentBlocks
+     * @var ContentBlock
      *
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="NONE")
-     * @ORM\OneToOne(targetEntity="ContentBlocks")
+     * @ORM\OneToOne(targetEntity="ContentBlock")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="id", referencedColumnName="id")
      * })
