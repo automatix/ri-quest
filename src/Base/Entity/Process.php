@@ -2,6 +2,7 @@
 
 namespace App\Base\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
@@ -59,7 +60,7 @@ class Process
      */
     public function __construct()
     {
-        $this->processMessageStack = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->processMessageStack = new ArrayCollection();
     }
 
 }

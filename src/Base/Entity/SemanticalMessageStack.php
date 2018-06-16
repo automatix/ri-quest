@@ -2,6 +2,7 @@
 
 namespace App\Base\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
@@ -51,8 +52,8 @@ class SemanticalMessageStack
      */
     public function __construct()
     {
-        $this->answer = new \Doctrine\Common\Collections\ArrayCollection();
-        $this->task = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->answer = new ArrayCollection();
+        $this->task = new ArrayCollection();
     }
 
 }
