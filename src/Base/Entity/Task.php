@@ -36,7 +36,7 @@ class Task
     /**
      * @var Collection
      *
-     * @ORM\ManyToMany(targetEntity="SemanticalMessageStack", inversedBy="task")
+     * @ORM\ManyToMany(targetEntity="SemanticalMessageStack")
      * @ORM\JoinTable(name="tasks_semantical_message_stacks",
      *   joinColumns={
      *     @ORM\JoinColumn(name="task_id", referencedColumnName="id")

@@ -43,7 +43,7 @@ class Process
     /**
      * @var Collection
      *
-     * @ORM\ManyToMany(targetEntity="ProcessMessageStack", inversedBy="process")
+     * @ORM\ManyToMany(targetEntity="ProcessMessageStack")
      * @ORM\JoinTable(name="process_process_message_stack",
      *   joinColumns={
      *     @ORM\JoinColumn(name="process_id", referencedColumnName="id")

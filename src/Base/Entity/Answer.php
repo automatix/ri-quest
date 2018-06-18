@@ -50,7 +50,7 @@ class Answer
     /**
      * @var Collection
      *
-     * @ORM\ManyToMany(targetEntity="SemanticalMessageStack", inversedBy="answer")
+     * @ORM\ManyToMany(targetEntity="SemanticalMessageStack")
      * @ORM\JoinTable(name="answers_semantical_message_stacks",
      *   joinColumns={
      *     @ORM\JoinColumn(name="answer_id", referencedColumnName="id")
