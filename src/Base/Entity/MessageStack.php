@@ -10,7 +10,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table(name="message_stacks")
  * @ORM\Entity
  * @ORM\InheritanceType("JOINED")
- * @ORM\DiscriminatorColumn(name="type", type="string")
+ * @ORM\DiscriminatorColumn(name="type", type="string", columnDefinition="ENUM('process', 'semantical')")
  * @ORM\DiscriminatorMap({
  *     "process" = "ProcessMessageStack",
  *     "semantical" = "SemanticalMessageStack"

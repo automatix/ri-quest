@@ -10,7 +10,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table(name="content_blocks", indexes={@ORM\Index(name="fk_content_block_message_idx", columns={"message_id"})})
  * @ORM\Entity
  * @ORM\InheritanceType("JOINED")
- * @ORM\DiscriminatorColumn(name="type", type="string")
+ * @ORM\DiscriminatorColumn(name="type", type="string", columnDefinition="ENUM('text', 'image', 'link', 'audio', 'video')")
  * @ORM\DiscriminatorMap({
  *     "text" = "TextContentBlock",
  *     "image" = "ImageContentBlock",
