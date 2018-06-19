@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Base\Entity;
 
 use Doctrine\Common\Collections\ArrayCollection;
@@ -46,16 +45,11 @@ abstract class Task extends AbstractEntity
      */
     private $semanticalMessageStack;
 
-    /**
-     * Constructor
-     */
     public function __construct()
     {
         parent::__construct();
         $this->semanticalMessageStack = new ArrayCollection();
     }
-
-
 
     public function getTaskStep(): ?TaskStep
     {
@@ -65,7 +59,6 @@ abstract class Task extends AbstractEntity
     public function setTaskStep(?TaskStep $taskStep): self
     {
         $this->taskStep = $taskStep;
-
         return $this;
     }
 
@@ -82,7 +75,6 @@ abstract class Task extends AbstractEntity
         if (!$this->semanticalMessageStack->contains($semanticalMessageStack)) {
             $this->semanticalMessageStack[] = $semanticalMessageStack;
         }
-
         return $this;
     }
 
@@ -91,7 +83,6 @@ abstract class Task extends AbstractEntity
         if ($this->semanticalMessageStack->contains($semanticalMessageStack)) {
             $this->semanticalMessageStack->removeElement($semanticalMessageStack);
         }
-
         return $this;
     }
 

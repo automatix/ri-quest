@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Base\Entity;
 
 use Doctrine\Common\Collections\ArrayCollection;
@@ -57,9 +56,6 @@ abstract class Process extends AbstractEntity
      */
     private $processMessageStack;
 
-    /**
-     * Constructor
-     */
     public function __construct()
     {
         parent::__construct();
@@ -74,7 +70,6 @@ abstract class Process extends AbstractEntity
     public function setOrder(bool $order): self
     {
         $this->order = $order;
-
         return $this;
     }
 
@@ -86,7 +81,6 @@ abstract class Process extends AbstractEntity
     public function setParent(?self $parent): self
     {
         $this->parent = $parent;
-
         return $this;
     }
 
@@ -103,7 +97,6 @@ abstract class Process extends AbstractEntity
         if (!$this->processMessageStack->contains($processMessageStack)) {
             $this->processMessageStack[] = $processMessageStack;
         }
-
         return $this;
     }
 
@@ -112,7 +105,6 @@ abstract class Process extends AbstractEntity
         if ($this->processMessageStack->contains($processMessageStack)) {
             $this->processMessageStack->removeElement($processMessageStack);
         }
-
         return $this;
     }
 

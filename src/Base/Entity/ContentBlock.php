@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Base\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
@@ -39,8 +38,6 @@ abstract class ContentBlock extends AbstractEntity
      */
     private $message;
 
-
-
     public function getOrder(): ?bool
     {
         return $this->order;
@@ -49,7 +46,6 @@ abstract class ContentBlock extends AbstractEntity
     public function setOrder(?bool $order): self
     {
         $this->order = $order;
-
         return $this;
     }
 
@@ -61,9 +57,6 @@ abstract class ContentBlock extends AbstractEntity
     public function setMessage(?Message $message): self
     {
         $this->message = $message;
-
         return $this;
     }
-
-
 }

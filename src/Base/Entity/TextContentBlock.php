@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Base\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
@@ -27,9 +26,6 @@ class TextContentBlock extends ContentBlock
     public function setText(string $text): self
     {
         $this->text = $text;
-
         return $this;
     }
-
-
 }

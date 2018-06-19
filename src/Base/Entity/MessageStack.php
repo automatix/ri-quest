@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Base\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
@@ -18,8 +17,6 @@ use Doctrine\ORM\Mapping as ORM;
  */
 abstract class MessageStack extends AbstractEntity
 {
-
-
 
 
 }

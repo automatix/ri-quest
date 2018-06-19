@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Base\Entity;
 
 use Doctrine\Common\Collections\ArrayCollection;
@@ -43,7 +42,6 @@ class ProcessMessageStack extends MessageStack
     public function setProcessx(string $processx): self
     {
         $this->processx = $processx;
-
         return $this;
     }
 
@@ -55,7 +53,6 @@ class ProcessMessageStack extends MessageStack
     public function setState(string $state): self
     {
         $this->state = $state;
-
         return $this;
     }
 
@@ -67,7 +64,6 @@ class ProcessMessageStack extends MessageStack
     public function setEvent(string $event): self
     {
         $this->event = $event;
-
         return $this;
     }
 

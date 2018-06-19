@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Base\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
@@ -27,9 +26,6 @@ class VideoContentBlock extends ContentBlock
     public function setSrc(?string $src): self
     {
         $this->src = $src;
-
         return $this;
     }
-
-
 }

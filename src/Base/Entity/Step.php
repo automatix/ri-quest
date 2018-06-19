@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Base\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
@@ -28,7 +27,6 @@ class Step extends Process
     public function setStepType(string $stepType): self
     {
         $this->stepType = $stepType;
-
         return $this;
     }
 

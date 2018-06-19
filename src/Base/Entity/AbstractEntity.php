@@ -32,7 +32,6 @@ abstract class AbstractEntity
 
     public function __construct()
     {
-        parent::__construct();
         $this->dateCreated = new DateTime();
         $this->dateModified = new DateTime();
     }

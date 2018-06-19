@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Base\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
@@ -27,9 +26,6 @@ class QuestionTask extends Task
     public function setText(?string $text): self
     {
         $this->text = $text;
-
         return $this;
     }
-
-
 }

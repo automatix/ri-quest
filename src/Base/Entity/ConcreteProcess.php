@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Base\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
@@ -37,8 +36,6 @@ class ConcreteProcess extends AbstractEntity
      */
     private $parent;
 
-
-
     public function getType(): ?string
     {
         return $this->type;
@@ -47,7 +44,6 @@ class ConcreteProcess extends AbstractEntity
     public function setType(string $type): self
     {
         $this->type = $type;
-
         return $this;
     }
 
@@ -59,7 +55,6 @@ class ConcreteProcess extends AbstractEntity
     public function setState(string $state): self
     {
         $this->state = $state;
-
         return $this;
     }
 
@@ -71,9 +66,6 @@ class ConcreteProcess extends AbstractEntity
     public function setParent(?self $parent): self
     {
         $this->parent = $parent;
-
         return $this;
     }
-
-
 }

@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Base\Entity;
 
 use Doctrine\Common\Collections\ArrayCollection;
@@ -29,7 +28,6 @@ class SemanticalMessageStack extends MessageStack
     public function setSemantic(?string $semantic): self
     {
         $this->semantic = $semantic;
-
         return $this;
     }
 

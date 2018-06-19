@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Base\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
@@ -33,8 +32,6 @@ class Quest extends AbstractEntity
      */
     private $scenario;
 
-
-
     public function getConcreteProcess(): ?ConcreteProcess
     {
         return $this->concreteProcess;
@@ -43,7 +40,6 @@ class Quest extends AbstractEntity
     public function setConcreteProcess(?ConcreteProcess $concreteProcess): self
     {
         $this->concreteProcess = $concreteProcess;
-
         return $this;
     }
 
@@ -55,9 +51,6 @@ class Quest extends AbstractEntity
     public function setScenario(?Scenario $scenario): self
     {
         $this->scenario = $scenario;
-
         return $this;
     }
-
-
 }

@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Base\Entity;
 
 use Doctrine\Common\Collections\ArrayCollection;
@@ -54,16 +53,11 @@ class Answer extends AbstractEntity
      */
     private $semanticalMessageStack;
 
-    /**
-     * Constructor
-     */
     public function __construct()
     {
         parent::__construct();
         $this->semanticalMessageStack = new ArrayCollection();
     }
-
-
 
     public function getText(): ?string
     {
@@ -73,7 +67,6 @@ class Answer extends AbstractEntity
     public function setText(string $text): self
     {
         $this->text = $text;
-
         return $this;
     }
 
@@ -85,7 +78,6 @@ class Answer extends AbstractEntity
     public function setType(?string $type): self
     {
         $this->type = $type;
-
         return $this;
     }
 
@@ -97,7 +89,6 @@ class Answer extends AbstractEntity
     public function setQuestion(?QuestionTask $question): self
     {
         $this->question = $question;
-
         return $this;
     }
 
@@ -114,7 +105,6 @@ class Answer extends AbstractEntity
         if (!$this->semanticalMessageStack->contains($semanticalMessageStack)) {
             $this->semanticalMessageStack[] = $semanticalMessageStack;
         }
-
         return $this;
     }
 
@@ -123,7 +113,6 @@ class Answer extends AbstractEntity
         if ($this->semanticalMessageStack->contains($semanticalMessageStack)) {
             $this->semanticalMessageStack->removeElement($semanticalMessageStack);
         }
-
         return $this;
     }
 

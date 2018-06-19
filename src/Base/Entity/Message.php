@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Base\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
@@ -30,8 +29,6 @@ class Message extends AbstractEntity
      */
     private $messageStack;
 
-
-
     public function getOrder(): ?bool
     {
         return $this->order;
@@ -40,7 +37,6 @@ class Message extends AbstractEntity
     public function setOrder(?bool $order): self
     {
         $this->order = $order;
-
         return $this;
     }
 
@@ -52,9 +48,6 @@ class Message extends AbstractEntity
     public function setMessageStack(?MessageStack $messageStack): self
     {
         $this->messageStack = $messageStack;
-
         return $this;
     }
-
-
 }
