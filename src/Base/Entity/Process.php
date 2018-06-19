@@ -16,6 +16,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\DiscriminatorMap({
  *     "scenario" = "Scenario",
  *     "poi" = "Poi",
+ *     "step" = "Step",
  *     "place_step" = "PlaceStep",
  *     "task_step" = "TaskStep",
  *     "info_step" = "InfoStep"
