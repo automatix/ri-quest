@@ -12,7 +12,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table(name="semantical_message_stacks")
  * @ORM\Entity
  */
-class SemanticalMessageStack extends AbstractEntity
+class SemanticalMessageStack extends MessageStack
 {
     /**
      * @var string|null
@@ -20,18 +20,6 @@ class SemanticalMessageStack extends AbstractEntity
      * @ORM\Column(name="semantic", type="string", length=0, nullable=true)
      */
     private $semantic;
-
-    /**
-     * @var MessageStack
-     *
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="NONE")
-     * @ORM\OneToOne(targetEntity="MessageStack")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="id", referencedColumnName="id")
-     * })
-     */
-    private $id;
 
     public function getSemantic(): ?string
     {
@@ -41,18 +29,6 @@ class SemanticalMessageStack extends AbstractEntity
     public function setSemantic(?string $semantic): self
     {
         $this->semantic = $semantic;
-
-        return $this;
-    }
-
-    public function getId(): ?MessageStack
-    {
-        return $this->id;
-    }
-
-    public function setId(?MessageStack $id): self
-    {
-        $this->id = $id;
 
         return $this;
     }

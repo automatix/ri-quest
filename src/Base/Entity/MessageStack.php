@@ -9,8 +9,14 @@ use Doctrine\ORM\Mapping as ORM;
  *
  * @ORM\Table(name="message_stacks")
  * @ORM\Entity
+ * @ORM\InheritanceType("JOINED")
+ * @ORM\DiscriminatorColumn(name="type", type="string")
+ * @ORM\DiscriminatorMap({
+ *     "process" = "ProcessMessageStack",
+ *     "semantical" = "SemanticalMessageStack"
+ * })
  */
-class MessageStack extends AbstractEntity
+abstract class MessageStack extends AbstractEntity
 {
     /**
      * @var int
@@ -21,28 +27,9 @@ class MessageStack extends AbstractEntity
      */
     private $id;
 
-    /**
-     * @var string|null
-     *
-     * @ORM\Column(name="type", type="string", length=0, nullable=true)
-     */
-    private $type;
-
     public function getId(): ?int
     {
         return $this->id;
-    }
-
-    public function getType(): ?string
-    {
-        return $this->type;
-    }
-
-    public function setType(?string $type): self
-    {
-        $this->type = $type;
-
-        return $this;
     }
 
 

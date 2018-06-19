@@ -12,7 +12,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table(name="process_message_stacks")
  * @ORM\Entity
  */
-class ProcessMessageStack extends AbstractEntity
+class ProcessMessageStack extends MessageStack
 {
     /**
      * @var string
@@ -34,18 +34,6 @@ class ProcessMessageStack extends AbstractEntity
      * @ORM\Column(name="event", type="string", length=0, nullable=false)
      */
     private $event;
-
-    /**
-     * @var MessageStack
-     *
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="NONE")
-     * @ORM\OneToOne(targetEntity="MessageStack")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="id", referencedColumnName="id")
-     * })
-     */
-    private $id;
 
     public function getProcessx(): ?string
     {
@@ -79,18 +67,6 @@ class ProcessMessageStack extends AbstractEntity
     public function setEvent(string $event): self
     {
         $this->event = $event;
-
-        return $this;
-    }
-
-    public function getId(): ?MessageStack
-    {
-        return $this->id;
-    }
-
-    public function setId(?MessageStack $id): self
-    {
-        $this->id = $id;
 
         return $this;
     }
