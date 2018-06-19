@@ -33,7 +33,7 @@ abstract class ContentBlock extends AbstractEntity
     /**
      * @var bool|null
      *
-     * @ORM\Column(name="order", type="boolean", nullable=true)
+     * @ORM\Column(name="`order`", type="boolean", nullable=true)
      */
     private $order;
 
