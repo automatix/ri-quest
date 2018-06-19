@@ -14,14 +14,6 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Answer extends AbstractEntity
 {
-    /**
-     * @var int
-     *
-     * @ORM\Column(name="id", type="integer", nullable=false, options={"unsigned"=true})
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="IDENTITY")
-     */
-    private $id;
 
     /**
      * @var string
@@ -70,10 +62,7 @@ class Answer extends AbstractEntity
         $this->semanticalMessageStack = new ArrayCollection();
     }
 
-    public function getId(): ?int
-    {
-        return $this->id;
-    }
+
 
     public function getText(): ?string
     {

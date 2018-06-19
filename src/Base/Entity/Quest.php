@@ -12,14 +12,6 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Quest extends AbstractEntity
 {
-    /**
-     * @var int
-     *
-     * @ORM\Column(name="id", type="integer", nullable=false, options={"unsigned"=true})
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="IDENTITY")
-     */
-    private $id;
 
     /**
      * @var ConcreteProcess
@@ -41,10 +33,7 @@ class Quest extends AbstractEntity
      */
     private $scenario;
 
-    public function getId(): ?int
-    {
-        return $this->id;
-    }
+
 
     public function getConcreteProcess(): ?ConcreteProcess
     {
