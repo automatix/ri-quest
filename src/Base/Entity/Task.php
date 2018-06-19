@@ -51,6 +51,7 @@ abstract class Task extends AbstractEntity
      */
     public function __construct()
     {
+        parent::__construct();
         $this->semanticalMessageStack = new ArrayCollection();
     }
 

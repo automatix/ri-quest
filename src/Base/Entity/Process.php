@@ -62,6 +62,7 @@ abstract class Process extends AbstractEntity
      */
     public function __construct()
     {
+        parent::__construct();
         $this->processMessageStack = new ArrayCollection();
     }
 
