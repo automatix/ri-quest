@@ -11,8 +11,17 @@ use Doctrine\ORM\Mapping as ORM;
  *
  * @ORM\Table(name="processes", uniqueConstraints={@ORM\UniqueConstraint(name="uq_unique_order_for_process", columns={"parent_id", "order"})}, indexes={@ORM\Index(name="fk_process_process_idx", columns={"parent_id"})})
  * @ORM\Entity
+ * @ORM\InheritanceType("JOINED")
+ * @ORM\DiscriminatorColumn(name="type", type="string")
+ * @ORM\DiscriminatorMap({
+ *     "scenario" = "Scenario",
+ *     "poi" = "Poi",
+ *     "place_step" = "PlaceStep",
+ *     "task_step" = "TaskStep",
+ *     "info_step" = "InfoStep"
+ * })
  */
-class Process extends AbstractEntity
+abstract class Process extends AbstractEntity
 {
     /**
      * @var int

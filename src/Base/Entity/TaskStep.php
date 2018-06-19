@@ -10,7 +10,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table(name="task_steps")
  * @ORM\Entity
  */
-class TaskStep extends AbstractEntity
+class TaskStep extends Process
 {
     /**
      * @var string
@@ -18,18 +18,6 @@ class TaskStep extends AbstractEntity
      * @ORM\Column(name="step_type", type="string", length=0, nullable=false)
      */
     private $stepType;
-
-    /**
-     * @var Process
-     *
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="NONE")
-     * @ORM\OneToOne(targetEntity="Process")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="id", referencedColumnName="id")
-     * })
-     */
-    private $id;
 
     public function getStepType(): ?string
     {
@@ -39,18 +27,6 @@ class TaskStep extends AbstractEntity
     public function setStepType(string $stepType): self
     {
         $this->stepType = $stepType;
-
-        return $this;
-    }
-
-    public function getId(): ?Process
-    {
-        return $this->id;
-    }
-
-    public function setId(?Process $id): self
-    {
-        $this->id = $id;
 
         return $this;
     }
