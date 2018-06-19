@@ -15,7 +15,7 @@ class ConcreteProcess extends AbstractEntity
     /**
      * @var string
      *
-     * @ORM\Column(name="type", type="string", length=0, nullable=false)
+     * @ORM\Column(name="`type`", type="string", length=0, nullable=false)
      */
     private $type;
 
