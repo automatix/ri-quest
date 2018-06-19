@@ -31,5 +31,29 @@ class PlaceStep
      */
     private $id;
 
+    public function getStepType(): ?string
+    {
+        return $this->stepType;
+    }
+
+    public function setStepType(string $stepType): self
+    {
+        $this->stepType = $stepType;
+
+        return $this;
+    }
+
+    public function getId(): ?Process
+    {
+        return $this->id;
+    }
+
+    public function setId(?Process $id): self
+    {
+        $this->id = $id;
+
+        return $this;
+    }
+
 
 }

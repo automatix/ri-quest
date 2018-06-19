@@ -47,4 +47,52 @@ class ProcessMessageStack
      */
     private $id;
 
+    public function getProcessx(): ?string
+    {
+        return $this->processx;
+    }
+
+    public function setProcessx(string $processx): self
+    {
+        $this->processx = $processx;
+
+        return $this;
+    }
+
+    public function getState(): ?string
+    {
+        return $this->state;
+    }
+
+    public function setState(string $state): self
+    {
+        $this->state = $state;
+
+        return $this;
+    }
+
+    public function getEvent(): ?string
+    {
+        return $this->event;
+    }
+
+    public function setEvent(string $event): self
+    {
+        $this->event = $event;
+
+        return $this;
+    }
+
+    public function getId(): ?MessageStack
+    {
+        return $this->id;
+    }
+
+    public function setId(?MessageStack $id): self
+    {
+        $this->id = $id;
+
+        return $this;
+    }
+
 }

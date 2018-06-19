@@ -38,5 +38,34 @@ class ContentBlock
      */
     private $message;
 
+    public function getId(): ?int
+    {
+        return $this->id;
+    }
+
+    public function getOrder(): ?bool
+    {
+        return $this->order;
+    }
+
+    public function setOrder(?bool $order): self
+    {
+        $this->order = $order;
+
+        return $this;
+    }
+
+    public function getMessage(): ?Message
+    {
+        return $this->message;
+    }
+
+    public function setMessage(?Message $message): self
+    {
+        $this->message = $message;
+
+        return $this;
+    }
+
 
 }

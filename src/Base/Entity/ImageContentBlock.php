@@ -31,5 +31,29 @@ class ImageContentBlock
      */
     private $id;
 
+    public function getSrc(): ?string
+    {
+        return $this->src;
+    }
+
+    public function setSrc(string $src): self
+    {
+        $this->src = $src;
+
+        return $this;
+    }
+
+    public function getId(): ?ContentBlock
+    {
+        return $this->id;
+    }
+
+    public function setId(?ContentBlock $id): self
+    {
+        $this->id = $id;
+
+        return $this;
+    }
+
 
 }

@@ -41,5 +41,34 @@ class Quest
      */
     private $scenario;
 
+    public function getId(): ?int
+    {
+        return $this->id;
+    }
+
+    public function getConcreteProcess(): ?ConcreteProcess
+    {
+        return $this->concreteProcess;
+    }
+
+    public function setConcreteProcess(?ConcreteProcess $concreteProcess): self
+    {
+        $this->concreteProcess = $concreteProcess;
+
+        return $this;
+    }
+
+    public function getScenario(): ?Scenario
+    {
+        return $this->scenario;
+    }
+
+    public function setScenario(?Scenario $scenario): self
+    {
+        $this->scenario = $scenario;
+
+        return $this;
+    }
+
 
 }

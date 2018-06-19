@@ -31,5 +31,29 @@ class QuestionTask
      */
     private $id;
 
+    public function getText(): ?string
+    {
+        return $this->text;
+    }
+
+    public function setText(?string $text): self
+    {
+        $this->text = $text;
+
+        return $this;
+    }
+
+    public function getId(): ?Task
+    {
+        return $this->id;
+    }
+
+    public function setId(?Task $id): self
+    {
+        $this->id = $id;
+
+        return $this;
+    }
+
 
 }

@@ -24,5 +24,17 @@ class Scenario
      */
     private $id;
 
+    public function getId(): ?Process
+    {
+        return $this->id;
+    }
+
+    public function setId(?Process $id): self
+    {
+        $this->id = $id;
+
+        return $this;
+    }
+
 
 }

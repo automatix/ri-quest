@@ -56,4 +56,47 @@ class Task
         $this->semanticalMessageStack = new ArrayCollection();
     }
 
+    public function getId(): ?int
+    {
+        return $this->id;
+    }
+
+    public function getTaskStep(): ?TaskStep
+    {
+        return $this->taskStep;
+    }
+
+    public function setTaskStep(?TaskStep $taskStep): self
+    {
+        $this->taskStep = $taskStep;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|SemanticalMessageStack[]
+     */
+    public function getSemanticalMessageStack(): Collection
+    {
+        return $this->semanticalMessageStack;
+    }
+
+    public function addSemanticalMessageStack(SemanticalMessageStack $semanticalMessageStack): self
+    {
+        if (!$this->semanticalMessageStack->contains($semanticalMessageStack)) {
+            $this->semanticalMessageStack[] = $semanticalMessageStack;
+        }
+
+        return $this;
+    }
+
+    public function removeSemanticalMessageStack(SemanticalMessageStack $semanticalMessageStack): self
+    {
+        if ($this->semanticalMessageStack->contains($semanticalMessageStack)) {
+            $this->semanticalMessageStack->removeElement($semanticalMessageStack);
+        }
+
+        return $this;
+    }
+
 }

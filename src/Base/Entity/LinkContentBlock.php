@@ -31,5 +31,29 @@ class LinkContentBlock
      */
     private $id;
 
+    public function getText(): ?string
+    {
+        return $this->text;
+    }
+
+    public function setText(?string $text): self
+    {
+        $this->text = $text;
+
+        return $this;
+    }
+
+    public function getId(): ?ContentBlock
+    {
+        return $this->id;
+    }
+
+    public function setId(?ContentBlock $id): self
+    {
+        $this->id = $id;
+
+        return $this;
+    }
+
 
 }

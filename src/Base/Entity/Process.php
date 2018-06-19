@@ -63,4 +63,59 @@ class Process
         $this->processMessageStack = new ArrayCollection();
     }
 
+    public function getId(): ?int
+    {
+        return $this->id;
+    }
+
+    public function getOrder(): ?bool
+    {
+        return $this->order;
+    }
+
+    public function setOrder(bool $order): self
+    {
+        $this->order = $order;
+
+        return $this;
+    }
+
+    public function getParent(): ?self
+    {
+        return $this->parent;
+    }
+
+    public function setParent(?self $parent): self
+    {
+        $this->parent = $parent;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|ProcessMessageStack[]
+     */
+    public function getProcessMessageStack(): Collection
+    {
+        return $this->processMessageStack;
+    }
+
+    public function addProcessMessageStack(ProcessMessageStack $processMessageStack): self
+    {
+        if (!$this->processMessageStack->contains($processMessageStack)) {
+            $this->processMessageStack[] = $processMessageStack;
+        }
+
+        return $this;
+    }
+
+    public function removeProcessMessageStack(ProcessMessageStack $processMessageStack): self
+    {
+        if ($this->processMessageStack->contains($processMessageStack)) {
+            $this->processMessageStack->removeElement($processMessageStack);
+        }
+
+        return $this;
+    }
+
 }

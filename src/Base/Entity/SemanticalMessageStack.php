@@ -33,4 +33,28 @@ class SemanticalMessageStack
      */
     private $id;
 
+    public function getSemantic(): ?string
+    {
+        return $this->semantic;
+    }
+
+    public function setSemantic(?string $semantic): self
+    {
+        $this->semantic = $semantic;
+
+        return $this;
+    }
+
+    public function getId(): ?MessageStack
+    {
+        return $this->id;
+    }
+
+    public function setId(?MessageStack $id): self
+    {
+        $this->id = $id;
+
+        return $this;
+    }
+
 }

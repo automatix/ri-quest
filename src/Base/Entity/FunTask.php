@@ -24,5 +24,17 @@ class FunTask
      */
     private $id;
 
+    public function getId(): ?Task
+    {
+        return $this->id;
+    }
+
+    public function setId(?Task $id): self
+    {
+        $this->id = $id;
+
+        return $this;
+    }
+
 
 }

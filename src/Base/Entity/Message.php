@@ -38,5 +38,34 @@ class Message
      */
     private $messageStack;
 
+    public function getId(): ?int
+    {
+        return $this->id;
+    }
+
+    public function getOrder(): ?bool
+    {
+        return $this->order;
+    }
+
+    public function setOrder(?bool $order): self
+    {
+        $this->order = $order;
+
+        return $this;
+    }
+
+    public function getMessageStack(): ?MessageStack
+    {
+        return $this->messageStack;
+    }
+
+    public function setMessageStack(?MessageStack $messageStack): self
+    {
+        $this->messageStack = $messageStack;
+
+        return $this;
+    }
+
 
 }
