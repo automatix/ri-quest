@@ -10,7 +10,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table(name="place_steps")
  * @ORM\Entity
  */
-class PlaceStep
+class PlaceStep extends AbstractEntity
 {
     /**
      * @var string

@@ -10,7 +10,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table(name="fun_tasks")
  * @ORM\Entity
  */
-class FunTask
+class FunTask extends AbstractEntity
 {
     /**
      * @var Task

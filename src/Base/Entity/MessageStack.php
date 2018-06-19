@@ -10,7 +10,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table(name="message_stacks")
  * @ORM\Entity
  */
-class MessageStack
+class MessageStack extends AbstractEntity
 {
     /**
      * @var int

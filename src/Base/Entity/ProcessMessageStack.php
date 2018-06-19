@@ -12,7 +12,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table(name="process_message_stacks")
  * @ORM\Entity
  */
-class ProcessMessageStack
+class ProcessMessageStack extends AbstractEntity
 {
     /**
      * @var string

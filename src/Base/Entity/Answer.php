@@ -12,7 +12,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table(name="answers", indexes={@ORM\Index(name="fk_answer_question_idx", columns={"question_id"})})
  * @ORM\Entity
  */
-class Answer
+class Answer extends AbstractEntity
 {
     /**
      * @var int

@@ -10,7 +10,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table(name="text_content_blocks")
  * @ORM\Entity
  */
-class TextContentBlock
+class TextContentBlock extends AbstractEntity
 {
     /**
      * @var string

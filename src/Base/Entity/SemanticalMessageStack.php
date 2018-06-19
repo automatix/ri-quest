@@ -12,7 +12,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table(name="semantical_message_stacks")
  * @ORM\Entity
  */
-class SemanticalMessageStack
+class SemanticalMessageStack extends AbstractEntity
 {
     /**
      * @var string|null

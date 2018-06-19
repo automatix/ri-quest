@@ -10,7 +10,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table(name="content_blocks", indexes={@ORM\Index(name="fk_content_block_message_idx", columns={"message_id"})})
  * @ORM\Entity
  */
-class ContentBlock
+class ContentBlock extends AbstractEntity
 {
     /**
      * @var int

@@ -10,7 +10,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table(name="scenarios")
  * @ORM\Entity
  */
-class Scenario
+class Scenario extends AbstractEntity
 {
     /**
      * @var Process

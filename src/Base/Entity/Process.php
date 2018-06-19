@@ -12,7 +12,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table(name="processes", uniqueConstraints={@ORM\UniqueConstraint(name="uq_unique_order_for_process", columns={"parent_id", "order"})}, indexes={@ORM\Index(name="fk_process_process_idx", columns={"parent_id"})})
  * @ORM\Entity
  */
-class Process
+class Process extends AbstractEntity
 {
     /**
      * @var int

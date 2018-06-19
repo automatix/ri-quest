@@ -10,7 +10,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table(name="concrete_processes", indexes={@ORM\Index(name="fk_concrete_process_concrete_process_idx", columns={"parent_id"})})
  * @ORM\Entity
  */
-class ConcreteProcess
+class ConcreteProcess extends AbstractEntity
 {
     /**
      * @var int
