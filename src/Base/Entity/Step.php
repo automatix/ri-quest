@@ -1,6 +1,7 @@
 <?php
 namespace App\Base\Entity;
 
+use App\Base\Enums\Entities\StepType;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -19,14 +20,14 @@ class Step extends Process
      */
     private $stepType;
 
-    public function getStepType(): ?string
+    public function getStepType(): ?StepType
     {
-        return $this->stepType;
+        return new StepType($this->stepType);
     }
 
-    public function setStepType(string $stepType): self
+    public function setStepType(StepType $stepType): self
     {
-        $this->stepType = $stepType;
+        $this->stepType = $stepType->getValue();
         return $this;
     }
 
