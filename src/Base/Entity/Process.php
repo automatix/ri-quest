@@ -25,9 +25,9 @@ abstract class Process extends AbstractEntity
 {
 
     /**
-     * @var bool
+     * @var int
      *
-     * @ORM\Column(name="`order`", type="boolean", nullable=false)
+     * @ORM\Column(name="`order`", type="integer", nullable=false)
      */
     private $order;
 
@@ -62,12 +62,12 @@ abstract class Process extends AbstractEntity
         $this->processMessageStack = new ArrayCollection();
     }
 
-    public function getOrder(): ?bool
+    public function getOrder(): ?int
     {
         return $this->order;
     }
 
-    public function setOrder(bool $order): self
+    public function setOrder(int $order)
     {
         $this->order = $order;
         return $this;

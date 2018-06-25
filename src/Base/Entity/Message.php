@@ -13,9 +13,9 @@ class Message extends AbstractEntity
 {
 
     /**
-     * @var bool|null
+     * @var int
      *
-     * @ORM\Column(name="`order`", type="boolean", nullable=true)
+     * @ORM\Column(name="`order`", type="integer", nullable=true)
      */
     private $order;
 
@@ -29,12 +29,12 @@ class Message extends AbstractEntity
      */
     private $messageStack;
 
-    public function getOrder(): ?bool
+    public function getOrder(): ?int
     {
         return $this->order;
     }
 
-    public function setOrder(?bool $order): self
+    public function setOrder(?int $order): self
     {
         $this->order = $order;
         return $this;
