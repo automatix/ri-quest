@@ -10,7 +10,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table(name="steps")
  * @ORM\Entity
  */
-class Step extends Process
+abstract class Step extends Process
 {
 
     /**

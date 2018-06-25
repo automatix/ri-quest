@@ -12,13 +12,12 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\InheritanceType("SINGLE_TABLE")
  * @ORM\DiscriminatorColumn(name="`type`", type="string")
  * @ORM\DiscriminatorMap({
- *     "process" = "ConcreteProcess",
  *     "scenario" = "ScenarioConcreteProcess",
  *     "poi" = "PoiConcreteProcess",
  *     "step" = "StepConcreteProcess"
  * })
  */
-class ConcreteProcess extends AbstractEntity
+abstract class ConcreteProcess extends AbstractEntity
 {
 
     /**
