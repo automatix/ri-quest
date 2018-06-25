@@ -9,16 +9,17 @@ use Doctrine\ORM\Mapping as ORM;
  *
  * @ORM\Table(name="concrete_processes", indexes={@ORM\Index(name="fk_concrete_process_concrete_process_idx", columns={"parent_id"})})
  * @ORM\Entity
+ * @ORM\InheritanceType("SINGLE_TABLE")
+ * @ORM\DiscriminatorColumn(name="`type`", type="string")
+ * @ORM\DiscriminatorMap({
+ *     "process" = "ConcreteProcess",
+ *     "scenario" = "ScenarioConcreteProcess",
+ *     "poi" = "PoiConcreteProcess",
+ *     "step" = "StepConcreteProcess"
+ * })
  */
 class ConcreteProcess extends AbstractEntity
 {
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="`type`", type="string", length=0, nullable=false)
-     */
-    private $type;
 
     /**
      * @var string
@@ -36,17 +37,6 @@ class ConcreteProcess extends AbstractEntity
      * })
      */
     private $parent;
-
-    public function getType(): ?string
-    {
-        return new ProcessType($this->type);
-    }
-
-    public function setType(ProcessType $type): self
-    {
-        $this->type = $type->getValue();
-        return $this;
-    }
 
     public function getState(): ?string
     {
