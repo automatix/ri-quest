@@ -1,6 +1,7 @@
 <?php
 namespace App\Base\Entity;
 
+use App\Base\Enums\Entities\ProcessType;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -38,12 +39,12 @@ class ConcreteProcess extends AbstractEntity
 
     public function getType(): ?string
     {
-        return $this->type;
+        return new ProcessType($this->type);
     }
 
-    public function setType(string $type): self
+    public function setType(ProcessType $type): self
     {
-        $this->type = $type;
+        $this->type = $type->getValue();
         return $this;
     }
 

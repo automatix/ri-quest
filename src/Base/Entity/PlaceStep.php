@@ -1,6 +1,7 @@
 <?php
 namespace App\Base\Entity;
 
+use App\Base\Enums\Entities\StepType;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -11,5 +12,14 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class PlaceStep extends Step
 {
+
+    /**
+     * InfoStep constructor.
+     */
+    public function __construct()
+    {
+        parent::__construct();
+        $this->setStepType(StepType::PLACE());
+    }
 
 }

@@ -1,6 +1,7 @@
 <?php
 namespace App\Base\Entity;
 
+use App\Base\Enums\Entities\AnswerType;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
@@ -72,12 +73,12 @@ class Answer extends AbstractEntity
 
     public function getType(): ?string
     {
-        return $this->type;
+        return new AnswerType($this->type);
     }
 
-    public function setType(?string $type): self
+    public function setType(?AnswerType $type): self
     {
-        $this->type = $type;
+        $this->type = $type->getValue();
         return $this;
     }
 

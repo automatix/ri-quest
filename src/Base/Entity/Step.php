@@ -25,7 +25,7 @@ class Step extends Process
         return new StepType($this->stepType);
     }
 
-    public function setStepType(StepType $stepType): self
+    protected function setStepType(StepType $stepType): self
     {
         $this->stepType = $stepType->getValue();
         return $this;
