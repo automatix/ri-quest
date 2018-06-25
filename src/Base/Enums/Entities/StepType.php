@@ -15,6 +15,6 @@ class StepType extends AbstractEnum
 
     const INFO = 'info';
     const PLACE = 'place';
-    const TASK = 'tesk';
+    const TASK = 'task';
 
 }
