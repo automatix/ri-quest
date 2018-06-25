@@ -1,6 +1,7 @@
 <?php
 namespace App\Base\Entity;
 
+use App\Base\Entity\MessageStacks\ProcessMessageStack;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
@@ -13,12 +14,12 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\InheritanceType("JOINED")
  * @ORM\DiscriminatorColumn(name="`type`", type="string")
  * @ORM\DiscriminatorMap({
- *     "scenario" = "Scenario",
- *     "poi" = "Poi",
- *     "step" = "Step",
- *     "place_step" = "PlaceStep",
- *     "task_step" = "TaskStep",
- *     "info_step" = "InfoStep"
+ *     "scenario" = "App\Base\Entity\Processes\Scenario",
+ *     "poi" = "App\Base\Entity\Processes\Poi",
+ *     "step" = "App\Base\Entity\Processes\Step",
+ *     "place_step" = "App\Base\Entity\Processes\Steps\PlaceStep",
+ *     "task_step" = "App\Base\Entity\Processes\Steps\TaskStep",
+ *     "info_step" = "App\Base\Entity\Processes\Steps\InfoStep"
  * })
  */
 abstract class Process extends AbstractEntity
@@ -44,7 +45,7 @@ abstract class Process extends AbstractEntity
     /**
      * @var Collection
      *
-     * @ORM\ManyToMany(targetEntity="ProcessMessageStack")
+     * @ORM\ManyToMany(targetEntity="App\Base\Entity\MessageStacks\ProcessMessageStack")
      * @ORM\JoinTable(name="process_process_message_stack",
      *   joinColumns={
      *     @ORM\JoinColumn(name="process_id", referencedColumnName="id")

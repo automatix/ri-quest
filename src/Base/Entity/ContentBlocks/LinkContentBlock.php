@@ -1,20 +1,21 @@
 <?php
-namespace App\Base\Entity;
+namespace App\Base\Entity\ContentBlocks;
 
+use App\Base\Entity\ContentBlock;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * QuestionTask
+ * LinkContentBlock
  *
- * @ORM\Table(name="question_tasks")
+ * @ORM\Table(name="link_content_blocks")
  * @ORM\Entity
  */
-class QuestionTask extends Task
+class LinkContentBlock extends ContentBlock
 {
     /**
      * @var string|null
      *
-     * @ORM\Column(name="text", type="string", length=50, nullable=true)
+     * @ORM\Column(name="text", type="string", length=1000, nullable=true)
      */
     private $text;
 

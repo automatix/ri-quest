@@ -1,6 +1,7 @@
 <?php
-namespace App\Base\Entity;
+namespace App\Base\Entity\ContentBlocks;
 
+use App\Base\Entity\ContentBlock;
 use Doctrine\ORM\Mapping as ORM;
 
 /**

@@ -1,6 +1,8 @@
 <?php
 namespace App\Base\Entity;
 
+use App\Base\Entity\MessageStacks\SemanticalMessageStack;
+use App\Base\Entity\Tasks\QuestionTask;
 use App\Base\Enums\Entities\AnswerType;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
@@ -32,7 +34,7 @@ class Answer extends AbstractEntity
     /**
      * @var QuestionTask
      *
-     * @ORM\ManyToOne(targetEntity="QuestionTask")
+     * @ORM\ManyToOne(targetEntity="App\Base\Entity\Tasks\QuestionTask")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="question_id", referencedColumnName="id")
      * })
@@ -42,7 +44,7 @@ class Answer extends AbstractEntity
     /**
      * @var Collection
      *
-     * @ORM\ManyToMany(targetEntity="SemanticalMessageStack")
+     * @ORM\ManyToMany(targetEntity="App\Base\Entity\MessageStacks\SemanticalMessageStack")
      * @ORM\JoinTable(name="answers_semantical_message_stacks",
      *   joinColumns={
      *     @ORM\JoinColumn(name="answer_id", referencedColumnName="id")

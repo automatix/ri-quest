@@ -1,6 +1,7 @@
 <?php
-namespace App\Base\Entity;
+namespace App\Base\Entity\Processes;
 
+use App\Base\Entity\Process;
 use App\Base\Enums\Entities\StepType;
 use Doctrine\ORM\Mapping as ORM;
 

@@ -11,8 +11,8 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\InheritanceType("JOINED")
  * @ORM\DiscriminatorColumn(name="`type`", type="string")
  * @ORM\DiscriminatorMap({
- *     "process" = "ProcessMessageStack",
- *     "semantical" = "SemanticalMessageStack"
+ *     "process" = "App\Base\Entity\MessageStacks\ProcessMessageStack",
+ *     "semantical" = "App\Base\Entity\MessageStacks\SemanticalMessageStack"
  * })
  */
 abstract class MessageStack extends AbstractEntity

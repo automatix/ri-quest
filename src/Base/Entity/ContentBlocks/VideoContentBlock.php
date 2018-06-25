@@ -1,15 +1,16 @@
 <?php
-namespace App\Base\Entity;
+namespace App\Base\Entity\ContentBlocks;
 
+use App\Base\Entity\ContentBlock;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * AudioContentBlock
+ * VideoContentBlock
  *
- * @ORM\Table(name="audio_content_blocks")
+ * @ORM\Table(name="video_content_blocks")
  * @ORM\Entity
  */
-class AudioContentBlock extends ContentBlock
+class VideoContentBlock extends ContentBlock
 {
     /**
      * @var string|null

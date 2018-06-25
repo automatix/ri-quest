@@ -1,6 +1,8 @@
 <?php
 namespace App\Base\Entity;
 
+use App\Base\Entity\MessageStacks\SemanticalMessageStack;
+use App\Base\Entity\Processes\Steps\TaskStep;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
@@ -13,8 +15,8 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\InheritanceType("JOINED")
  * @ORM\DiscriminatorColumn(name="`type`", type="string")
  * @ORM\DiscriminatorMap({
- *     "question" = "QuestionTask",
- *     "fun" = "FunTask"
+ *     "question" = "App\Base\Entity\Tasks\QuestionTask",
+ *     "fun" = "App\Base\Entity\Tasks\FunTask"
  * })
  */
 abstract class Task extends AbstractEntity
@@ -23,7 +25,7 @@ abstract class Task extends AbstractEntity
     /**
      * @var TaskStep
      *
-     * @ORM\ManyToOne(targetEntity="TaskStep")
+     * @ORM\ManyToOne(targetEntity="App\Base\Entity\Processes\Steps\TaskStep")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="task_step_id", referencedColumnName="id")
      * })
@@ -33,7 +35,7 @@ abstract class Task extends AbstractEntity
     /**
      * @var Collection
      *
-     * @ORM\ManyToMany(targetEntity="SemanticalMessageStack")
+     * @ORM\ManyToMany(targetEntity="App\Base\Entity\MessageStacks\SemanticalMessageStack")
      * @ORM\JoinTable(name="tasks_semantical_message_stacks",
      *   joinColumns={
      *     @ORM\JoinColumn(name="task_id", referencedColumnName="id")

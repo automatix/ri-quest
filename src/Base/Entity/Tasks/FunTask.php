@@ -1,6 +1,7 @@
 <?php
-namespace App\Base\Entity;
+namespace App\Base\Entity\Tasks;
 
+use App\Base\Entity\Task;
 use Doctrine\ORM\Mapping as ORM;
 
 /**

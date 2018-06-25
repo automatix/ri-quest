@@ -1,6 +1,7 @@
 <?php
 namespace App\Base\Entity;
 
+use App\Base\Entity\Processes\Scenario;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -25,7 +26,7 @@ class Quest extends AbstractEntity
     /**
      * @var Scenario
      *
-     * @ORM\ManyToOne(targetEntity="Scenario")
+     * @ORM\ManyToOne(targetEntity="App\Base\Entity\Processes\Scenario")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="scenario_id", referencedColumnName="id")
      * })

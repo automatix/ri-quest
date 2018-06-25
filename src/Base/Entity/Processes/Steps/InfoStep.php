@@ -1,16 +1,17 @@
 <?php
-namespace App\Base\Entity;
+namespace App\Base\Entity\Processes\Steps;
 
+use App\Base\Entity\Processes\Step;
 use App\Base\Enums\Entities\StepType;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * PlaceStep
+ * InfoStep
  *
- * @ORM\Table(name="place_steps")
+ * @ORM\Table(name="info_steps")
  * @ORM\Entity
  */
-class PlaceStep extends Step
+class InfoStep extends Step
 {
 
     /**
@@ -19,7 +20,7 @@ class PlaceStep extends Step
     public function __construct()
     {
         parent::__construct();
-        $this->setStepType(StepType::PLACE());
+        $this->setStepType(StepType::INFO());
     }
 
 }

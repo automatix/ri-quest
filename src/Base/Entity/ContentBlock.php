@@ -11,11 +11,11 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\InheritanceType("JOINED")
  * @ORM\DiscriminatorColumn(name="`type`", type="string")
  * @ORM\DiscriminatorMap({
- *     "text" = "TextContentBlock",
- *     "image" = "ImageContentBlock",
- *     "link" = "LinkContentBlock",
- *     "audio" = "AudioContentBlock",
- *     "video" = "VideoContentBlock"
+ *     "text" = "App\Base\Entity\ContentBlocks\TextContentBlock",
+ *     "image" = "App\Base\Entity\ContentBlocks\ImageContentBlock",
+ *     "link" = "App\Base\Entity\ContentBlocks\LinkContentBlock",
+ *     "audio" = "App\Base\Entity\ContentBlocks\AudioContentBlock",
+ *     "video" = "App\Base\Entity\ContentBlocks\VideoContentBlock"
  * })
  */
 abstract class ContentBlock extends AbstractEntity
