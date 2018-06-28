@@ -23,7 +23,7 @@ abstract class ConcreteProcess extends AbstractEntity
     /**
      * @var string
      *
-     * @ORM\Column(name="state", type="string", length=0, nullable=false, options={"default"="unknown"})
+     * @ORM\Column(name="state", type="string", length=255, nullable=false, options={"default"="unknown"})
      */
     private $state = 'unknown';
 

@@ -17,21 +17,21 @@ class ProcessMessageStack extends MessageStack
     /**
      * @var string
      *
-     * @ORM\Column(name="processx", type="string", length=0, nullable=false)
+     * @ORM\Column(name="processx", type="string", length=255, nullable=false)
      */
     private $processx;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="state", type="string", length=0, nullable=false)
+     * @ORM\Column(name="state", type="string", length=255, nullable=false)
      */
     private $state;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="event", type="string", length=0, nullable=false)
+     * @ORM\Column(name="event", type="string", length=255, nullable=false)
      */
     private $event;
 

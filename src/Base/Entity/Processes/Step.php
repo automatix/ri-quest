@@ -17,7 +17,7 @@ abstract class Step extends Process
     /**
      * @var string
      *
-     * @ORM\Column(name="step_type", type="string", length=0, nullable=false)
+     * @ORM\Column(name="step_type", type="string", length=255, nullable=false)
      */
     private $stepType;
 

@@ -27,7 +27,7 @@ class Answer extends AbstractEntity
     /**
      * @var string|null
      *
-     * @ORM\Column(name="`type`", type="string", length=0, nullable=false)
+     * @ORM\Column(name="`type`", type="string", length=255, nullable=false)
      */
     private $type;
 
