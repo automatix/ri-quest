@@ -33,7 +33,7 @@ abstract class ContentBlock extends AbstractEntity
      *
      * @ORM\ManyToOne(targetEntity="Message")
      * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="message_id", referencedColumnName="id")
+     *   @ORM\JoinColumn(name="message_id", referencedColumnName="id", nullable=false)
      * })
      */
     private $message;

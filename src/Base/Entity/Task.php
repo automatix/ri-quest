@@ -27,7 +27,7 @@ abstract class Task extends AbstractEntity
      *
      * @ORM\ManyToOne(targetEntity="App\Base\Entity\Processes\Steps\TaskStep")
      * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="task_step_id", referencedColumnName="id")
+     *   @ORM\JoinColumn(name="task_step_id", referencedColumnName="id", nullable=false)
      * })
      */
     private $taskStep;

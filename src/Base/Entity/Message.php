@@ -24,7 +24,7 @@ class Message extends AbstractEntity
      *
      * @ORM\ManyToOne(targetEntity="MessageStack")
      * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="message_stack_id", referencedColumnName="id")
+     *   @ORM\JoinColumn(name="message_stack_id", referencedColumnName="id", nullable=false)
      * })
      */
     private $messageStack;

@@ -18,7 +18,7 @@ class Quest extends AbstractEntity
      *
      * @ORM\ManyToOne(targetEntity="ConcreteProcess")
      * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="concrete_process_id", referencedColumnName="id")
+     *   @ORM\JoinColumn(name="concrete_process_id", referencedColumnName="id", nullable=false)
      * })
      */
     private $concreteProcess;
@@ -28,7 +28,7 @@ class Quest extends AbstractEntity
      *
      * @ORM\ManyToOne(targetEntity="App\Base\Entity\Processes\Scenario")
      * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="scenario_id", referencedColumnName="id")
+     *   @ORM\JoinColumn(name="scenario_id", referencedColumnName="id", nullable=false)
      * })
      */
     private $scenario;

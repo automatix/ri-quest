@@ -36,7 +36,7 @@ class Answer extends AbstractEntity
      *
      * @ORM\ManyToOne(targetEntity="App\Base\Entity\Tasks\QuestionTask")
      * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="question_id", referencedColumnName="id")
+     *   @ORM\JoinColumn(name="question_id", referencedColumnName="id", nullable=false)
      * })
      */
     private $question;
