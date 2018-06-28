@@ -17,9 +17,9 @@ class ProcessMessageStack extends MessageStack
     /**
      * @var string
      *
-     * @ORM\Column(name="processx", type="string", length=255, nullable=false)
+     * @ORM\Column(name="process", type="string", length=255, nullable=false)
      */
-    private $processx;
+    private $process;
 
     /**
      * @var string
@@ -35,14 +35,14 @@ class ProcessMessageStack extends MessageStack
      */
     private $event;
 
-    public function getProcessx(): ?string
+    public function getProcess(): ?string
     {
-        return $this->processx;
+        return $this->process;
     }
 
-    public function setProcessx(string $processx): self
+    public function setProcess(string $process): self
     {
-        $this->processx = $processx;
+        $this->process = $process;
         return $this;
     }
 
