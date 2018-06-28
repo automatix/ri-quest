@@ -15,7 +15,7 @@ class Message extends AbstractEntity
     /**
      * @var int
      *
-     * @ORM\Column(name="`order`", type="integer", nullable=true)
+     * @ORM\Column(name="`order`", type="integer", nullable=false)
      */
     private $order;
 

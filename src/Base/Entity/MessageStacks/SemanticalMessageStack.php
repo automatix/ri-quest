@@ -17,7 +17,7 @@ class SemanticalMessageStack extends MessageStack
     /**
      * @var string|null
      *
-     * @ORM\Column(name="semantic", type="string", length=0, nullable=true)
+     * @ORM\Column(name="semantic", type="string", length=0, nullable=false)
      */
     private $semantic;
 

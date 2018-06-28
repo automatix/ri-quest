@@ -15,7 +15,7 @@ class QuestionTask extends Task
     /**
      * @var string|null
      *
-     * @ORM\Column(name="text", type="string", length=50, nullable=true)
+     * @ORM\Column(name="text", type="string", length=50, nullable=false)
      */
     private $text;
 
