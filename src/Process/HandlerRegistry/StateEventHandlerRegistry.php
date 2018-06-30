@@ -54,8 +54,7 @@ class StateEventHandlerRegistry implements StateEventHandlerRegistryInterface
         } else {
             throw new EventHandlingException('', EventHandlingErrorContextCode::NO_STATE_HANDLER_FOUND());
         }
-        $eventNameValue = $eventName;
-        $eventNameValueUnderscoresOnly = str_replace(['.', ':'], '_', $eventNameValue);
+        $eventNameValueUnderscoresOnly = str_replace(['.', ':'], '_', $eventName);
         $handlerMethod =
             'on'
             . ucfirst($this->nameConverter->denormalize($eventNameValueUnderscoresOnly))
