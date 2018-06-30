@@ -54,16 +54,24 @@ class StateEventHandlerRegistry implements StateEventHandlerRegistryInterface
         } else {
             throw new EventHandlingException('', EventHandlingErrorContextCode::NO_STATE_HANDLER_FOUND());
         }
-        $eventNameValueUnderscoresOnly = str_replace(['.', ':'], '_', $eventName);
-        $handlerMethod =
-            'on'
-            . ucfirst($this->nameConverter->denormalize($eventNameValueUnderscoresOnly))
-        ;
-        $stateEventHandler = [$handlerObject, $handlerMethod];
+        $stateEventHandler = $this->getObjectMethodHandlerPair($handlerObject, $eventName);
         if (! is_callable($stateEventHandler)) {
             throw new EventHandlingException('', EventHandlingErrorContextCode::NO_STATE_EVENT_HANDLER_FOUND());
         }
         return $stateEventHandler;
+    }
+
+    /**
+     * @param string $eventName
+     * @param $handlerObject
+     * @return array
+     */
+    private function getObjectMethodHandlerPair(AbstractStateEventHandler $handlerObject, string $eventName)
+    {
+        $eventNameUnderscoresOnly = str_replace(['.', ':'], '_', $eventName);
+        $handlerMethod = 'on' . ucfirst($this->nameConverter->denormalize($eventNameUnderscoresOnly));
+        return [$handlerObject, $handlerMethod];
+
     }
 
 }
