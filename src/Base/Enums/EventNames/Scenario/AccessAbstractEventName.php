@@ -1,15 +1,15 @@
 <?php
 namespace App\Base\Enums\EventNames\Scenario;
 
-use App\Base\Enums\EventNames\EventName;
+use App\Base\Enums\EventNames\AbstractEventName;
 
 /**
- * @method static AccessEventName FOO()
+ * @method static AccessAbstractEventName FOO()
  *
  * @package App\Base\Enums\EventNames\Scenario
  * @author Ilya Khanataev <contact@mevatex.com>
  */
-class AccessEventName extends EventName
+class AccessAbstractEventName extends AbstractEventName
 {
 
     const FOO = 'scenario.access:foo';

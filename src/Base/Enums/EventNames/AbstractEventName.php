@@ -7,7 +7,7 @@ use App\Base\Enums\AbstractEnum;
  * @package App\Base\Enums\EventNames
  * @author Ilya Khanataev <contact@mevatex.com>
  */
-class EventName extends AbstractEnum
+abstract class AbstractEventName extends AbstractEnum
 {
 
 }

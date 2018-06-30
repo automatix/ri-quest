@@ -1,15 +1,15 @@
 <?php
 namespace App\Base\Enums\EventNames\Scenario;
 
-use App\Base\Enums\EventNames\EventName;
+use App\Base\Enums\EventNames\AbstractEventName;
 
 /**
- * @method static PoiEventName FOO()
+ * @method static PoiAbstractEventName FOO()
  *
  * @package App\Base\Enums\EventNames
  * @author Ilya Khanataev <contact@mevatex.com>
  */
-class PoiEventName extends EventName
+class PoiAbstractEventName extends AbstractEventName
 {
 
     const FOO = 'scenario.poi:foo';
