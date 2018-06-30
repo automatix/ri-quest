@@ -41,12 +41,11 @@ class SystemEventHandler implements SystemEventHandlerInterface
 
     public function handle(Event $event, string $eventName, EventDispatcherInterface $eventDispatcher)
     {
-        $eventName = GeneralEventName::search($eventName);
         foreach ($this->getProcessNames() as $processName) {
             $currentState = $this->getStateManagingService()->detectProcessState($processName);
             try {
-                $concreteHandler = $this->getEventHandlerRegistry()->get($processName, $currentState, GeneralEventName::$eventName());
-                call_user_func($concreteHandler, $event, GeneralEventName::$eventName(), $eventDispatcher);
+                $concreteHandler = $this->getEventHandlerRegistry()->get($processName, $currentState, $eventName);
+                call_user_func($concreteHandler, $event, $eventName, $eventDispatcher);
             } catch (EventHandlingException $e) {
                 $breakpoint = null;
                 // do nothing...

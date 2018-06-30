@@ -43,19 +43,19 @@ class StateEventHandlerRegistry implements StateEventHandlerRegistryInterface
     /**
      * @param ProcessName $processName
      * @param AbstractProcessState $processState
-     * @param GeneralEventName $eventName
+     * @param string $eventName
      * @return callable
      * @throws EventHandlingException
      */
-    public function get(ProcessName $processName, AbstractProcessState $processState, GeneralEventName $eventName): callable
+    public function get(ProcessName $processName, AbstractProcessState $processState, string $eventName): callable
     {
         if (isset($this->stateEventHandlers[$processName->getValue()][$processState->getValue()])) {
             $handlerObject = $this->stateEventHandlers[$processName->getValue()][$processState->getValue()];
         } else {
             throw new EventHandlingException('', EventHandlingErrorContextCode::NO_STATE_HANDLER_FOUND());
         }
-        $eventNameValue = $eventName->getValue();
-        $eventNameValueUnderscoresOnly = str_replace('.', '_', $eventNameValue);
+        $eventNameValue = $eventName;
+        $eventNameValueUnderscoresOnly = str_replace(['.', ':'], '_', $eventNameValue);
         $handlerMethod =
             'on'
             . ucfirst($this->nameConverter->denormalize($eventNameValueUnderscoresOnly))

@@ -16,9 +16,9 @@ interface StateEventHandlerRegistryInterface
     /**
      * @param ProcessName $processName
      * @param AbstractProcessState $processState
-     * @param GeneralEventName $eventName
+     * @param string $eventName
      * @return callable
      */
-    function get(ProcessName $processName, AbstractProcessState $processState, GeneralEventName $eventName) : callable;
+    function get(ProcessName $processName, AbstractProcessState $processState, string $eventName) : callable;
 
 }

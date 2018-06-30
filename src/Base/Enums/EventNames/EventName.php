@@ -4,14 +4,10 @@ namespace App\Base\Enums\EventNames;
 use App\Base\Enums\AbstractEnum;
 
 /**
- * @method static ScenarioEventName FOO()
- *
  * @package App\Base\Enums\EventNames
  * @author Ilya Khanataev <contact@mevatex.com>
  */
-class ScenarioEventName extends AbstractEnum
+class EventName extends AbstractEnum
 {
-
-    const FOO = 'scenario:foo';
 
 }

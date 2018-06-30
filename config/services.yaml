@@ -34,9 +34,10 @@ services:
     App\Process\SystemEventHandlerInterface:
         class: 'App\Process\SystemEventHandler'
         tags:
-            - { name: kernel.event_listener, event: general.user_message_received, method: handle }
-            - { name: kernel.event_listener, event: step.foo, method: handle }
-            - { name: kernel.event_listener, event: poi.foo, method: handle }
-            - { name: kernel.event_listener, event: access.foo, method: handle }
-            - { name: kernel.event_listener, event: completion.foo, method: handle }
-            - { name: kernel.event_listener, event: scenario.foo, method: handle }
+            - { name: kernel.event_listener, event: general:foo, method: handle }
+            - { name: kernel.event_listener, event: general:user_message_received, method: handle }
+            - { name: kernel.event_listener, event: scenario.poi.step:foo, method: handle }
+            - { name: kernel.event_listener, event: scenario.poi:foo, method: handle }
+            - { name: kernel.event_listener, event: scenario.access:foo, method: handle }
+            - { name: kernel.event_listener, event: scenario.completion:foo, method: handle }
+            - { name: kernel.event_listener, event: scenario:foo, method: handle }
