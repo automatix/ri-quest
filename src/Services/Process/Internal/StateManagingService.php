@@ -2,11 +2,11 @@
 namespace App\Services\Process\Internal;
 
 use App\Base\Enums\ProcessName;
-use App\Base\Enums\States\AccessState;
-use App\Base\Enums\States\CompletionState;
-use App\Base\Enums\States\PoiState;
-use App\Base\Enums\States\ScenarioState;
-use App\Base\Enums\States\StepState;
+use App\Base\Enums\ProcessStates\AccessState;
+use App\Base\Enums\ProcessStates\CompletionState;
+use App\Base\Enums\ProcessStates\PoiState;
+use App\Base\Enums\ProcessStates\ScenarioState;
+use App\Base\Enums\ProcessStates\StepState;
 use App\Services\Process\StateManagingServiceInterface;
 
 /**

@@ -1,5 +1,5 @@
 <?php
-namespace App\Base\Enums\States;
+namespace App\Base\Enums\ProcessStates;
 
 /**
  * @method static AccessState STARTED()

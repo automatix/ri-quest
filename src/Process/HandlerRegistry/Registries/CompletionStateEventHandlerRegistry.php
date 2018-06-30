@@ -1,7 +1,7 @@
 <?php
 namespace App\Process\HandlerRegistry\Registries;
 
-use App\Base\Enums\States\CompletionState;
+use App\Base\Enums\ProcessStates\CompletionState;
 use App\Process\StateEventHandlers\AbstractStateEventHandler;
 use App\Process\HandlerRegistry\Registries\AbstractProcessStateEventHandlerRegistry;
 use App\Process\StateEventHandlers\Scenario\Completion\StartedHandler;

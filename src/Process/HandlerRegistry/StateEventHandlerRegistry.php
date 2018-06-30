@@ -3,7 +3,7 @@ namespace App\Process\HandlerRegistry;
 
 use App\Base\Enums\EventNames\GeneralEventName;
 use App\Base\Enums\ProcessName;
-use App\Base\Enums\States\AbstractProcessState;
+use App\Base\Enums\ProcessStates\AbstractProcessState;
 use App\Base\Exceptions\EventHandlingErrorContextCode;
 use App\Base\Exceptions\EventHandlingException;
 use App\Base\Utils\NameConverterInterface;
