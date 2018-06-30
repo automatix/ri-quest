@@ -3,7 +3,7 @@ namespace App\Process\StateEventHandlers\Scenario\Poi\Step;
 
 use App\Base\Enums\EventNames\GeneralEventName;
 use App\Base\Enums\EventNames\Scenario\Poi\StepEventName;
-use App\Base\Enums\Events\GenericEvent;
+use App\Base\Events\GenericEvent;
 use App\Process\StateEventHandlers\AbstractStateEventHandler;
 use Symfony\Component\EventDispatcher\Event;
 use Symfony\Component\EventDispatcher\EventDispatcherInterface;
