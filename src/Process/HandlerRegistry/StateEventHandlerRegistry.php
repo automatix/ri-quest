@@ -54,11 +54,11 @@ class StateEventHandlerRegistry implements StateEventHandlerRegistryInterface
         } else {
             throw new EventHandlingException('', EventHandlingErrorContextCode::NO_STATE_HANDLER_FOUND());
         }
-        $stateEventHandler = $this->getObjectMethodHandlerPair($handlerObject, $eventName);
-        if (! is_callable($stateEventHandler)) {
+        $soughtHandler = $this->getObjectMethodHandlerPair($handlerObject, $eventName);
+        if (! is_callable($soughtHandler)) {
             throw new EventHandlingException('', EventHandlingErrorContextCode::NO_STATE_EVENT_HANDLER_FOUND());
         }
-        return $stateEventHandler;
+        return $soughtHandler;
     }
 
     /**
