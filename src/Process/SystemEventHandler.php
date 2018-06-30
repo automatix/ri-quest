@@ -1,8 +1,8 @@
 <?php
 namespace App\Process;
 
-use App\Base\Enums\Processes\EventNames\EventName;
-use App\Base\Enums\Processes\ProcessName;
+use App\Base\Enums\EventNames\GeneralEventName;
+use App\Base\Enums\ProcessName;
 use App\Base\Exceptions\EventHandlingException;
 use App\Process\HandlerRegistry\StateEventHandlerRegistryInterface;
 use App\Services\Process\StateManagingServiceInterface;
@@ -41,12 +41,12 @@ class SystemEventHandler implements SystemEventHandlerInterface
 
     public function handle(Event $event, string $eventName, EventDispatcherInterface $eventDispatcher)
     {
-        $eventName = EventName::search($eventName);
+        $eventName = GeneralEventName::search($eventName);
         foreach ($this->getProcessNames() as $processName) {
             $currentState = $this->getStateManagingService()->detectProcessState($processName);
             try {
-                $concreteHandler = $this->getEventHandlerRegistry()->get($processName, $currentState, EventName::$eventName());
-                call_user_func($concreteHandler, $event, EventName::$eventName(), $eventDispatcher);
+                $concreteHandler = $this->getEventHandlerRegistry()->get($processName, $currentState, GeneralEventName::$eventName());
+                call_user_func($concreteHandler, $event, GeneralEventName::$eventName(), $eventDispatcher);
             } catch (EventHandlingException $e) {
                 $breakpoint = null;
                 // do nothing...

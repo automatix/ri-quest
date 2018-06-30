@@ -1,5 +1,5 @@
 <?php
-namespace App\Base\Enums\Processes\Events;
+namespace App\Base\Enums\Events;
 
 use Symfony\Component\EventDispatcher\GenericEvent as SymfonyGenericEvent;
 

@@ -1,7 +1,7 @@
 <?php
 namespace App\Process\StateEventHandlers\Scenario;
 
-use App\Base\Enums\Processes\EventNames\EventName;
+use App\Base\Enums\EventNames\GeneralEventName;
 use App\Process\StateEventHandlers\AbstractStateEventHandler;
 use Symfony\Component\EventDispatcher\Event;
 use Symfony\Component\EventDispatcher\EventDispatcherInterface;

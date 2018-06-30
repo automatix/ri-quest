@@ -1,9 +1,9 @@
 <?php
 namespace App\Process\HandlerRegistry\Registries;
 
-use App\Base\Enums\Processes\EventNames\EventName;
-use App\Base\Enums\Processes\ProcessName;
-use App\Base\Enums\Processes\States\AbstractProcessState;
+use App\Base\Enums\EventNames\GeneralEventName;
+use App\Base\Enums\ProcessName;
+use App\Base\Enums\States\AbstractProcessState;
 use App\Process\StateEventHandlers\AbstractStateEventHandler;
 
 /**

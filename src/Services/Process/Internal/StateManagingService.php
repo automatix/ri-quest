@@ -1,12 +1,12 @@
 <?php
 namespace App\Services\Process\Internal;
 
-use App\Base\Enums\Processes\ProcessName;
-use App\Base\Enums\Processes\States\AccessState;
-use App\Base\Enums\Processes\States\CompletionState;
-use App\Base\Enums\Processes\States\PoiState;
-use App\Base\Enums\Processes\States\ScenarioState;
-use App\Base\Enums\Processes\States\StepState;
+use App\Base\Enums\ProcessName;
+use App\Base\Enums\States\AccessState;
+use App\Base\Enums\States\CompletionState;
+use App\Base\Enums\States\PoiState;
+use App\Base\Enums\States\ScenarioState;
+use App\Base\Enums\States\StepState;
 use App\Services\Process\StateManagingServiceInterface;
 
 /**

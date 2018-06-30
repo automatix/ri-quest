@@ -1,7 +1,7 @@
 <?php
 namespace App\Process\HandlerRegistry\Registries;
 
-use App\Base\Enums\Processes\States\PoiState;
+use App\Base\Enums\States\PoiState;
 use App\Process\StateEventHandlers\AbstractStateEventHandler;
 use App\Process\HandlerRegistry\Registries\AbstractProcessStateEventHandlerRegistry;
 use App\Process\StateEventHandlers\Scenario\Poi\StartedHandler;

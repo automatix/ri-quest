@@ -1,5 +1,5 @@
 <?php
-namespace App\Base\Enums\Processes\States;
+namespace App\Base\Enums\States;
 
 use App\Base\Enums\AbstractEnum;
 

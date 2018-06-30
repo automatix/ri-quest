@@ -1,7 +1,7 @@
 <?php
 namespace App\Services\Process;
 
-use App\Base\Enums\Processes\ProcessName;
+use App\Base\Enums\ProcessName;
 
 /**
  * Interface StateDetectingServiceInterface.

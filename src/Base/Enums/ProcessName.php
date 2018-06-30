@@ -1,5 +1,5 @@
 <?php
-namespace App\Base\Enums\Processes;
+namespace App\Base\Enums;
 
 use App\Base\Enums\AbstractEnum;
 
@@ -10,7 +10,7 @@ use App\Base\Enums\AbstractEnum;
  * @method static ProcessName POI()
  * @method static ProcessName STEP()
  *
- * @package App\Base\Enums\Processes
+ * @package App\Base\Enums
  * @author Ilya Khanataev <contact@mevatex.com>
  */
 class ProcessName extends AbstractEnum
