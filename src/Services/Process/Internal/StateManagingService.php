@@ -41,26 +41,31 @@ class StateManagingService implements StateManagingServiceInterface
 
     private function detectScenarioState()
     {
+        // @todo remove the static dummy return value and implement the method!
         return ScenarioState::STARTED();
     }
 
     private function detectPoiState()
     {
+        // @todo remove the static dummy return value and implement the method!
         return PoiState::STARTED();
     }
 
     private function detectStepState()
     {
+        // @todo remove the static dummy return value and implement the method!
         return StepState::STARTED();
     }
 
     private function detectAccessState()
     {
+        // @todo remove the static dummy return value and implement the method!
         return AccessState::STARTED();
     }
 
     private function detectCompletionState()
     {
+        // @todo remove the static dummy return value and implement the method!
         return CompletionState::STARTED();
     }
 
