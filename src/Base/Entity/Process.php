@@ -19,7 +19,9 @@ use Doctrine\ORM\Mapping as ORM;
  *     "step" = "App\Base\Entity\Processes\Step",
  *     "place_step" = "App\Base\Entity\Processes\Steps\PlaceStep",
  *     "task_step" = "App\Base\Entity\Processes\Steps\TaskStep",
- *     "info_step" = "App\Base\Entity\Processes\Steps\InfoStep"
+ *     "info_step" = "App\Base\Entity\Processes\Steps\InfoStep",
+ *     "access" = "App\Base\Entity\Processes\Access",
+ *     "completion" = "App\Base\Entity\Processes\Completion",
  * })
  */
 abstract class Process extends AbstractEntity
