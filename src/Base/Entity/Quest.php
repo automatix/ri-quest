@@ -7,7 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Quest
  *
- * @ORM\Table(name="quests", indexes={@ORM\Index(name="fk_quest_scenario_idx", columns={"scenario_id"}), @ORM\Index(name="fk_quest_concrete_process_idx", columns={"concrete_process_id"})})
+ * @ORM\Table(name="quests", indexes={@ORM\Index(name="fk_quest_scenario_idx", columns={"scenario_id"}), @ORM\Index(name="fk_quest_concrete_process_idx", columns={"concrete_process_id"}), @ORM\Index(name="fk_quest_chat_idx", columns={"chat_id"})})
  * @ORM\Entity
  */
 class Quest extends AbstractEntity
@@ -33,6 +33,16 @@ class Quest extends AbstractEntity
      */
     private $scenario;
 
+    /**
+     * @var Chat
+     *
+     * @ORM\ManyToOne(targetEntity="App\Base\Entity\Chat")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="chat_id", referencedColumnName="id", nullable=false)
+     * })
+     */
+    private $chat;
+
     public function getConcreteProcess(): ?ConcreteProcess
     {
         return $this->concreteProcess;
@@ -54,4 +64,16 @@ class Quest extends AbstractEntity
         $this->scenario = $scenario;
         return $this;
     }
+
+    public function getChat(): ?Chat
+    {
+        return $this->chat;
+    }
+
+    public function setChat(?Chat $chat): self
+    {
+        $this->chat = $chat;
+        return $this;
+    }
+
 }
