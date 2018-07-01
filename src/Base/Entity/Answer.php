@@ -34,7 +34,7 @@ class Answer extends AbstractEntity
     /**
      * @var QuestionTask
      *
-     * @ORM\ManyToOne(targetEntity="App\Base\Entity\Tasks\QuestionTask")
+     * @ORM\ManyToOne(targetEntity="App\Base\Entity\Tasks\QuestionTask", inversedBy="answers")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="question_id", referencedColumnName="id", nullable=false)
      * })
