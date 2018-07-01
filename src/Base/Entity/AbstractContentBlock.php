@@ -4,7 +4,7 @@ namespace App\Base\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * ContentBlock
+ * AbstractContentBlock
  *
  * @ORM\Table(name="content_blocks", indexes={@ORM\Index(name="fk_content_block_message_idx", columns={"message_id"})})
  * @ORM\Entity
@@ -18,7 +18,7 @@ use Doctrine\ORM\Mapping as ORM;
  *     "video" = "App\Base\Entity\ContentBlocks\VideoContentBlock"
  * })
  */
-abstract class ContentBlock extends AbstractEntity
+abstract class AbstractContentBlock extends AbstractEntity
 {
 
     /**

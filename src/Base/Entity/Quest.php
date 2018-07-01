@@ -14,9 +14,9 @@ class Quest extends AbstractEntity
 {
 
     /**
-     * @var ConcreteProcess
+     * @var AbstractConcreteProcess
      *
-     * @ORM\ManyToOne(targetEntity="ConcreteProcess")
+     * @ORM\ManyToOne(targetEntity="AbstractConcreteProcess")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="concrete_process_id", referencedColumnName="id", nullable=false)
      * })
@@ -43,12 +43,12 @@ class Quest extends AbstractEntity
      */
     private $chat;
 
-    public function getConcreteProcess(): ?ConcreteProcess
+    public function getConcreteProcess(): ?AbstractConcreteProcess
     {
         return $this->concreteProcess;
     }
 
-    public function setConcreteProcess(?ConcreteProcess $concreteProcess): self
+    public function setConcreteProcess(?AbstractConcreteProcess $concreteProcess): self
     {
         $this->concreteProcess = $concreteProcess;
         return $this;

@@ -22,9 +22,9 @@ class Message extends AbstractEntity
     private $order;
 
     /**
-     * @var MessageStack
+     * @var AbstractMessageStack
      *
-     * @ORM\ManyToOne(targetEntity="MessageStack", inversedBy="messages")
+     * @ORM\ManyToOne(targetEntity="AbstractMessageStack", inversedBy="messages")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="message_stack_id", referencedColumnName="id", nullable=false)
      * })
@@ -34,7 +34,7 @@ class Message extends AbstractEntity
     /**
      * @var Collection
      *
-     * @ORM\OneToMany(targetEntity="App\Base\Entity\ContentBlock", mappedBy="message")
+     * @ORM\OneToMany(targetEntity="AbstractContentBlock", mappedBy="message")
      */
     private $contentBlocks;
 
@@ -55,12 +55,12 @@ class Message extends AbstractEntity
         return $this;
     }
 
-    public function getMessageStack(): ?MessageStack
+    public function getMessageStack(): ?AbstractMessageStack
     {
         return $this->messageStack;
     }
 
-    public function setMessageStack(?MessageStack $messageStack): self
+    public function setMessageStack(?AbstractMessageStack $messageStack): self
     {
         $this->messageStack = $messageStack;
         return $this;
@@ -71,7 +71,7 @@ class Message extends AbstractEntity
         return $this->contentBlocks;
     }
 
-    public function addContentBlock(ContentBlock $contentBlock): self
+    public function addContentBlock(AbstractContentBlock $contentBlock): self
     {
         if (!$this->contentBlocks->contains($contentBlock)) {
             $this->contentBlocks[] = $contentBlock;
@@ -79,7 +79,7 @@ class Message extends AbstractEntity
         return $this;
     }
 
-    public function removeContentBlock(ContentBlock $contentBlock): self
+    public function removeContentBlock(AbstractContentBlock $contentBlock): self
     {
         if ($this->contentBlocks->contains($contentBlock)) {
             $this->contentBlocks->removeElement($contentBlock);

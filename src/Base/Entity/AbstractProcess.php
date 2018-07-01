@@ -1,13 +1,13 @@
 <?php
 namespace App\Base\Entity;
 
-use App\Base\Entity\MessageStacks\ProcessMessageStack;
+use App\Base\Entity\MessageStacks\ProcessAbstractMessageStack;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Process
+ * AbstractProcess
  *
  * @ORM\Table(name="processes", uniqueConstraints={@ORM\UniqueConstraint(name="uq_unique_order_for_process", columns={"parent_id", "`order`"})}, indexes={@ORM\Index(name="fk_process_process_idx", columns={"parent_id"})})
  * @ORM\Entity
@@ -24,7 +24,7 @@ use Doctrine\ORM\Mapping as ORM;
  *     "completion" = "App\Base\Entity\Processes\Completion",
  * })
  */
-abstract class Process extends AbstractEntity
+abstract class AbstractProcess extends AbstractEntity
 {
 
     /**
@@ -35,9 +35,9 @@ abstract class Process extends AbstractEntity
     private $order;
 
     /**
-     * @var Process
+     * @var AbstractProcess
      *
-     * @ORM\ManyToOne(targetEntity="Process")
+     * @ORM\ManyToOne(targetEntity="AbstractProcess")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="parent_id", referencedColumnName="id")
      * })
@@ -47,7 +47,7 @@ abstract class Process extends AbstractEntity
     /**
      * @var Collection
      *
-     * @ORM\ManyToMany(targetEntity="App\Base\Entity\MessageStacks\ProcessMessageStack")
+     * @ORM\ManyToMany(targetEntity="ProcessAbstractMessageStack")
      * @ORM\JoinTable(name="process_process_message_stack",
      *   joinColumns={
      *     @ORM\JoinColumn(name="process_id", referencedColumnName="id")
@@ -88,14 +88,14 @@ abstract class Process extends AbstractEntity
     }
 
     /**
-     * @return Collection|ProcessMessageStack[]
+     * @return Collection|ProcessAbstractMessageStack[]
      */
     public function getProcessMessageStacks(): Collection
     {
         return $this->processMessageStacks;
     }
 
-    public function addProcessMessageStack(ProcessMessageStack $processMessageStack): self
+    public function addProcessMessageStack(ProcessAbstractMessageStack $processMessageStack): self
     {
         if (!$this->processMessageStacks->contains($processMessageStack)) {
             $this->processMessageStacks[] = $processMessageStack;
@@ -103,7 +103,7 @@ abstract class Process extends AbstractEntity
         return $this;
     }
 
-    public function removeProcessMessageStack(ProcessMessageStack $processMessageStack): self
+    public function removeProcessMessageStack(ProcessAbstractMessageStack $processMessageStack): self
     {
         if ($this->processMessageStacks->contains($processMessageStack)) {
             $this->processMessageStacks->removeElement($processMessageStack);

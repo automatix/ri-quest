@@ -1,7 +1,7 @@
 <?php
 namespace App\Base\Entity\Processes;
 
-use App\Base\Entity\Process;
+use App\Base\Entity\AbstractProcess;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -10,6 +10,6 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table(name="pois")
  * @ORM\Entity
  */
-class Poi extends Process
+class Poi extends AbstractProcess
 {
 }

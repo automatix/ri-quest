@@ -1,14 +1,14 @@
 <?php
 namespace App\Base\Entity;
 
-use App\Base\Entity\MessageStacks\SemanticalMessageStack;
+use App\Base\Entity\MessageStacks\SemanticalAbstractMessageStack;
 use App\Base\Entity\Processes\Steps\TaskStep;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Task
+ * AbstractTask
  *
  * @ORM\Table(name="tasks", indexes={@ORM\Index(name="fk_task_task_step_idx", columns={"task_step_id"})})
  * @ORM\Entity
@@ -19,7 +19,7 @@ use Doctrine\ORM\Mapping as ORM;
  *     "fun" = "App\Base\Entity\Tasks\FunTask"
  * })
  */
-abstract class Task extends AbstractEntity
+abstract class AbstractTask extends AbstractEntity
 {
 
     /**
@@ -35,7 +35,7 @@ abstract class Task extends AbstractEntity
     /**
      * @var Collection
      *
-     * @ORM\ManyToMany(targetEntity="App\Base\Entity\MessageStacks\SemanticalMessageStack")
+     * @ORM\ManyToMany(targetEntity="SemanticalAbstractMessageStack")
      * @ORM\JoinTable(name="tasks_semantical_message_stacks",
      *   joinColumns={
      *     @ORM\JoinColumn(name="task_id", referencedColumnName="id")
@@ -65,14 +65,14 @@ abstract class Task extends AbstractEntity
     }
 
     /**
-     * @return Collection|SemanticalMessageStack[]
+     * @return Collection|SemanticalAbstractMessageStack[]
      */
     public function getSemanticalMessageStacks(): Collection
     {
         return $this->semanticalMessageStacks;
     }
 
-    public function addSemanticalMessageStack(SemanticalMessageStack $semanticalMessageStack): self
+    public function addSemanticalMessageStack(SemanticalAbstractMessageStack $semanticalMessageStack): self
     {
         if (!$this->semanticalMessageStacks->contains($semanticalMessageStack)) {
             $this->semanticalMessageStacks[] = $semanticalMessageStack;
@@ -80,7 +80,7 @@ abstract class Task extends AbstractEntity
         return $this;
     }
 
-    public function removeSemanticalMessageStack(SemanticalMessageStack $semanticalMessageStack): self
+    public function removeSemanticalMessageStack(SemanticalAbstractMessageStack $semanticalMessageStack): self
     {
         if ($this->semanticalMessageStacks->contains($semanticalMessageStack)) {
             $this->semanticalMessageStacks->removeElement($semanticalMessageStack);

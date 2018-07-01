@@ -1,7 +1,7 @@
 <?php
 namespace App\Base\Entity\ConcreteProcesses;
 
-use App\Base\Entity\ConcreteProcess;
+use App\Base\Entity\AbstractConcreteProcess;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -9,7 +9,7 @@ use Doctrine\ORM\Mapping as ORM;
  *
  * @ORM\Entity
  */
-class PoiConcreteProcess extends ConcreteProcess
+class PoiAbstractConcreteProcess extends AbstractConcreteProcess
 {
 
 }

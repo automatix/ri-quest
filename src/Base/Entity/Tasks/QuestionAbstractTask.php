@@ -2,7 +2,7 @@
 namespace App\Base\Entity\Tasks;
 
 use App\Base\Entity\Answer;
-use App\Base\Entity\Task;
+use App\Base\Entity\AbstractTask;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
@@ -13,7 +13,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table(name="question_tasks")
  * @ORM\Entity
  */
-class QuestionTask extends Task
+class QuestionAbstractTask extends AbstractTask
 {
     /**
      * @var string|null

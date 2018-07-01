@@ -1,7 +1,7 @@
 <?php
 namespace App\Base\Entity\Tasks;
 
-use App\Base\Entity\Task;
+use App\Base\Entity\AbstractTask;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -10,7 +10,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table(name="fun_tasks")
  * @ORM\Entity
  */
-class FunTask extends Task
+class FunAbstractTask extends AbstractTask
 {
 
 }

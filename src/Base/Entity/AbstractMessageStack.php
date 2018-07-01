@@ -6,7 +6,7 @@ use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * MessageStack
+ * AbstractMessageStack
  *
  * @ORM\Table(name="message_stacks")
  * @ORM\Entity
@@ -17,7 +17,7 @@ use Doctrine\ORM\Mapping as ORM;
  *     "semantical" = "App\Base\Entity\MessageStacks\SemanticalMessageStack"
  * })
  */
-abstract class MessageStack extends AbstractEntity
+abstract class AbstractMessageStack extends AbstractEntity
 {
 
     /**

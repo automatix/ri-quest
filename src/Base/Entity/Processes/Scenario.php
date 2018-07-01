@@ -1,7 +1,7 @@
 <?php
 namespace App\Base\Entity\Processes;
 
-use App\Base\Entity\Process;
+use App\Base\Entity\AbstractProcess;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -10,7 +10,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table(name="scenarios")
  * @ORM\Entity
  */
-class Scenario extends Process
+class Scenario extends AbstractProcess
 {
 
 }

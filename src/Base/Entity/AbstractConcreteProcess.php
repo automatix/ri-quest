@@ -5,7 +5,7 @@ use App\Base\Enums\Entities\ProcessType;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * ConcreteProcess
+ * AbstractConcreteProcess
  *
  * @ORM\Table(name="concrete_processes", indexes={@ORM\Index(name="fk_concrete_process_concrete_process_idx", columns={"parent_id"})})
  * @ORM\Entity
@@ -19,7 +19,7 @@ use Doctrine\ORM\Mapping as ORM;
  *     "completion" = "App\Base\Entity\ConcreteProcesses\CompletionConcreteProcess",
  * })
  */
-abstract class ConcreteProcess extends AbstractEntity
+abstract class AbstractConcreteProcess extends AbstractEntity
 {
 
     /**
@@ -30,9 +30,9 @@ abstract class ConcreteProcess extends AbstractEntity
     private $state = 'unknown';
 
     /**
-     * @var ConcreteProcess
+     * @var AbstractConcreteProcess
      *
-     * @ORM\ManyToOne(targetEntity="ConcreteProcess")
+     * @ORM\ManyToOne(targetEntity="AbstractConcreteProcess")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="parent_id", referencedColumnName="id")
      * })

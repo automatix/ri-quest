@@ -1,7 +1,7 @@
 <?php
 namespace App\Base\Entity\Processes;
 
-use App\Base\Entity\Process;
+use App\Base\Entity\AbstractProcess;
 use App\Base\Enums\Entities\StepType;
 use Doctrine\ORM\Mapping as ORM;
 
@@ -11,7 +11,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table(name="steps")
  * @ORM\Entity
  */
-abstract class Step extends Process
+abstract class Step extends AbstractProcess
 {
 
     /**

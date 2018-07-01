@@ -1,7 +1,7 @@
 <?php
 namespace App\Base\Entity\ContentBlocks;
 
-use App\Base\Entity\ContentBlock;
+use App\Base\Entity\AbstractContentBlock;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -10,7 +10,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table(name="video_content_blocks")
  * @ORM\Entity
  */
-class VideoContentBlock extends ContentBlock
+class VideoAbstractContentBlock extends AbstractContentBlock
 {
     /**
      * @var string|null
