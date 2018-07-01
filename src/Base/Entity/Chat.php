@@ -32,7 +32,7 @@ class Chat extends AbstractEntity
     private $identifier;
 
     /**
-     * @var Collection
+     * @var User
      *
      * @ORM\ManyToOne(targetEntity="App\Base\Entity\User", inversedBy="chats")
      */
@@ -62,7 +62,7 @@ class Chat extends AbstractEntity
         return $this;
     }
 
-    public function getUser(): Collection
+    public function getUser(): User
     {
         return $this->user;
     }
