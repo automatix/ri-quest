@@ -57,12 +57,12 @@ abstract class Process extends AbstractEntity
      *   }
      * )
      */
-    private $processMessageStack;
+    private $processMessageStacks;
 
     public function __construct()
     {
         parent::__construct();
-        $this->processMessageStack = new ArrayCollection();
+        $this->processMessageStacks = new ArrayCollection();
     }
 
     public function getOrder(): ?int
@@ -90,23 +90,23 @@ abstract class Process extends AbstractEntity
     /**
      * @return Collection|ProcessMessageStack[]
      */
-    public function getProcessMessageStack(): Collection
+    public function getProcessMessageStacks(): Collection
     {
-        return $this->processMessageStack;
+        return $this->processMessageStacks;
     }
 
     public function addProcessMessageStack(ProcessMessageStack $processMessageStack): self
     {
-        if (!$this->processMessageStack->contains($processMessageStack)) {
-            $this->processMessageStack[] = $processMessageStack;
+        if (!$this->processMessageStacks->contains($processMessageStack)) {
+            $this->processMessageStacks[] = $processMessageStack;
         }
         return $this;
     }
 
     public function removeProcessMessageStack(ProcessMessageStack $processMessageStack): self
     {
-        if ($this->processMessageStack->contains($processMessageStack)) {
-            $this->processMessageStack->removeElement($processMessageStack);
+        if ($this->processMessageStacks->contains($processMessageStack)) {
+            $this->processMessageStacks->removeElement($processMessageStack);
         }
         return $this;
     }

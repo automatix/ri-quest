@@ -54,12 +54,12 @@ class Answer extends AbstractEntity
      *   }
      * )
      */
-    private $semanticalMessageStack;
+    private $semanticalMessageStacks;
 
     public function __construct()
     {
         parent::__construct();
-        $this->semanticalMessageStack = new ArrayCollection();
+        $this->semanticalMessageStacks = new ArrayCollection();
     }
 
     public function getText(): ?string
@@ -98,23 +98,23 @@ class Answer extends AbstractEntity
     /**
      * @return Collection|SemanticalMessageStack[]
      */
-    public function getSemanticalMessageStack(): Collection
+    public function getSemanticalMessageStacks(): Collection
     {
-        return $this->semanticalMessageStack;
+        return $this->semanticalMessageStacks;
     }
 
     public function addSemanticalMessageStack(SemanticalMessageStack $semanticalMessageStack): self
     {
-        if (!$this->semanticalMessageStack->contains($semanticalMessageStack)) {
-            $this->semanticalMessageStack[] = $semanticalMessageStack;
+        if (!$this->semanticalMessageStacks->contains($semanticalMessageStack)) {
+            $this->semanticalMessageStacks[] = $semanticalMessageStack;
         }
         return $this;
     }
 
     public function removeSemanticalMessageStack(SemanticalMessageStack $semanticalMessageStack): self
     {
-        if ($this->semanticalMessageStack->contains($semanticalMessageStack)) {
-            $this->semanticalMessageStack->removeElement($semanticalMessageStack);
+        if ($this->semanticalMessageStacks->contains($semanticalMessageStack)) {
+            $this->semanticalMessageStacks->removeElement($semanticalMessageStack);
         }
         return $this;
     }
