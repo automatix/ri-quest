@@ -25,7 +25,7 @@ class QuestionTask extends Task
     /**
      * @var Collection
      *
-     * @ORM\OneToMany(targetEntity="App\Base\Entity\Answer", mappedBy="question")
+     * @ORM\OneToMany(targetEntity="App\Base\Entity\Answer", mappedBy="questionTask")
      */
     private $answers;
 

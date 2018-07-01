@@ -39,7 +39,7 @@ class Answer extends AbstractEntity
      *   @ORM\JoinColumn(name="question_id", referencedColumnName="id", nullable=false)
      * })
      */
-    private $question;
+    private $questionTask;
 
     /**
      * @var Collection
@@ -84,14 +84,14 @@ class Answer extends AbstractEntity
         return $this;
     }
 
-    public function getQuestion(): ?QuestionTask
+    public function getQuestionTask(): ?QuestionTask
     {
-        return $this->question;
+        return $this->questionTask;
     }
 
-    public function setQuestion(?QuestionTask $question): self
+    public function setQuestionTask(?QuestionTask $questionTask): self
     {
-        $this->question = $question;
+        $this->questionTask = $questionTask;
         return $this;
     }
 
