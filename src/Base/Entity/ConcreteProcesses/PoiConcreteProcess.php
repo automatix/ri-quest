@@ -5,11 +5,11 @@ use App\Base\Entity\AbstractConcreteProcess;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * ScenarioConcreteProcess
+ * PoiConcreteProcess
  *
  * @ORM\Entity
  */
-class ScenarioAbstractConcreteProcess extends AbstractConcreteProcess
+class PoiConcreteProcess extends AbstractConcreteProcess
 {
 
 }

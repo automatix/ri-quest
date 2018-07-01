@@ -13,7 +13,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table(name="question_tasks")
  * @ORM\Entity
  */
-class QuestionAbstractTask extends AbstractTask
+class QuestionTask extends AbstractTask
 {
     /**
      * @var string|null

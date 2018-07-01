@@ -5,12 +5,12 @@ use App\Base\Entity\AbstractContentBlock;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * VideoContentBlock
+ * AudioContentBlock
  *
- * @ORM\Table(name="video_content_blocks")
+ * @ORM\Table(name="audio_content_blocks")
  * @ORM\Entity
  */
-class VideoAbstractContentBlock extends AbstractContentBlock
+class AudioContentBlock extends AbstractContentBlock
 {
     /**
      * @var string|null

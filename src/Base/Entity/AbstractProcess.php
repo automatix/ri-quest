@@ -1,7 +1,7 @@
 <?php
 namespace App\Base\Entity;
 
-use App\Base\Entity\MessageStacks\ProcessAbstractMessageStack;
+use App\Base\Entity\MessageStacks\ProcessMessageStack;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
@@ -47,7 +47,7 @@ abstract class AbstractProcess extends AbstractEntity
     /**
      * @var Collection
      *
-     * @ORM\ManyToMany(targetEntity="ProcessAbstractMessageStack")
+     * @ORM\ManyToMany(targetEntity="App\Base\Entity\MessageStacks\ProcessMessageStack")
      * @ORM\JoinTable(name="process_process_message_stack",
      *   joinColumns={
      *     @ORM\JoinColumn(name="process_id", referencedColumnName="id")
@@ -88,14 +88,14 @@ abstract class AbstractProcess extends AbstractEntity
     }
 
     /**
-     * @return Collection|ProcessAbstractMessageStack[]
+     * @return Collection|ProcessMessageStack[]
      */
     public function getProcessMessageStacks(): Collection
     {
         return $this->processMessageStacks;
     }
 
-    public function addProcessMessageStack(ProcessAbstractMessageStack $processMessageStack): self
+    public function addProcessMessageStack(ProcessMessageStack $processMessageStack): self
     {
         if (!$this->processMessageStacks->contains($processMessageStack)) {
             $this->processMessageStacks[] = $processMessageStack;
@@ -103,7 +103,7 @@ abstract class AbstractProcess extends AbstractEntity
         return $this;
     }
 
-    public function removeProcessMessageStack(ProcessAbstractMessageStack $processMessageStack): self
+    public function removeProcessMessageStack(ProcessMessageStack $processMessageStack): self
     {
         if ($this->processMessageStacks->contains($processMessageStack)) {
             $this->processMessageStacks->removeElement($processMessageStack);

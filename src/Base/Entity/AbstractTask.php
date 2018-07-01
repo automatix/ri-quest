@@ -1,7 +1,7 @@
 <?php
 namespace App\Base\Entity;
 
-use App\Base\Entity\MessageStacks\SemanticalAbstractMessageStack;
+use App\Base\Entity\MessageStacks\SemanticalMessageStack;
 use App\Base\Entity\Processes\Steps\TaskStep;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
@@ -35,7 +35,7 @@ abstract class AbstractTask extends AbstractEntity
     /**
      * @var Collection
      *
-     * @ORM\ManyToMany(targetEntity="SemanticalAbstractMessageStack")
+     * @ORM\ManyToMany(targetEntity="App\Base\Entity\MessageStacks\SemanticalMessageStack")
      * @ORM\JoinTable(name="tasks_semantical_message_stacks",
      *   joinColumns={
      *     @ORM\JoinColumn(name="task_id", referencedColumnName="id")
@@ -65,14 +65,14 @@ abstract class AbstractTask extends AbstractEntity
     }
 
     /**
-     * @return Collection|SemanticalAbstractMessageStack[]
+     * @return Collection|SemanticalMessageStack[]
      */
     public function getSemanticalMessageStacks(): Collection
     {
         return $this->semanticalMessageStacks;
     }
 
-    public function addSemanticalMessageStack(SemanticalAbstractMessageStack $semanticalMessageStack): self
+    public function addSemanticalMessageStack(SemanticalMessageStack $semanticalMessageStack): self
     {
         if (!$this->semanticalMessageStacks->contains($semanticalMessageStack)) {
             $this->semanticalMessageStacks[] = $semanticalMessageStack;
@@ -80,7 +80,7 @@ abstract class AbstractTask extends AbstractEntity
         return $this;
     }
 
-    public function removeSemanticalMessageStack(SemanticalAbstractMessageStack $semanticalMessageStack): self
+    public function removeSemanticalMessageStack(SemanticalMessageStack $semanticalMessageStack): self
     {
         if ($this->semanticalMessageStacks->contains($semanticalMessageStack)) {
             $this->semanticalMessageStacks->removeElement($semanticalMessageStack);

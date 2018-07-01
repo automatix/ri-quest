@@ -1,8 +1,8 @@
 <?php
 namespace App\Base\Entity;
 
-use App\Base\Entity\MessageStacks\SemanticalAbstractMessageStack;
-use App\Base\Entity\Tasks\QuestionAbstractTask;
+use App\Base\Entity\MessageStacks\SemanticalMessageStack;
+use App\Base\Entity\Tasks\QuestionTask;
 use App\Base\Enums\Entities\AnswerType;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
@@ -32,9 +32,9 @@ class Answer extends AbstractEntity
     private $type;
 
     /**
-     * @var QuestionAbstractTask
+     * @var QuestionTask
      *
-     * @ORM\ManyToOne(targetEntity="QuestionAbstractTask", inversedBy="answers")
+     * @ORM\ManyToOne(targetEntity="App\Base\Entity\Tasks\QuestionTask", inversedBy="answers")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="question_id", referencedColumnName="id", nullable=false)
      * })
@@ -44,7 +44,7 @@ class Answer extends AbstractEntity
     /**
      * @var Collection
      *
-     * @ORM\ManyToMany(targetEntity="SemanticalAbstractMessageStack")
+     * @ORM\ManyToMany(targetEntity="App\Base\Entity\MessageStacks\SemanticalMessageStack")
      * @ORM\JoinTable(name="answers_semantical_message_stacks",
      *   joinColumns={
      *     @ORM\JoinColumn(name="answer_id", referencedColumnName="id")
@@ -84,26 +84,26 @@ class Answer extends AbstractEntity
         return $this;
     }
 
-    public function getQuestionTask(): ?QuestionAbstractTask
+    public function getQuestionTask(): ?QuestionTask
     {
         return $this->questionTask;
     }
 
-    public function setQuestionTask(?QuestionAbstractTask $questionTask): self
+    public function setQuestionTask(?QuestionTask $questionTask): self
     {
         $this->questionTask = $questionTask;
         return $this;
     }
 
     /**
-     * @return Collection|SemanticalAbstractMessageStack[]
+     * @return Collection|SemanticalMessageStack[]
      */
     public function getSemanticalMessageStacks(): Collection
     {
         return $this->semanticalMessageStacks;
     }
 
-    public function addSemanticalMessageStack(SemanticalAbstractMessageStack $semanticalMessageStack): self
+    public function addSemanticalMessageStack(SemanticalMessageStack $semanticalMessageStack): self
     {
         if (!$this->semanticalMessageStacks->contains($semanticalMessageStack)) {
             $this->semanticalMessageStacks[] = $semanticalMessageStack;
@@ -111,7 +111,7 @@ class Answer extends AbstractEntity
         return $this;
     }
 
-    public function removeSemanticalMessageStack(SemanticalAbstractMessageStack $semanticalMessageStack): self
+    public function removeSemanticalMessageStack(SemanticalMessageStack $semanticalMessageStack): self
     {
         if ($this->semanticalMessageStacks->contains($semanticalMessageStack)) {
             $this->semanticalMessageStacks->removeElement($semanticalMessageStack);
