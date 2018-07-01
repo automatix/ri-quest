@@ -7,7 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * AbstractConcreteProcess
  *
- * @ORM\Table(name="concrete_processes", indexes={@ORM\Index(name="fk_concrete_process_concrete_process_idx", columns={"parent_id"})})
+ * @ORM\Table(name="concrete_processes", indexes={@ORM\Index(name="fk_concrete_process_concrete_process_idx", columns={"parent_id"}), @ORM\Index(name="fk_concrete_process_quest_idx", columns={"quest_id"})})
  * @ORM\Entity
  * @ORM\InheritanceType("SINGLE_TABLE")
  * @ORM\DiscriminatorColumn(name="`type`", type="string")
@@ -39,6 +39,14 @@ abstract class AbstractConcreteProcess extends AbstractEntity
      */
     private $parent;
 
+    /**
+     * @var Quest
+     *
+     * @ORM\ManyToOne(targetEntity="Quest", inversedBy="concreteProcesses")
+     * @ORM\JoinColumn(name="quest_id", referencedColumnName="id", nullable=false)
+     */
+    private $quest;
+
     public function getState(): ?string
     {
         return $this->state;
@@ -60,4 +68,16 @@ abstract class AbstractConcreteProcess extends AbstractEntity
         $this->parent = $parent;
         return $this;
     }
+
+    public function getQuest(): ?Quest
+    {
+        return $this->quest;
+    }
+
+    public function setQuest(?Quest $quest): self
+    {
+        $this->quest = $quest;
+        return $this;
+    }
+
 }

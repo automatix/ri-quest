@@ -2,26 +2,18 @@
 namespace App\Base\Entity;
 
 use App\Base\Entity\Processes\Scenario;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
  * Quest
  *
- * @ORM\Table(name="quests", indexes={@ORM\Index(name="fk_quest_scenario_idx", columns={"scenario_id"}), @ORM\Index(name="fk_quest_concrete_process_idx", columns={"concrete_process_id"}), @ORM\Index(name="fk_quest_chat_idx", columns={"chat_id"})})
+ * @ORM\Table(name="quests", indexes={@ORM\Index(name="fk_quest_scenario_idx", columns={"scenario_id"}), @ORM\Index(name="fk_quest_chat_idx", columns={"chat_id"})})
  * @ORM\Entity
  */
 class Quest extends AbstractEntity
 {
-
-    /**
-     * @var AbstractConcreteProcess
-     *
-     * @ORM\ManyToOne(targetEntity="AbstractConcreteProcess")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="concrete_process_id", referencedColumnName="id", nullable=false)
-     * })
-     */
-    private $concreteProcess;
 
     /**
      * @var Scenario
@@ -43,15 +35,17 @@ class Quest extends AbstractEntity
      */
     private $chat;
 
-    public function getConcreteProcess(): ?AbstractConcreteProcess
-    {
-        return $this->concreteProcess;
-    }
+    /**
+     * @var Collection
+     *
+     * @ORM\OneToMany(targetEntity="App\Base\Entity\AbstractConcreteProcess", mappedBy="quest")
+     */
+    private $concreteProcesses;
 
-    public function setConcreteProcess(?AbstractConcreteProcess $concreteProcess): self
+    public function __construct()
     {
-        $this->concreteProcess = $concreteProcess;
-        return $this;
+        parent::__construct();
+        $this->concreteProcesses = new ArrayCollection();
     }
 
     public function getScenario(): ?Scenario
@@ -73,6 +67,27 @@ class Quest extends AbstractEntity
     public function setChat(?Chat $chat): self
     {
         $this->chat = $chat;
+        return $this;
+    }
+
+    public function getConcreteProcesses(): Collection
+    {
+        return $this->concreteProcesses;
+    }
+
+    public function addConcreteProcess(AbstractConcreteProcess $concreteProcess): self
+    {
+        if (!$this->concreteProcesses->contains($concreteProcess)) {
+            $this->concreteProcesses[] = $concreteProcess;
+        }
+        return $this;
+    }
+
+    public function removeConcreteProcess(AbstractConcreteProcess $concreteProcess): self
+    {
+        if ($this->concreteProcesses->contains($concreteProcess)) {
+            $this->concreteProcesses->removeElement($concreteProcess);
+        }
         return $this;
     }
 
