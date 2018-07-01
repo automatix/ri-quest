@@ -36,7 +36,7 @@ class Quest extends AbstractEntity
     /**
      * @var Chat
      *
-     * @ORM\ManyToOne(targetEntity="App\Base\Entity\Chat")
+     * @ORM\ManyToOne(targetEntity="App\Base\Entity\Chat", inversedBy="quests")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="chat_id", referencedColumnName="id", nullable=false)
      * })
