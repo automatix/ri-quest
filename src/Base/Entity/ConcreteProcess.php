@@ -14,7 +14,9 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\DiscriminatorMap({
  *     "scenario" = "App\Base\Entity\ConcreteProcesses\ScenarioConcreteProcess",
  *     "poi" = "App\Base\Entity\ConcreteProcesses\PoiConcreteProcess",
- *     "step" = "App\Base\Entity\ConcreteProcesses\StepConcreteProcess"
+ *     "step" = "App\Base\Entity\ConcreteProcesses\StepConcreteProcess",
+ *     "access" = "App\Base\Entity\ConcreteProcesses\AccessConcreteProcess",
+ *     "completion" = "App\Base\Entity\ConcreteProcesses\CompletionConcreteProcess",
  * })
  */
 abstract class ConcreteProcess extends AbstractEntity
