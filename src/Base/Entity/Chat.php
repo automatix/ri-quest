@@ -1,9 +1,7 @@
 <?php
 namespace App\Base\Entity;
 
-use App\Base\Entity\Tasks\QuestionTask;
-use App\Base\Enums\Entities\AnswerType;
-use App\Base\Enums\Entities\Gender;
+use App\Base\Enums\Entities\ChatType;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
@@ -49,6 +47,17 @@ class Chat extends AbstractEntity
     {
         parent::__construct();
         $this->quests = new ArrayCollection();
+    }
+
+    public function getType(): ?string
+    {
+        return new ChatType($this->type);
+    }
+
+    public function setType(?ChatType $type): self
+    {
+        $this->type = $type->getValue();
+        return $this;
     }
 
     public function getIdentifier(): ?string
