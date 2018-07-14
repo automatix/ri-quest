@@ -1,7 +1,7 @@
 <?php
 namespace App\Base\Entity;
 
-use App\Base\Entity\Processes\Scenario;
+use App\Base\Entity\Processes\Workflow;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
@@ -9,21 +9,21 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Quest
  *
- * @ORM\Table(name="quests", indexes={@ORM\Index(name="fk_quest_scenario_idx", columns={"scenario_id"}), @ORM\Index(name="fk_quest_chat_idx", columns={"chat_id"})})
+ * @ORM\Table(name="quests", indexes={@ORM\Index(name="fk_quest_workflow_idx", columns={"workflow_id"}), @ORM\Index(name="fk_quest_chat_idx", columns={"chat_id"})})
  * @ORM\Entity
  */
 class Quest extends AbstractEntity
 {
 
     /**
-     * @var Scenario
+     * @var Workflow
      *
-     * @ORM\ManyToOne(targetEntity="App\Base\Entity\Processes\Scenario")
+     * @ORM\ManyToOne(targetEntity="App\Base\Entity\Processes\Workflow")
      * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="scenario_id", referencedColumnName="id", nullable=false)
+     *   @ORM\JoinColumn(name="workflow_id", referencedColumnName="id", nullable=false)
      * })
      */
-    private $scenario;
+    private $workflow;
 
     /**
      * @var Chat
@@ -48,14 +48,14 @@ class Quest extends AbstractEntity
         $this->concreteProcesses = new ArrayCollection();
     }
 
-    public function getScenario(): ?Scenario
+    public function getWorkflow(): ?Workflow
     {
-        return $this->scenario;
+        return $this->workflow;
     }
 
-    public function setScenario(?Scenario $scenario): self
+    public function setWorkflow(?Workflow $workflow): self
     {
-        $this->scenario = $scenario;
+        $this->workflow = $workflow;
         return $this;
     }
 

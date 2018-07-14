@@ -62,6 +62,7 @@ class SystemEventHandler implements SystemEventHandlerInterface
             ProcessName::ACCESS => ProcessName::ACCESS(),
             ProcessName::COMPLETION => ProcessName::COMPLETION(),
             ProcessName::SCENARIO => ProcessName::SCENARIO(),
+            ProcessName::WORKFLOW => ProcessName::WORKFLOW(),
         ];
     }
 

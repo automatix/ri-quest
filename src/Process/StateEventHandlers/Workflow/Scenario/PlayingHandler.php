@@ -1,5 +1,5 @@
 <?php
-namespace App\Process\StateEventHandlers\Scenario;
+namespace App\Process\StateEventHandlers\Workflow\Scenario;
 
 use App\Base\Enums\EventNames\GeneralEventName;
 use App\Process\StateEventHandlers\AbstractStateEventHandler;

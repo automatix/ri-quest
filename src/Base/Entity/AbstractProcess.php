@@ -14,6 +14,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\InheritanceType("JOINED")
  * @ORM\DiscriminatorColumn(name="`type`", type="string")
  * @ORM\DiscriminatorMap({
+ *     "workflow" = "App\Base\Entity\Processes\Workflow",
  *     "scenario" = "App\Base\Entity\Processes\Scenario",
  *     "poi" = "App\Base\Entity\Processes\Poi",
  *     "step" = "App\Base\Entity\Processes\Step",

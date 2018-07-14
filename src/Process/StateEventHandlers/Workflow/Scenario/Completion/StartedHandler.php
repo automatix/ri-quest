@@ -1,5 +1,5 @@
 <?php
-namespace App\Process\StateEventHandlers\Scenario\Access;
+namespace App\Process\StateEventHandlers\Workflow\Scenario\Completion;
 
 use App\Process\StateEventHandlers\AbstractStateEventHandler;
 

@@ -7,7 +7,10 @@ use App\Base\Enums\ProcessStates\CompletionState;
 use App\Base\Enums\ProcessStates\PoiState;
 use App\Base\Enums\ProcessStates\ScenarioState;
 use App\Base\Enums\ProcessStates\StepState;
+use App\Base\Enums\ProcessStates\WorkflowState;
 use App\Services\Process\StateManagingServiceInterface;
+use Doctrine\ORM\EntityManager;
+use Doctrine\ORM\EntityManagerInterface;
 
 /**
  * @package App\Services\Process\Internal
@@ -16,10 +19,21 @@ use App\Services\Process\StateManagingServiceInterface;
 class StateManagingService implements StateManagingServiceInterface
 {
 
+    /** @var EntityManager */
+    private $entityManager;
+
+    public function __construct(EntityManagerInterface $entityManager)
+    {
+        $this->entityManager = $entityManager;
+    }
+
     public function detectProcessState(ProcessName $processName)
     {
         $processState = null;
         switch ($processName) {
+            case ProcessName::WORKFLOW():
+                $processState = $this->detectWorkflowState();
+                break;
             case ProcessName::SCENARIO():
                 $processState = $this->detectScenarioState();
                 break;
@@ -37,6 +51,12 @@ class StateManagingService implements StateManagingServiceInterface
                 break;
         }
         return $processState;
+    }
+
+    private function detectWorkflowState()
+    {
+        // @todo remove the static dummy return value and implement the method!
+        return WorkflowState::STARTED();
     }
 
     private function detectScenarioState()

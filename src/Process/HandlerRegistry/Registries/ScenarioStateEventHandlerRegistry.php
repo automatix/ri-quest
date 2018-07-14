@@ -4,14 +4,14 @@ namespace App\Process\HandlerRegistry\Registries;
 use App\Base\Enums\ProcessStates\ScenarioState;
 use App\Process\StateEventHandlers\AbstractStateEventHandler;
 use App\Process\HandlerRegistry\Registries\AbstractProcessStateEventHandlerRegistry;
-use App\Process\StateEventHandlers\Scenario\AccessFailedHandler;
-use App\Process\StateEventHandlers\Scenario\AccessProcessingHandler;
-use App\Process\StateEventHandlers\Scenario\CompletedHandler;
-use App\Process\StateEventHandlers\Scenario\EndedHandler;
-use App\Process\StateEventHandlers\Scenario\FinishedHandler;
-use App\Process\StateEventHandlers\Scenario\PausedHandler;
-use App\Process\StateEventHandlers\Scenario\PlayingHandler;
-use App\Process\StateEventHandlers\Scenario\StartedHandler;
+use App\Process\StateEventHandlers\Workflow\Scenario\AccessFailedHandler;
+use App\Process\StateEventHandlers\Workflow\Scenario\AccessProcessingHandler;
+use App\Process\StateEventHandlers\Workflow\Scenario\CompletedHandler;
+use App\Process\StateEventHandlers\Workflow\Scenario\EndedHandler;
+use App\Process\StateEventHandlers\Workflow\Scenario\FinishedHandler;
+use App\Process\StateEventHandlers\Workflow\Scenario\PausedHandler;
+use App\Process\StateEventHandlers\Workflow\Scenario\PlayingHandler;
+use App\Process\StateEventHandlers\Workflow\Scenario\StartedHandler;
 
 class ScenarioStateEventHandlerRegistry extends AbstractProcessStateEventHandlerRegistry
 {

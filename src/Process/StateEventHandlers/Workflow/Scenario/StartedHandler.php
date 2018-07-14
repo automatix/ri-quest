@@ -1,5 +1,5 @@
 <?php
-namespace App\Process\StateEventHandlers\Scenario;
+namespace App\Process\StateEventHandlers\Workflow\Scenario;
 
 use App\Base\Enums\EventNames\GeneralEventName;
 use App\Process\StateEventHandlers\AbstractStateEventHandler;
@@ -7,12 +7,12 @@ use Symfony\Component\EventDispatcher\Event;
 use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 
 /**
- * Class FinishedHandler extends AbstractStateEventHandler
+ * Class StartedHandler extends AbstractStateEventHandler
  *
  * @package App\Services\Process\Internal\StateHandlers\Scenario
  * @author Ilya Khanataev <contact@mevatex.com>
  */
-class FinishedHandler extends AbstractStateEventHandler
+class StartedHandler extends AbstractStateEventHandler
 {
 
 }

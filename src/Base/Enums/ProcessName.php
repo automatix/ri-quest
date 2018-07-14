@@ -4,6 +4,7 @@ namespace App\Base\Enums;
 use App\Base\Enums\AbstractEnum;
 
 /**
+ * @method static ProcessName WORKFLOW()
  * @method static ProcessName SCENARIO()
  * @method static ProcessName ACCESS()
  * @method static ProcessName COMPLETION()
@@ -16,6 +17,7 @@ use App\Base\Enums\AbstractEnum;
 class ProcessName extends AbstractEnum
 {
 
+    const WORKFLOW = 'workflow';
     const SCENARIO = 'scenario';
     const ACCESS = 'access';
     const COMPLETION = 'completion';

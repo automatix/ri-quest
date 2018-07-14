@@ -1,5 +1,5 @@
 <?php
-namespace App\Base\Enums\EventNames\Scenario;
+namespace App\Base\Enums\EventNames\Workflow\Scenario;
 
 use App\Base\Enums\EventNames\AbstractEventName;
 
@@ -12,6 +12,6 @@ use App\Base\Enums\EventNames\AbstractEventName;
 class PoiAbstractEventName extends AbstractEventName
 {
 
-    const FOO = 'scenario.poi:foo';
+    const FOO = 'workflow.scenario.poi:foo';
 
 }

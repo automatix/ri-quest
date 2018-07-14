@@ -37,6 +37,7 @@ class StateEventHandlerRegistry implements StateEventHandlerRegistryInterface
             ProcessName::ACCESS => $accessStateEventHandlerRegistry->getStateEventHandlers(),
             ProcessName::COMPLETION => $completionStateEventHandlerRegistry->getStateEventHandlers(),
             ProcessName::SCENARIO => $scenarioStateEventHandlerRegistry->getStateEventHandlers(),
+            ProcessName::WORKFLOW => $scenarioStateEventHandlerRegistry->getStateEventHandlers(),
         ];
     }
 

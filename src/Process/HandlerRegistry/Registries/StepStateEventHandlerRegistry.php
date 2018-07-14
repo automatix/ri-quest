@@ -4,7 +4,7 @@ namespace App\Process\HandlerRegistry\Registries;
 use App\Base\Enums\ProcessStates\StepState;
 use App\Process\StateEventHandlers\AbstractStateEventHandler;
 use App\Process\HandlerRegistry\Registries\AbstractProcessStateEventHandlerRegistry;
-use App\Process\StateEventHandlers\Scenario\Poi\Step\StartedHandler;
+use App\Process\StateEventHandlers\Workflow\Scenario\Poi\Step\StartedHandler;
 
 class StepStateEventHandlerRegistry extends AbstractProcessStateEventHandlerRegistry
 {

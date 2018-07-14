@@ -4,7 +4,7 @@ namespace App\Process\HandlerRegistry\Registries;
 use App\Base\Enums\ProcessStates\AccessState;
 use App\Process\StateEventHandlers\AbstractStateEventHandler;
 use App\Process\HandlerRegistry\Registries\AbstractProcessStateEventHandlerRegistry;
-use App\Process\StateEventHandlers\Scenario\StartedHandler;
+use App\Process\StateEventHandlers\Workflow\Scenario\StartedHandler;
 
 class AccessStateEventHandlerRegistry extends AbstractProcessStateEventHandlerRegistry
 {

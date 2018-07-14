@@ -1,5 +1,5 @@
 <?php
-namespace App\Base\Enums\EventNames;
+namespace App\Base\Enums\EventNames\Workflow;
 
 use App\Base\Enums\AbstractEnum;
 
@@ -12,6 +12,6 @@ use App\Base\Enums\AbstractEnum;
 class ScenarioEventName extends AbstractEnum
 {
 
-    const FOO = 'scenario:foo';
+    const FOO = 'workflow.scenario:foo';
 
 }
