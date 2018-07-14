@@ -2,6 +2,8 @@
 namespace App\Base\Entity;
 
 use App\Base\Enums\Entities\ProcessType;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -47,6 +49,19 @@ abstract class AbstractConcreteProcess extends AbstractEntity
      */
     private $quest;
 
+    /**
+     * @var Collection
+     *
+     * @ORM\OneToMany(targetEntity="Loop", mappedBy="concreteProcess")
+     */
+    private $loops;
+
+    public function __construct()
+    {
+        parent::__construct();
+        $this->loops = new ArrayCollection();
+    }
+
     public function getState(): ?string
     {
         return $this->state;
@@ -77,6 +92,27 @@ abstract class AbstractConcreteProcess extends AbstractEntity
     public function setQuest(?Quest $quest): self
     {
         $this->quest = $quest;
+        return $this;
+    }
+
+    public function getLoops(): Collection
+    {
+        return $this->loops;
+    }
+
+    public function addLoop(Loop $loop): self
+    {
+        if (!$this->loops->contains($loop)) {
+            $this->loops[] = $loop;
+        }
+        return $this;
+    }
+
+    public function removeLoop(Loop $loop): self
+    {
+        if ($this->loops->contains($loop)) {
+            $this->loops->removeElement($loop);
+        }
         return $this;
     }
 
