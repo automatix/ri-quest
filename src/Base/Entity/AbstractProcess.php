@@ -38,12 +38,18 @@ abstract class AbstractProcess extends AbstractEntity
     /**
      * @var AbstractProcess
      *
-     * @ORM\ManyToOne(targetEntity="AbstractProcess")
+     * @ORM\ManyToOne(targetEntity="AbstractProcess", inversedBy="children")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="parent_id", referencedColumnName="id")
      * })
      */
     private $parent;
+
+    /**
+     * One Category has Many Categories.
+     * @ORM\OneToMany(targetEntity="AbstractProcess", mappedBy="parent")
+     */
+    private $children;
 
     /**
      * @var Collection
@@ -64,6 +70,7 @@ abstract class AbstractProcess extends AbstractEntity
     {
         parent::__construct();
         $this->processMessageStacks = new ArrayCollection();
+        $this->children = new ArrayCollection();
     }
 
     public function getOrder(): ?int
@@ -108,6 +115,30 @@ abstract class AbstractProcess extends AbstractEntity
     {
         if ($this->processMessageStacks->contains($processMessageStack)) {
             $this->processMessageStacks->removeElement($processMessageStack);
+        }
+        return $this;
+    }
+
+    /**
+     * @return Collection|AbstractProcess[]
+     */
+    public function getChildren(): Collection
+    {
+        return $this->children;
+    }
+
+    public function addChild(AbstractProcess $child): self
+    {
+        if (!$this->children->contains($child)) {
+            $this->children[] = $child;
+        }
+        return $this;
+    }
+
+    public function removeChild(AbstractProcess $child): self
+    {
+        if ($this->children->contains($child)) {
+            $this->children->removeElement($child);
         }
         return $this;
     }
