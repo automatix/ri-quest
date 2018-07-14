@@ -35,6 +35,13 @@ abstract class AbstractTask extends AbstractEntity
     /**
      * @var Collection
      *
+     * @ORM\OneToMany(targetEntity="Attempt", mappedBy="task")
+     */
+    private $attempts;
+
+    /**
+     * @var Collection
+     *
      * @ORM\ManyToMany(targetEntity="App\Base\Entity\MessageStacks\SemanticalMessageStack")
      * @ORM\JoinTable(name="tasks_semantical_message_stacks",
      *   joinColumns={
@@ -51,6 +58,7 @@ abstract class AbstractTask extends AbstractEntity
     {
         parent::__construct();
         $this->semanticalMessageStacks = new ArrayCollection();
+        $this->attempts = new ArrayCollection();
     }
 
     public function getTaskStep(): ?TaskStep
@@ -84,6 +92,30 @@ abstract class AbstractTask extends AbstractEntity
     {
         if ($this->semanticalMessageStacks->contains($semanticalMessageStack)) {
             $this->semanticalMessageStacks->removeElement($semanticalMessageStack);
+        }
+        return $this;
+    }
+
+    /**
+     * @return Collection|Attempt[]
+     */
+    public function getAttempts(): Collection
+    {
+        return $this->attempts;
+    }
+
+    public function addAttempt(Attempt $attempt): self
+    {
+        if (!$this->attempts->contains($attempt)) {
+            $this->attempts[] = $attempt;
+        }
+        return $this;
+    }
+
+    public function removeAttempt(Attempt $attempt): self
+    {
+        if ($this->attempts->contains($attempt)) {
+            $this->attempts->removeElement($attempt);
         }
         return $this;
     }
