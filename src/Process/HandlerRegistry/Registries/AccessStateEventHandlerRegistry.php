@@ -4,12 +4,12 @@ namespace App\Process\HandlerRegistry\Registries;
 use App\Base\Enums\ProcessStates\AccessState;
 use App\Process\StateEventHandlers\AbstractStateEventHandler;
 use App\Process\HandlerRegistry\Registries\AbstractProcessStateEventHandlerRegistry;
-use App\Process\StateEventHandlers\Workflow\Scenario\Access\CanceledHandler;
-use App\Process\StateEventHandlers\Workflow\Scenario\Access\StartedHandler;
-use App\Process\StateEventHandlers\Workflow\Scenario\Access\TicketAttemptFailedHandler;
-use App\Process\StateEventHandlers\Workflow\Scenario\Access\TicketAttemptSuccessfullHandler;
-use App\Process\StateEventHandlers\Workflow\Scenario\Access\TicketReceivedHandler;
-use App\Process\StateEventHandlers\Workflow\Scenario\Access\TicketRequestedHandler;
+use App\Process\StateEventHandlers\Workflow\Access\CanceledHandler;
+use App\Process\StateEventHandlers\Workflow\Access\StartedHandler;
+use App\Process\StateEventHandlers\Workflow\Access\TicketAttemptFailedHandler;
+use App\Process\StateEventHandlers\Workflow\Access\TicketAttemptSuccessfullHandler;
+use App\Process\StateEventHandlers\Workflow\Access\TicketReceivedHandler;
+use App\Process\StateEventHandlers\Workflow\Access\TicketRequestedHandler;
 use App\Process\StateEventHandlers\Workflow\Scenario\FinishedHandler;
 
 class AccessStateEventHandlerRegistry extends AbstractProcessStateEventHandlerRegistry

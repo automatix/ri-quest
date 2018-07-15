@@ -3,8 +3,8 @@ namespace App\Process\HandlerRegistry\Registries;
 
 use App\Base\Enums\ProcessStates\CompletionState;
 use App\Process\StateEventHandlers\AbstractStateEventHandler;
-use App\Process\StateEventHandlers\Workflow\Scenario\Completion\FinishedHandler;
-use App\Process\StateEventHandlers\Workflow\Scenario\Completion\StartedHandler;
+use App\Process\StateEventHandlers\Workflow\Completion\FinishedHandler;
+use App\Process\StateEventHandlers\Workflow\Completion\StartedHandler;
 
 class CompletionStateEventHandlerRegistry extends AbstractProcessStateEventHandlerRegistry
 {
