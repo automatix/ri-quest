@@ -3,7 +3,7 @@ namespace App\Process\HandlerRegistry\Registries;
 
 use App\Base\Enums\ProcessStates\CompletionState;
 use App\Process\StateEventHandlers\AbstractStateEventHandler;
-use App\Process\HandlerRegistry\Registries\AbstractProcessStateEventHandlerRegistry;
+use App\Process\StateEventHandlers\Workflow\Scenario\Completion\FinishedHandler;
 use App\Process\StateEventHandlers\Workflow\Scenario\Completion\StartedHandler;
 
 class CompletionStateEventHandlerRegistry extends AbstractProcessStateEventHandlerRegistry
@@ -13,10 +13,12 @@ class CompletionStateEventHandlerRegistry extends AbstractProcessStateEventHandl
     private $stateEventHandlers;
 
     public function __construct(
-        StartedHandler $startedHandler
+        StartedHandler $startedHandler,
+        FinishedHandler $finishedHandler
     ) {
         $this->stateEventHandlers = [
             CompletionState::STARTED => $startedHandler,
+            CompletionState::FINISHED => $finishedHandler,
         ];
     }
 

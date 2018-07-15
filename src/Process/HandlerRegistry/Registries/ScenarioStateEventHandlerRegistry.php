@@ -3,15 +3,9 @@ namespace App\Process\HandlerRegistry\Registries;
 
 use App\Base\Enums\ProcessStates\ScenarioState;
 use App\Process\StateEventHandlers\AbstractStateEventHandler;
-use App\Process\HandlerRegistry\Registries\AbstractProcessStateEventHandlerRegistry;
-use App\Process\StateEventHandlers\Workflow\Scenario\AccessFailedHandler;
-use App\Process\StateEventHandlers\Workflow\Scenario\AccessProcessingHandler;
-use App\Process\StateEventHandlers\Workflow\Scenario\CompletedHandler;
-use App\Process\StateEventHandlers\Workflow\Scenario\EndedHandler;
-use App\Process\StateEventHandlers\Workflow\Scenario\FinishedHandler;
-use App\Process\StateEventHandlers\Workflow\Scenario\PausedHandler;
-use App\Process\StateEventHandlers\Workflow\Scenario\PlayingHandler;
-use App\Process\StateEventHandlers\Workflow\Scenario\StartedHandler;
+use App\Process\StateEventHandlers\Workflow\FinishedHandler;
+use App\Process\StateEventHandlers\Workflow\IntroSentHandler;
+use App\Process\StateEventHandlers\Workflow\StartedHandler;
 
 class ScenarioStateEventHandlerRegistry extends AbstractProcessStateEventHandlerRegistry
 {
@@ -21,22 +15,13 @@ class ScenarioStateEventHandlerRegistry extends AbstractProcessStateEventHandler
 
     public function __construct(
         StartedHandler $startedHandler,
-        PlayingHandler $playingHandler,
-        CompletedHandler $completedHandler,
-        FinishedHandler $finishedHandler,
-        PausedHandler $pausedHandler,
-        EndedHandler $endedHandler,
-        AccessFailedHandler $accessFailedHandler,
-        AccessProcessingHandler $accessProcessingHandler
+        IntroSentHandler $poiProcessingHandler,
+        FinishedHandler $finishedHandler
     ) {
         $this->stateEventHandlers = [
             ScenarioState::STARTED => $startedHandler,
-            ScenarioState::PLAYING => $playingHandler,
-            ScenarioState::PAUSED => $pausedHandler,
-            ScenarioState::COMPLETED => $completedHandler,
-            ScenarioState::ENDED => $endedHandler,
-            ScenarioState::ACCESS_FAILED => $accessFailedHandler,
-            ScenarioState::ACCESS_PROCESSING => $accessProcessingHandler,
+            ScenarioState::POI_PROCESSING => $poiProcessingHandler,
+            ScenarioState::FINISHED => $finishedHandler,
         ];
     }
 

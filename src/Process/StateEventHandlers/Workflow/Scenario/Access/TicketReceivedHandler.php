@@ -7,7 +7,7 @@ use App\Process\StateEventHandlers\AbstractStateEventHandler;
  * @package App\Process\StateEventHandlers\Workflow\Scenario\Access
  * @author Ilya Khanataev <contact@mevatex.com>
  */
-class StartedHandler extends AbstractStateEventHandler
+class TicketReceivedHandler extends AbstractStateEventHandler
 {
 
 }

@@ -11,7 +11,7 @@ use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 /**
  * Class StartedHandler extends AbstractStateEventHandler
  *
- * @package App\Services\Process\Internal\StateHandlers\Scenario
+ * @package App\Services\Process\Internal\StateHandlers\Scenario\Poi\Step
  * @author Ilya Khanataev <contact@mevatex.com>
  */
 class StartedHandler extends AbstractStateEventHandler

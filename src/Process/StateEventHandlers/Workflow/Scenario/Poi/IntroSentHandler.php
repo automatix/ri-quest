@@ -9,10 +9,10 @@ use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 /**
  * Class StartedHandler extends AbstractStateEventHandler
  *
- * @package App\Services\Process\Internal\StateHandlers\Scenario\Poi
+ * @package App\Services\Process\Internal\StateHandlers\Workflow\Scenario\Poi
  * @author Ilya Khanataev <contact@mevatex.com>
  */
-class StartedHandler extends AbstractStateEventHandler
+class IntroSentHandler extends AbstractStateEventHandler
 {
 
 }
