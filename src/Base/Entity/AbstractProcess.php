@@ -14,15 +14,15 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\InheritanceType("JOINED")
  * @ORM\DiscriminatorColumn(name="`type`", type="string")
  * @ORM\DiscriminatorMap({
- *     "workflow" = "App\Base\Entity\Processes\Workflow",
- *     "scenario" = "App\Base\Entity\Processes\Scenario",
- *     "poi" = "App\Base\Entity\Processes\Poi",
- *     "step" = "App\Base\Entity\Processes\Step",
- *     "place_step" = "App\Base\Entity\Processes\Steps\PlaceStep",
- *     "task_step" = "App\Base\Entity\Processes\Steps\TaskStep",
- *     "info_step" = "App\Base\Entity\Processes\Steps\InfoStep",
  *     "access" = "App\Base\Entity\Processes\Access",
  *     "completion" = "App\Base\Entity\Processes\Completion",
+ *     "poi" = "App\Base\Entity\Processes\Poi",
+ *     "scenario" = "App\Base\Entity\Processes\Scenario",
+ *     "step" = "App\Base\Entity\Processes\Step",
+ *     "info_step" = "App\Base\Entity\Processes\Steps\InfoStep",
+ *     "place_step" = "App\Base\Entity\Processes\Steps\PlaceStep",
+ *     "task_step" = "App\Base\Entity\Processes\Steps\TaskStep",
+ *     "workflow" = "App\Base\Entity\Processes\Workflow",
  * })
  */
 abstract class AbstractProcess extends AbstractEntity

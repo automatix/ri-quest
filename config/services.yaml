@@ -37,8 +37,8 @@ services:
             - { name: kernel.event_listener, event: general:foo, method: handle }
             - { name: kernel.event_listener, event: general:user_message_received, method: handle }
             - { name: kernel.event_listener, event: workflow:foo, method: handle }
+            - { name: kernel.event_listener, event: workflow.access:foo, method: handle }
+            - { name: kernel.event_listener, event: workflow.completion:foo, method: handle }
+            - { name: kernel.event_listener, event: workflow.scenario:foo, method: handle }
             - { name: kernel.event_listener, event: workflow.scenario.poi:foo, method: handle }
             - { name: kernel.event_listener, event: workflow.scenario.poi.step:foo, method: handle }
-            - { name: kernel.event_listener, event: workflow.scenario.access:foo, method: handle }
-            - { name: kernel.event_listener, event: workflow.scenario.completion:foo, method: handle }
-            - { name: kernel.event_listener, event: workflow.scenario:foo, method: handle }

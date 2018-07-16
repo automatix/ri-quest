@@ -12,7 +12,7 @@ use Symfony\Component\EventDispatcher\EventDispatcherInterface;
  * @package App\Services\Process\Internal\StateHandlers\Scenario
  * @author Ilya Khanataev <contact@mevatex.com>
  */
-class AccessFailedHandler extends AbstractStateEventHandler
+class IntroSentHandler extends AbstractStateEventHandler
 {
 
 }

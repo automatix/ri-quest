@@ -12,6 +12,6 @@ use App\Base\Enums\AbstractEnum;
 class WorkflowEventName extends AbstractEnum
 {
 
-    const FOO = 'workflow.scenario:foo';
+    const FOO = 'workflow:foo';
 
 }

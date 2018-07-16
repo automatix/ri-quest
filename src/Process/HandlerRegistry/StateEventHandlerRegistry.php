@@ -7,6 +7,7 @@ use App\Base\Enums\ProcessStates\AbstractProcessState;
 use App\Base\Exceptions\EventHandlingErrorContextCode;
 use App\Base\Exceptions\EventHandlingException;
 use App\Base\Utils\NameConverterInterface;
+use App\Process\HandlerRegistry\Registries\WorkflowStateEventHandlerRegistry;
 use App\Process\StateEventHandlers\AbstractStateEventHandler;
 use App\Process\HandlerRegistry\Registries\AccessStateEventHandlerRegistry;
 use App\Process\HandlerRegistry\Registries\CompletionStateEventHandlerRegistry;
@@ -24,20 +25,21 @@ class StateEventHandlerRegistry implements StateEventHandlerRegistryInterface
 
     public function __construct(
         NameConverterInterface $nameConverter,
-        ScenarioStateEventHandlerRegistry $scenarioStateEventHandlerRegistry,
         AccessStateEventHandlerRegistry $accessStateEventHandlerRegistry,
         CompletionStateEventHandlerRegistry $completionStateEventHandlerRegistry,
         PoiStateEventHandlerRegistry $poiStateEventHandlerRegistry,
-        StepStateEventHandlerRegistry $stepStateEventHandlerRegistry
+        StepStateEventHandlerRegistry $stepStateEventHandlerRegistry,
+        ScenarioStateEventHandlerRegistry $scenarioStateEventHandlerRegistry,
+        WorkflowStateEventHandlerRegistry $workflowStateEventHandlerRegistry
     ) {
         $this->nameConverter = $nameConverter;
         $this->stateEventHandlers = [
-            ProcessName::STEP => $stepStateEventHandlerRegistry->getStateEventHandlers(),
-            ProcessName::POI => $poiStateEventHandlerRegistry->getStateEventHandlers(),
             ProcessName::ACCESS => $accessStateEventHandlerRegistry->getStateEventHandlers(),
             ProcessName::COMPLETION => $completionStateEventHandlerRegistry->getStateEventHandlers(),
+            ProcessName::POI => $poiStateEventHandlerRegistry->getStateEventHandlers(),
             ProcessName::SCENARIO => $scenarioStateEventHandlerRegistry->getStateEventHandlers(),
-            ProcessName::WORKFLOW => $scenarioStateEventHandlerRegistry->getStateEventHandlers(),
+            ProcessName::STEP => $stepStateEventHandlerRegistry->getStateEventHandlers(),
+            ProcessName::WORKFLOW => $workflowStateEventHandlerRegistry->getStateEventHandlers(),
         ];
     }
 

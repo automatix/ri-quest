@@ -56,6 +56,7 @@ class SystemEventHandler implements SystemEventHandlerInterface
     private function getProcessNames()
     {
         // The array index determines the priority and so the handling order!
+        // Means: The the order in the list is actually the priority.
         return [
             ProcessName::STEP => ProcessName::STEP(),
             ProcessName::POI => ProcessName::POI(),

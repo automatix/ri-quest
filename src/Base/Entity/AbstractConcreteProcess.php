@@ -14,11 +14,12 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\InheritanceType("SINGLE_TABLE")
  * @ORM\DiscriminatorColumn(name="`type`", type="string")
  * @ORM\DiscriminatorMap({
- *     "scenario" = "App\Base\Entity\ConcreteProcesses\ScenarioConcreteProcess",
- *     "poi" = "App\Base\Entity\ConcreteProcesses\PoiConcreteProcess",
- *     "step" = "App\Base\Entity\ConcreteProcesses\StepConcreteProcess",
  *     "access" = "App\Base\Entity\ConcreteProcesses\AccessConcreteProcess",
  *     "completion" = "App\Base\Entity\ConcreteProcesses\CompletionConcreteProcess",
+ *     "poi" = "App\Base\Entity\ConcreteProcesses\PoiConcreteProcess",
+ *     "scenario" = "App\Base\Entity\ConcreteProcesses\ScenarioConcreteProcess",
+ *     "step" = "App\Base\Entity\ConcreteProcesses\StepConcreteProcess",
+ *     "workflow" = "App\Base\Entity\ConcreteProcesses\WorkflowConcreteProcess",
  * })
  */
 abstract class AbstractConcreteProcess extends AbstractEntity

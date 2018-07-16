@@ -31,50 +31,26 @@ class StateManagingService implements StateManagingServiceInterface
     {
         $processState = null;
         switch ($processName) {
-            case ProcessName::WORKFLOW():
-                $processState = $this->detectWorkflowState();
-                break;
-            case ProcessName::SCENARIO():
-                $processState = $this->detectScenarioState();
-                break;
-            case ProcessName::POI():
-                $processState = $this->detectPoiState();
-                break;
-            case ProcessName::STEP():
-                $processState = $this->detectStepState();
-                break;
             case ProcessName::ACCESS():
                 $processState = $this->detectAccessState();
                 break;
             case ProcessName::COMPLETION():
                 $processState = $this->detectCompletionState();
                 break;
+            case ProcessName::POI():
+                $processState = $this->detectPoiState();
+                break;
+            case ProcessName::SCENARIO():
+                $processState = $this->detectScenarioState();
+                break;
+            case ProcessName::STEP():
+                $processState = $this->detectStepState();
+                break;
+            case ProcessName::WORKFLOW():
+                $processState = $this->detectWorkflowState();
+                break;
         }
         return $processState;
-    }
-
-    private function detectWorkflowState()
-    {
-        // @todo remove the static dummy return value and implement the method!
-        return WorkflowState::STARTED();
-    }
-
-    private function detectScenarioState()
-    {
-        // @todo remove the static dummy return value and implement the method!
-        return ScenarioState::STARTED();
-    }
-
-    private function detectPoiState()
-    {
-        // @todo remove the static dummy return value and implement the method!
-        return PoiState::STARTED();
-    }
-
-    private function detectStepState()
-    {
-        // @todo remove the static dummy return value and implement the method!
-        return StepState::STARTED();
     }
 
     private function detectAccessState()
@@ -87,6 +63,30 @@ class StateManagingService implements StateManagingServiceInterface
     {
         // @todo remove the static dummy return value and implement the method!
         return CompletionState::STARTED();
+    }
+
+    private function detectPoiState()
+    {
+        // @todo remove the static dummy return value and implement the method!
+        return PoiState::STARTED();
+    }
+
+    private function detectScenarioState()
+    {
+        // @todo remove the static dummy return value and implement the method!
+        return ScenarioState::STARTED();
+    }
+
+    private function detectStepState()
+    {
+        // @todo remove the static dummy return value and implement the method!
+        return StepState::STARTED();
+    }
+
+    private function detectWorkflowState()
+    {
+        // @todo remove the static dummy return value and implement the method!
+        return WorkflowState::STARTED();
     }
 
     /**
