@@ -23,18 +23,18 @@ class AccessStateEventHandlerRegistry extends AbstractProcessStateEventHandlerRe
         StartedHandler $startedHandler,
         TicketRequestedHandler $ticketRequestedHandler,
         TicketReceivedHandler $ticketReceivedHandler,
-        TicketAttemptFailedHandler $ticketAtemptFailedHandler,
+        TicketAttemptFailedHandler $ticketAttemptFailedHandler,
         CanceledHandler $canceledHandler,
-        TicketAttemptSuccessfullHandler $ticketAtemptSuccessfulHandler,
+        TicketAttemptSuccessfullHandler $ticketAttemptSuccessfulHandler,
         FinishedHandler $finishedHandler
     ) {
         $this->stateEventHandlers = [
             AccessState::STARTED => $startedHandler,
             AccessState::TICKET_REQUESTED => $ticketRequestedHandler,
             AccessState::TICKET_RECEIVED => $ticketReceivedHandler,
-            AccessState::TICKET_ATEMPT_FAILED => $ticketAtemptFailedHandler,
+            AccessState::TICKET_ATTEMPT_FAILED => $ticketAttemptFailedHandler,
             AccessState::CANCELED => $canceledHandler,
-            AccessState::TICKET_ATEMPT_SUCCESSFUL => $ticketAtemptSuccessfulHandler,
+            AccessState::TICKET_ATTEMPT_SUCCESSFUL => $ticketAttemptSuccessfulHandler,
             AccessState::FINISHED => $finishedHandler,
         ];
     }
