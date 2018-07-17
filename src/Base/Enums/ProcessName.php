@@ -1,8 +1,6 @@
 <?php
 namespace App\Base\Enums;
 
-use App\Base\Enums\AbstractEnum;
-
 /**
  * @method static ProcessName ACCESS()
  * @method static ProcessName COMPLETION()

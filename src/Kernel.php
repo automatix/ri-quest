@@ -1,7 +1,6 @@
 <?php
 namespace App;
 
-use DI\Bridge\Symfony\Kernel as PhpDIBridgeSymfonyKernel;
 use DI\Container;
 use DI\ContainerBuilder as PhpDiContainerBuilder;
 use Exception;

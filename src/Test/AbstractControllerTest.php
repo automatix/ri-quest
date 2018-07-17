@@ -1,8 +1,6 @@
 <?php
 namespace App\Test;
 
-use App\Services\Dummy\External\FooServiceInterface;
-use App\Services\Dummy\Internal\BarServiceInterface;
 use Doctrine\ORM\EntityManagerInterface;
 use PHPUnit\DbUnit\TestCaseTrait;
 use Psr\Container\ContainerExceptionInterface;

@@ -1,11 +1,9 @@
 <?php
 namespace App\Test;
 
-use DI\ContainerBuilder;
-use Psr\Container\ContainerInterface;
 use Psr\Container\ContainerExceptionInterface;
+use Psr\Container\ContainerInterface;
 use Psr\Container\NotFoundExceptionInterface;
-use Exception;
 
 error_reporting(E_ALL | E_STRICT);
 ini_set('memory_limit', '2048M');

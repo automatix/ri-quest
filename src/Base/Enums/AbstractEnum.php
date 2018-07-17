@@ -3,8 +3,8 @@ namespace App\Base\Enums;
 
 use App\Base\Exceptions\EnumErrorContextCode;
 use App\Base\Exceptions\EnumException;
-use MyCLabs\Enum\Enum as MyCLabsEnum;
 use BadMethodCallException;
+use MyCLabs\Enum\Enum as MyCLabsEnum;
 
 /**
  * Class Enum

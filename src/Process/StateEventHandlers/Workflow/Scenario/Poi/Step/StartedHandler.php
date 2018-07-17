@@ -1,7 +1,6 @@
 <?php
 namespace App\Process\StateEventHandlers\Workflow\Scenario\Poi\Step;
 
-use App\Base\Enums\EventNames\GeneralEventName;
 use App\Base\Enums\EventNames\Workflow\Scenario\Poi\StepAbstractEventName;
 use App\Base\Events\GenericEvent;
 use App\Process\StateEventHandlers\AbstractStateEventHandler;

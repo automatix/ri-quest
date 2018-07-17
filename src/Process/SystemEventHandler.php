@@ -1,7 +1,6 @@
 <?php
 namespace App\Process;
 
-use App\Base\Enums\EventNames\GeneralEventName;
 use App\Base\Enums\ProcessName;
 use App\Base\Exceptions\EventHandlingException;
 use App\Process\HandlerRegistry\StateEventHandlerRegistryInterface;

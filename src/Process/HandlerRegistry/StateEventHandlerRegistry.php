@@ -1,19 +1,18 @@
 <?php
 namespace App\Process\HandlerRegistry;
 
-use App\Base\Enums\EventNames\GeneralEventName;
 use App\Base\Enums\ProcessName;
 use App\Base\Enums\ProcessStates\AbstractProcessState;
 use App\Base\Exceptions\EventHandlingErrorContextCode;
 use App\Base\Exceptions\EventHandlingException;
 use App\Base\Utils\NameConverterInterface;
-use App\Process\HandlerRegistry\Registries\WorkflowStateEventHandlerRegistry;
-use App\Process\StateEventHandlers\AbstractStateEventHandler;
 use App\Process\HandlerRegistry\Registries\AccessStateEventHandlerRegistry;
 use App\Process\HandlerRegistry\Registries\CompletionStateEventHandlerRegistry;
 use App\Process\HandlerRegistry\Registries\PoiStateEventHandlerRegistry;
 use App\Process\HandlerRegistry\Registries\ScenarioStateEventHandlerRegistry;
 use App\Process\HandlerRegistry\Registries\StepStateEventHandlerRegistry;
+use App\Process\HandlerRegistry\Registries\WorkflowStateEventHandlerRegistry;
+use App\Process\StateEventHandlers\AbstractStateEventHandler;
 
 class StateEventHandlerRegistry implements StateEventHandlerRegistryInterface
 {

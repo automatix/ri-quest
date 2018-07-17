@@ -1,8 +1,8 @@
 <?php
 namespace App\Base\Entity\Tasks;
 
-use App\Base\Entity\Answer;
 use App\Base\Entity\AbstractTask;
+use App\Base\Entity\Answer;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;

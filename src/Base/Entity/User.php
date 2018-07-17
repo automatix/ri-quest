@@ -1,8 +1,6 @@
 <?php
 namespace App\Base\Entity;
 
-use App\Base\Entity\Chat;
-use App\Base\Entity\Tasks\QuestionTask;
 use App\Base\Enums\Entities\AnswerType;
 use App\Base\Enums\Entities\Gender;
 use Doctrine\Common\Collections\ArrayCollection;

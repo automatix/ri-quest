@@ -1,8 +1,8 @@
 <?php
 namespace App\Test;
 
-use PDO;
 use Mysqli;
+use PDO;
 
 /**
  * Class DatabaseInitializer

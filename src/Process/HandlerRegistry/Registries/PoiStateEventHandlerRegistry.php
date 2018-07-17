@@ -3,7 +3,6 @@ namespace App\Process\HandlerRegistry\Registries;
 
 use App\Base\Enums\ProcessStates\PoiState;
 use App\Process\StateEventHandlers\AbstractStateEventHandler;
-use App\Process\HandlerRegistry\Registries\AbstractProcessStateEventHandlerRegistry;
 use App\Process\StateEventHandlers\Workflow\Scenario\Poi\FinishedHandler;
 use App\Process\StateEventHandlers\Workflow\Scenario\Poi\IntroSentHandler;
 use App\Process\StateEventHandlers\Workflow\Scenario\Poi\StartedHandler;

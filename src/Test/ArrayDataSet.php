@@ -1,11 +1,11 @@
 <?php
 namespace App\Test;
 
+use InvalidArgumentException;
 use PHPUnit\DbUnit\DataSet\AbstractDataSet;
 use PHPUnit\DbUnit\DataSet\DefaultTable;
 use PHPUnit\DbUnit\DataSet\DefaultTableIterator;
 use PHPUnit\DbUnit\DataSet\DefaultTableMetadata;
-use InvalidArgumentException;
 
 /**
  * Class ArrayDataSet

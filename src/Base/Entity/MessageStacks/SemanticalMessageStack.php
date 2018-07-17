@@ -2,8 +2,6 @@
 namespace App\Base\Entity\MessageStacks;
 
 use App\Base\Entity\AbstractMessageStack;
-use Doctrine\Common\Collections\ArrayCollection;
-use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
