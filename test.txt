@@ -11,3 +11,4 @@ post-merge hook test
 $$$
 %%%
 &&&
+///
