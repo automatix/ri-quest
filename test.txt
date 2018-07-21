@@ -9,3 +9,4 @@ post-merge hook test
 """
 §§§
 $$$
+%%%
