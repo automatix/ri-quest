@@ -14,6 +14,11 @@
 composer.lock
 ###< Composer ###
 
+###> generated ###
+/src/Base/Selectors
+!/src/Base/Selectors/AbstractSelector.php
+###< generated ###
+
 ###> IDE ###
 # IDE PhpStorm
 .idea
