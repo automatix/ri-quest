@@ -3,3 +3,4 @@ post-merge hook test
 4
 567
 ~~~
+***
