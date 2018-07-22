@@ -1,10 +1,10 @@
 <?php
-namespace App\Process\StateEventHandlers\Workflow\Access;
+namespace App\Process\StateEventHandlers\Access;
 
 use App\Process\StateEventHandlers\AbstractStateEventHandler;
 
 /**
- * @package App\Process\StateEventHandlers\Workflow\Access
+ * @package App\Process\StateEventHandlers\Access
  * @author Ilya Khanataev <contact@mevatex.com>
  */
 class FinishedHandler extends AbstractStateEventHandler
