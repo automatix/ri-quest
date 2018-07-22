@@ -9,7 +9,7 @@ use App\Process\ProcessEventHandlers\PoiProcessEventHandler;
 use App\Process\ProcessEventHandlers\ScenarioProcessEventHandler;
 use App\Process\ProcessEventHandlers\StepProcessEventHandler;
 use App\Process\SystemEventHandlerFactory;
-use App\Process\SystemEventHandlerInterface;
+use App\Process\WorkflowEventHandlerInterface;
 use App\Services\Dummy\External\FooBService;
 use App\Services\Dummy\External\FooServiceInterface;
 use App\Services\Dummy\Internal\BarService;
@@ -45,8 +45,8 @@ $commonDependencies = [
     'process_handler.scenario' => DI\autowire(ScenarioProcessEventHandler::class),
     'process_handler.access' => DI\autowire(AccessProcessEventHandler::class),
     'process_handler.completion' => DI\autowire(CompletionProcessEventHandler::class),
-    SystemEventHandlerInterface::class => DI\factory([new SystemEventHandlerFactory(), 'create']),
-    'system.event_handler' => DI\get(SystemEventHandlerInterface::class),
+    WorkflowEventHandlerInterface::class => DI\factory([new SystemEventHandlerFactory(), 'create']),
+    'system.event_handler' => DI\get(WorkflowEventHandlerInterface::class),
     EventDispatcherInterface::class => DI\get('event_dispatcher'),
 ];
 

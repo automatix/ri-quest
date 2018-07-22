@@ -8,7 +8,7 @@ use App\Services\Process\StateManagingServiceInterface;
 use Symfony\Component\EventDispatcher\Event;
 use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 
-class SystemEventHandler implements SystemEventHandlerInterface
+class WorkflowEventHandler implements WorkflowEventHandlerInterface
 {
 
     /** @var StateManagingServiceInterface $stateManagingService */

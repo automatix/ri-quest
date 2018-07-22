@@ -31,8 +31,8 @@ services:
         class: App\Services\Dummy\External\FooBService
 
     # events
-    App\Process\SystemEventHandlerInterface:
-        class: 'App\Process\SystemEventHandler'
+    App\Process\WorkflowEventHandlerInterface:
+        class: 'App\Process\WorkflowEventHandler'
         tags:
             - { name: kernel.event_listener, event: general:foo, method: handle }
             - { name: kernel.event_listener, event: general:user_message_received, method: handle }
