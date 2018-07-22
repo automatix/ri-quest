@@ -1,7 +1,7 @@
 <?php
 namespace App\Process\StateEventHandlers\Workflow\Scenario\Poi\Step;
 
-use App\Base\Enums\EventNames\Workflow\Scenario\Poi\StepAbstractEventName;
+use App\Base\Enums\EventNames\Workflow\Scenario\Poi\StepEventName;
 use App\Base\Events\GenericEvent;
 use App\Process\StateEventHandlers\AbstractStateEventHandler;
 use Symfony\Component\EventDispatcher\Event;
@@ -18,7 +18,7 @@ class StartedHandler extends AbstractStateEventHandler
 
     public function onGeneralUserMessageReceived(Event $event, string $eventName, EventDispatcherInterface $eventDispatcher)
     {
-        $eventDispatcher->dispatch(StepAbstractEventName::FOO, new GenericEvent(__METHOD__));
+        $eventDispatcher->dispatch(StepEventName::FOO, new GenericEvent(__METHOD__));
     }
 
     public function onWorkflowScenarioPoiStepFoo(Event $event, string $eventName, EventDispatcherInterface $eventDispatcher)
