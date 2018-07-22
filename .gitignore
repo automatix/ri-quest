@@ -5,11 +5,6 @@
 /vendor/
 ###< symfony/framework-bundle ###
 
-###> locals ###
-# dependencies
-/config/dependencies/*.local.php
-###< locals ###
-
 ###> Composer ###
 composer.lock
 ###< Composer ###
