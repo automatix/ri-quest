@@ -8,7 +8,7 @@ use App\Base\Enums\ProcessStates\PoiState;
 use App\Base\Enums\ProcessStates\ScenarioState;
 use App\Base\Enums\ProcessStates\StepState;
 use App\Base\Enums\ProcessStates\WorkflowState;
-use App\Services\Process\StateManagingServiceInterface;
+use App\Services\Process\ProcessManagingServiceInterface;
 use Doctrine\ORM\EntityManager;
 use Doctrine\ORM\EntityManagerInterface;
 
@@ -16,7 +16,7 @@ use Doctrine\ORM\EntityManagerInterface;
  * @package App\Services\Process\Internal
  * @author Ilya Khanataev <contact@mevatex.com>
  */
-class StateManagingService implements StateManagingServiceInterface
+class ProcessManagingService implements ProcessManagingServiceInterface
 {
 
     /** @var EntityManager */

@@ -12,7 +12,7 @@ use App\Base\Enums\ProcessName;
  * @package App\Services\Process
  * @author Ilya Khanataev <contact@mevatex.com>
  */
-interface StateManagingServiceInterface
+interface ProcessManagingServiceInterface
 {
 
     /**

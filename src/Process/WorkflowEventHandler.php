@@ -4,30 +4,30 @@ namespace App\Process;
 use App\Base\Enums\ProcessName;
 use App\Base\Exceptions\EventHandlingException;
 use App\Process\HandlerRegistry\StateEventHandlerRegistryInterface;
-use App\Services\Process\StateManagingServiceInterface;
+use App\Services\Process\ProcessManagingServiceInterface;
 use Symfony\Component\EventDispatcher\Event;
 use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 
 class WorkflowEventHandler implements WorkflowEventHandlerInterface
 {
 
-    /** @var StateManagingServiceInterface $stateManagingService */
-    private $stateManagingService;
+    /** @var ProcessManagingServiceInterface $processManagingService */
+    private $processManagingService;
     /** @var StateEventHandlerRegistryInterface $stateEventHandlerRegistry */
     private $stateEventHandlerRegistry;
 
-    public function __construct(StateManagingServiceInterface $stateManagingService, StateEventHandlerRegistryInterface $stateEventHandlerRegistry)
+    public function __construct(ProcessManagingServiceInterface $processManagingService, StateEventHandlerRegistryInterface $stateEventHandlerRegistry)
     {
-        $this->stateManagingService = $stateManagingService;
+        $this->processManagingService = $processManagingService;
         $this->stateEventHandlerRegistry = $stateEventHandlerRegistry;
     }
 
     /**
-     * @return StateManagingServiceInterface
+     * @return ProcessManagingServiceInterface
      */
-    public function getStateManagingService(): StateManagingServiceInterface
+    public function getProcessManagingService(): ProcessManagingServiceInterface
     {
-        return $this->stateManagingService;
+        return $this->processManagingService;
     }
 
     /**
@@ -41,7 +41,7 @@ class WorkflowEventHandler implements WorkflowEventHandlerInterface
     public function handle(Event $event, string $eventName, EventDispatcherInterface $eventDispatcher)
     {
         foreach ($this->getProcessNames() as $processName) {
-            $currentState = $this->getStateManagingService()->detectProcessState($processName);
+            $currentState = $this->getProcessManagingService()->detectProcessState($processName);
             try {
                 $concreteHandler = $this->getEventHandlerRegistry()->get($processName, $currentState, $eventName);
                 call_user_func($concreteHandler, $event, $eventName, $eventDispatcher);
