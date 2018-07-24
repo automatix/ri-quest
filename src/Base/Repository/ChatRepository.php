@@ -2,6 +2,7 @@
 namespace App\Base\Repository;
 
 use App\Base\Entity\Chat;
+use App\Base\Enums\Entities\ChatType;
 use App\Base\Selectors\ChatSelector;
 
 class ChatRepository extends AbstractRepository
@@ -21,6 +22,21 @@ class ChatRepository extends AbstractRepository
     public function getEntitySelectorClass()
     {
         return ChatSelector::class;
+    }
+
+    /**
+     * @param int $identifier
+     * @param ChatType $chatType
+     * @return Chat
+     */
+    public function findOneByIdentifierAndType(int $identifier, ChatType $chatType): ?Chat
+    {
+        /** @var Chat $chat */
+        $chat = $this->getRepository()->findOneBy([
+            'identifier' => $identifier,
+            'type' => $chatType->getValue()
+        ]);
+        return $chat;
     }
 
 }
