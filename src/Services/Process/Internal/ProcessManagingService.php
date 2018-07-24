@@ -1,6 +1,8 @@
 <?php
 namespace App\Services\Process\Internal;
 
+use App\Base\Entity\AbstractConcreteProcess;
+use App\Base\Entity\Chat;
 use App\Base\Enums\ProcessName;
 use App\Base\Enums\ProcessStates\AccessState;
 use App\Base\Enums\ProcessStates\CompletionState;
@@ -18,6 +20,24 @@ use Doctrine\ORM\EntityManagerInterface;
  */
 class ProcessManagingService implements ProcessManagingServiceInterface
 {
+
+    /**
+     * @param Chat $chat
+     * @return AbstractConcreteProcess
+     */
+    public function detectProperProcess(?Chat $chat): AbstractConcreteProcess
+    {
+        // todo Implement the method!
+        /*
+        IF Chat exists
+            IF there is an active Workflow assigned to it
+            THEN handler the message within the Workflow process
+            ELSE handle the message within the Access process
+        ELSE
+            create Chat
+            handle the message within the Access process
+        */
+    }
 
     /** @var EntityManager */
     private $entityManager;

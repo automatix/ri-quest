@@ -1,6 +1,8 @@
 <?php
 namespace App\Services\Process;
 
+use App\Base\Entity\AbstractConcreteProcess;
+use App\Base\Entity\Chat;
 use App\Base\Enums\ProcessName;
 
 /**
@@ -14,6 +16,12 @@ use App\Base\Enums\ProcessName;
  */
 interface ProcessManagingServiceInterface
 {
+
+    /**
+     * @param Chat|null $chat
+     * @return AbstractConcreteProcess
+     */
+    function detectProperProcess(?Chat $chat): AbstractConcreteProcess;
 
     /**
      * Detects the current ScenarioState, PoiState, and StepState and
