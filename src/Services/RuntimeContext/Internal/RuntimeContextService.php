@@ -3,25 +3,40 @@ namespace App\Services\RuntimeContext\Internal;
 
 use App\Base\Entity\Chat;
 use App\Base\Entity\User;
-use App\Base\Selectors\ChatSelector;
+use App\Base\Exceptions\RuntimeContextErrorContextCode;
+use App\Base\Exceptions\RuntimeContextException;
+use App\Services\Process\ChatServiceInterface;
 use App\Services\RuntimeContext\RuntimeContextServiceInterface;
 
 class RuntimeContextService implements RuntimeContextServiceInterface
 {
 
-    public function initializeRuntimeContext(ChatSelector $chatSelector)
+    /** @var Chat */
+    private $chat;
+    /** @var ChatServiceInterface */
+    private $chatService;
+
+    public function __construct(ChatServiceInterface $chatService)
     {
-        // TODO: Implement initializeRuntimeContext() method.
+        $this->chatService = $chatService;
     }
 
-    public function getCurrentUser()
+    public function initializeRuntimeContext(Chat $chat): void
     {
-        // TODO: Implement getCurrentUser() method.
+        $this->chat = $chat;
     }
 
-    public function getCurrentChat()
+    public function getCurrentUser(): User
     {
-        // TODO: Implement getCurrentChat() method.
+        return $this->getCurrentChat()->getUser();
+    }
+
+    public function getCurrentChat(): Chat
+    {
+        if (! $this->chat) {
+            throw new RuntimeContextException('', RuntimeContextErrorContextCode::RUNTIME_CONTEXT_NOT_INITIALIZED());
+        }
+        return $this->chat;
     }
 
 }

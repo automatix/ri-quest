@@ -9,20 +9,19 @@ interface RuntimeContextServiceInterface
 {
 
     /**
-     * @param User $user
      * @param Chat $chat
      * @return void
      */
-    function initializeRuntimeContext(ChatSelector $chatSelector);
+    function initializeRuntimeContext(Chat $chat): void;
 
     /**
      * @return User
      */
-    function getCurrentUser();
+    function getCurrentUser(): User;
 
     /**
      * @return Chat
      */
-    function getCurrentChat();
+    function getCurrentChat(): Chat;
 
 }
