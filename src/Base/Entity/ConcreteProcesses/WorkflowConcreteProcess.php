@@ -31,7 +31,7 @@ class WorkflowConcreteProcess extends AbstractConcreteProcess
     /**
      * @var Chat
      *
-     * @ORM\ManyToOne(targetEntity="App\Base\Entity\Chat", inversedBy="quests")
+     * @ORM\ManyToOne(targetEntity="App\Base\Entity\Chat", inversedBy="workflowConcreteProcesses")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="chat_id", referencedColumnName="id", nullable=false)
      * })

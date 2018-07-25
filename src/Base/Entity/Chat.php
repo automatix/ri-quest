@@ -1,6 +1,7 @@
 <?php
 namespace App\Base\Entity;
 
+use App\Base\Entity\ConcreteProcesses\WorkflowConcreteProcess;
 use App\Base\Enums\Entities\ChatType;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
@@ -39,14 +40,14 @@ class Chat extends AbstractEntity
     /**
      * @var Collection
      *
-     * @ORM\OneToMany(targetEntity="App\Base\Entity\Quest", mappedBy="chat")
+     * @ORM\OneToMany(targetEntity="App\Base\Entity\ConcreteProcesses\WorkflowConcreteProcess", mappedBy="chat")
      */
-    private $quests;
+    private $workflowConcreteProcesses;
 
     public function __construct()
     {
         parent::__construct();
-        $this->quests = new ArrayCollection();
+        $this->workflowConcreteProcesses = new ArrayCollection();
     }
 
     public function getType(): ?string
@@ -82,18 +83,23 @@ class Chat extends AbstractEntity
         return $this;
     }
 
-    public function addQuest(Quest $quest): self
+    public function getWorkflowConcreteProcesses(): Collection
     {
-        if (!$this->quests->contains($quest)) {
-            $this->quests[] = $quest;
+        return $this->workflowConcreteProcesses;
+    }
+
+    public function addWorkflowConcreteProcess(WorkflowConcreteProcess $workflowConcreteProcess): self
+    {
+        if (!$this->workflowConcreteProcesses->contains($workflowConcreteProcess)) {
+            $this->workflowConcreteProcesses[] = $workflowConcreteProcess;
         }
         return $this;
     }
 
-    public function removeQuest(Quest $quest): self
+    public function removeWorkflowConcreteProcess(WorkflowConcreteProcess $workflowConcreteProcess): self
     {
-        if ($this->quests->contains($quest)) {
-            $this->quests->removeElement($quest);
+        if ($this->workflowConcreteProcesses->contains($workflowConcreteProcess)) {
+            $this->workflowConcreteProcesses->removeElement($workflowConcreteProcess);
         }
         return $this;
     }

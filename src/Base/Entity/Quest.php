@@ -28,19 +28,12 @@ class Quest extends AbstractEntity
     /**
      * @var Chat
      *
-     * @ORM\ManyToOne(targetEntity="App\Base\Entity\Chat", inversedBy="quests")
+     * @ORM\ManyToOne(targetEntity="App\Base\Entity\Chat")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="chat_id", referencedColumnName="id", nullable=false)
      * })
      */
     private $chat;
-
-    /**
-     * @var Collection
-     *
-     * @ORM\OneToMany(targetEntity="App\Base\Entity\AbstractConcreteProcess", mappedBy="quest")
-     */
-    private $concreteProcesses;
 
     public function __construct()
     {
@@ -67,27 +60,6 @@ class Quest extends AbstractEntity
     public function setChat(?Chat $chat): self
     {
         $this->chat = $chat;
-        return $this;
-    }
-
-    public function getConcreteProcesses(): Collection
-    {
-        return $this->concreteProcesses;
-    }
-
-    public function addConcreteProcess(AbstractConcreteProcess $concreteProcess): self
-    {
-        if (!$this->concreteProcesses->contains($concreteProcess)) {
-            $this->concreteProcesses[] = $concreteProcess;
-        }
-        return $this;
-    }
-
-    public function removeConcreteProcess(AbstractConcreteProcess $concreteProcess): self
-    {
-        if ($this->concreteProcesses->contains($concreteProcess)) {
-            $this->concreteProcesses->removeElement($concreteProcess);
-        }
         return $this;
     }
 
