@@ -45,6 +45,7 @@ abstract class AbstractEventHandler implements WorkflowEventHandlerInterface
             try {
                 $concreteHandler = $this->getEventHandlerRegistry()->get($processName, $currentState, $eventName);
                 call_user_func($concreteHandler, $event, $eventName, $eventDispatcher);
+                break;
             } catch (EventHandlingException $e) {
                 $breakpoint = null;
                 // do nothing...
