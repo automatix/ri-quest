@@ -7,6 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * AccessConcreteProcess
  *
+ * @ORM\Table(name="access_concrete_processes")
  * @ORM\Entity
  */
 class AccessConcreteProcess extends AbstractConcreteProcess

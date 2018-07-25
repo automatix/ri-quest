@@ -10,7 +10,7 @@ use Doctrine\ORM\Mapping as ORM;
  *
  * @ORM\Table(name="concrete_processes", indexes={@ORM\Index(name="fk_concrete_process_concrete_process_idx", columns={"parent_id"}), @ORM\Index(name="fk_concrete_process_quest_idx", columns={"quest_id"})})
  * @ORM\Entity
- * @ORM\InheritanceType("SINGLE_TABLE")
+ * @ORM\InheritanceType("JOINED")
  * @ORM\DiscriminatorColumn(name="`type`", type="string")
  * @ORM\DiscriminatorMap({
  *     "access" = "App\Base\Entity\ConcreteProcesses\AccessConcreteProcess",
