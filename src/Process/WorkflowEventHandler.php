@@ -18,6 +18,7 @@ class WorkflowEventHandler extends AbstractEventHandler
         return [
             ProcessName::STEP => ProcessName::STEP(),
             ProcessName::POI => ProcessName::POI(),
+            ProcessName::ACCESS => ProcessName::ACCESS(),
             ProcessName::COMPLETION => ProcessName::COMPLETION(),
             ProcessName::SCENARIO => ProcessName::SCENARIO(),
             ProcessName::WORKFLOW => ProcessName::WORKFLOW(),

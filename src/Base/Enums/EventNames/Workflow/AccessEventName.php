@@ -1,5 +1,7 @@
 <?php
-namespace App\Base\Enums\EventNames;
+namespace App\Base\Enums\EventNames\Workflow;
+
+use App\Base\Enums\EventNames\AbstractEventName;
 
 /**
  * @method static AccessEventName FOO()
@@ -10,6 +12,6 @@ namespace App\Base\Enums\EventNames;
 class AccessEventName extends AbstractEventName
 {
 
-    const FOO = 'access:foo';
+    const FOO = 'workflow.access:foo';
 
 }
