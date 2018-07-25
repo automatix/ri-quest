@@ -24,19 +24,11 @@ class ProcessManagingService implements ProcessManagingServiceInterface
     /**
      * @param Chat $chat
      * @return AbstractConcreteProcess
+     * @todo Implement it and replace the iterating over all processes in the AbstractEventHandler#handle(...) by it!!!
      */
     public function detectProperProcess(?Chat $chat): AbstractConcreteProcess
     {
         // todo Implement the method!
-        /*
-        IF Chat exists
-            IF there is an active Workflow assigned to it
-            THEN handler the message within the Workflow process
-            ELSE handle the message within the Access process
-        ELSE
-            create Chat
-            handle the message within the Access process
-        */
     }
 
     /** @var EntityManager */
