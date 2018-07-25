@@ -10,8 +10,8 @@ use Doctrine\ORM\Mapping as ORM;
  * WorkflowConcreteProcess
  *
  * @ORM\Table(name="workflow_concrete_processes", indexes={
- *     @ORM\Index(name="fk_quest_workflow_idx", columns={"workflow_id"}),
- *     @ORM\Index(name="fk_quest_chat_idx", columns={"chat_id"})
+ *     @ORM\Index(name="fk_workflow_concrete_process_workflow_idx", columns={"workflow_id"}),
+ *     @ORM\Index(name="fk_workflow_concrete_process_chat_idx", columns={"chat_id"})
  * })
  * @ORM\Entity
  */
