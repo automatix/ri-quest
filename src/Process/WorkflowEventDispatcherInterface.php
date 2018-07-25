@@ -4,9 +4,9 @@ namespace App\Process;
 use Symfony\Component\EventDispatcher\Event;
 use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 
-interface WorkflowEventHandlerInterface
+interface WorkflowEventDispatcherInterface
 {
 
-    function handle(Event $event, string $eventName, EventDispatcherInterface $eventDispatcher);
+    function dispatch(Event $event, string $eventName, EventDispatcherInterface $eventDispatcher);
 
 }

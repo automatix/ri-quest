@@ -8,7 +8,7 @@ use App\Services\Process\ProcessManagingServiceInterface;
 use Symfony\Component\EventDispatcher\Event;
 use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 
-class WorkflowEventHandler implements WorkflowEventHandlerInterface
+class WorkflowEventDispatcher implements WorkflowEventDispatcherInterface
 {
 
     /** @var ProcessManagingServiceInterface $processManagingService */
@@ -38,7 +38,7 @@ class WorkflowEventHandler implements WorkflowEventHandlerInterface
         return $this->stateEventHandlerRegistry;
     }
 
-    public function handle(Event $event, string $eventName, EventDispatcherInterface $eventDispatcher)
+    public function dispatch(Event $event, string $eventName, EventDispatcherInterface $eventDispatcher)
     {
         foreach ($this->getProcessNames() as $processName) {
             $currentState = $this->getProcessManagingService()->detectProcessState($processName);

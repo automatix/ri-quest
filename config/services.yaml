@@ -31,14 +31,14 @@ services:
         class: App\Services\Dummy\External\FooBService
 
     # events
-    App\Process\WorkflowEventHandlerInterface:
-        class: 'App\Process\WorkflowEventHandler'
+    App\Process\WorkflowEventDispatcherInterface:
+        class: 'App\Process\WorkflowEventDispatcher'
         tags:
-            - { name: kernel.event_listener, event: general:foo, method: handle }
-            - { name: kernel.event_listener, event: general:user_message_received, method: handle }
-            - { name: kernel.event_listener, event: workflow:foo, method: handle }
-            - { name: kernel.event_listener, event: workflow.access:foo, method: handle }
-            - { name: kernel.event_listener, event: workflow.completion:foo, method: handle }
-            - { name: kernel.event_listener, event: workflow.scenario:foo, method: handle }
-            - { name: kernel.event_listener, event: workflow.scenario.poi:foo, method: handle }
-            - { name: kernel.event_listener, event: workflow.scenario.poi.step:foo, method: handle }
+            - { name: kernel.event_listener, event: general:foo, method: dispatch }
+            - { name: kernel.event_listener, event: general:user_message_received, method: dispatch }
+            - { name: kernel.event_listener, event: workflow:foo, method: dispatch }
+            - { name: kernel.event_listener, event: workflow.access:foo, method: dispatch }
+            - { name: kernel.event_listener, event: workflow.completion:foo, method: dispatch }
+            - { name: kernel.event_listener, event: workflow.scenario:foo, method: dispatch }
+            - { name: kernel.event_listener, event: workflow.scenario.poi:foo, method: dispatch }
+            - { name: kernel.event_listener, event: workflow.scenario.poi.step:foo, method: dispatch }
