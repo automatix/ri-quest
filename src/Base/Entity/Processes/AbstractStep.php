@@ -11,7 +11,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table(name="steps")
  * @ORM\Entity
  */
-abstract class Step extends AbstractProcess
+abstract class AbstractStep extends AbstractProcess
 {
 
     /**

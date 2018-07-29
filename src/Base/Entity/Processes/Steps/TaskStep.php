@@ -1,7 +1,7 @@
 <?php
 namespace App\Base\Entity\Processes\Steps;
 
-use App\Base\Entity\Processes\Step;
+use App\Base\Entity\Processes\AbstractStep;
 use App\Base\Enums\Entities\StepType;
 use Doctrine\ORM\Mapping as ORM;
 
@@ -11,7 +11,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table(name="task_steps")
  * @ORM\Entity(repositoryClass="App\Base\Repositories\Processes\Steps\TaskStepRepository")
  */
-class TaskStep extends Step
+class TaskStep extends AbstractStep
 {
 
     /**
