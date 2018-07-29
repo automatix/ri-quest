@@ -51,6 +51,14 @@ abstract class AbstractRepository
     }
 
     /**
+     * @return AbstractEntity[]
+     */
+    public function findOneBy(array $criteria)
+    {
+        return $this->getRepository()->findOneBy($criteria);
+    }
+
+    /**
      * @return string The FQCN of the Entity class, the repository is responsible for.
      */
     abstract public function getEntityClass();
