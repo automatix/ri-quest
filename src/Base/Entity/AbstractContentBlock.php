@@ -6,7 +6,11 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * AbstractContentBlock
  *
- * @ORM\Table(name="content_blocks", indexes={@ORM\Index(name="fk_content_block_message_idx", columns={"message_id"})})
+ * @ORM\Table(name="content_blocks",
+ *     indexes={
+ *         @ORM\Index(name="fk_content_block_message_idx", columns={"message_id"})
+ *     }
+ * )
  * @ORM\Entity
  * @ORM\InheritanceType("JOINED")
  * @ORM\DiscriminatorColumn(name="type", type="string")

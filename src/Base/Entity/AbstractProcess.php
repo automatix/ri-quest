@@ -8,9 +8,11 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * AbstractProcess
  *
- * @ORM\Table(name="concrete_processes", indexes={
- *     @ORM\Index(name="fk_concrete_process_concrete_process_idx", columns={"parent_id"})
- * })
+ * @ORM\Table(name="concrete_processes",
+ *     indexes={
+ *         @ORM\Index(name="fk_concrete_process_concrete_process_idx", columns={"parent_id"})
+ *     }
+ * )
  * @ORM\Entity
  * @ORM\InheritanceType("JOINED")
  * @ORM\DiscriminatorColumn(name="type", type="string")

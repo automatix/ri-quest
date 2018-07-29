@@ -9,7 +9,11 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Message
  *
- * @ORM\Table(name="attempts", indexes={@ORM\Index(name="fk_attempt_task_idx", columns={"task_id"})})
+ * @ORM\Table(name="attempts",
+ *     indexes={
+ *         @ORM\Index(name="fk_attempt_task_idx", columns={"task_id"})
+ *     }
+ * )
  * @ORM\Entity(repositoryClass="App\Base\Repositories\AttemptRepository")
  */
 class Attempt extends AbstractEntity

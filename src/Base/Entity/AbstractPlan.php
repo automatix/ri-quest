@@ -9,7 +9,14 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * AbstractPlan
  *
- * @ORM\Table(name="processes", uniqueConstraints={@ORM\UniqueConstraint(name="uq_unique_order_for_process", columns={"parent_id", "`order`"})}, indexes={@ORM\Index(name="fk_process_process_idx", columns={"parent_id"})})
+ * @ORM\Table(name="processes",
+ *     uniqueConstraints={
+ *         @ORM\UniqueConstraint(name="uq_unique_order_for_process", columns={"parent_id", "`order`"})
+ *     },
+ *     indexes={
+ *         @ORM\Index(name="fk_process_process_idx", columns={"parent_id"})
+ *     }
+ * )
  * @ORM\Entity
  * @ORM\InheritanceType("JOINED")
  * @ORM\DiscriminatorColumn(name="type", type="string")

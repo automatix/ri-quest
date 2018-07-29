@@ -10,7 +10,11 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Chat
  *
- * @ORM\Table(name="chats", indexes={@ORM\Index(name="fk_chat_user_idx", columns={"user_id"})})
+ * @ORM\Table(name="chats",
+ *     indexes={
+ *         @ORM\Index(name="fk_chat_user_idx", columns={"user_id"})
+ *     }
+ * )
  * @ORM\Entity(repositoryClass="App\Base\Repositories\ChatRepository")
  */
 class Chat extends AbstractEntity

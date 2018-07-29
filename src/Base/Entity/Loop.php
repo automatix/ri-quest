@@ -7,7 +7,11 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Message
  *
- * @ORM\Table(name="loops", indexes={@ORM\Index(name="fk_loop_concrete_process_idx", columns={"concrete_process_id"})})
+ * @ORM\Table(name="loops",
+ *     indexes={
+ *         @ORM\Index(name="fk_loop_concrete_process_idx", columns={"concrete_process_id"})
+ *     }
+ * )
  * @ORM\Entity(repositoryClass="App\Base\Repositories\LoopRepository")
  */
 class Loop extends AbstractEntity
