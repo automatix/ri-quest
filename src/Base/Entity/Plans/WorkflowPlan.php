@@ -8,7 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
  * WorkflowPlan
  *
  * @ORM\Table(name="workflows")
- * @ORM\Entity(repositoryClass="App\Base\Repositories\Processes\WorkflowRepository")
+ * @ORM\Entity(repositoryClass="App\Base\Repositories\Plans\WorkflowPlanRepository")
  */
 class WorkflowPlan extends AbstractPlan
 {
