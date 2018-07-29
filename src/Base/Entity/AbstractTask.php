@@ -2,7 +2,7 @@
 namespace App\Base\Entity;
 
 use App\Base\Entity\MessageStacks\SemanticalMessageStack;
-use App\Base\Entity\Processes\Steps\TaskStep;
+use App\Base\Entity\Plans\Steps\TaskStepPlan;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
@@ -23,9 +23,9 @@ abstract class AbstractTask extends AbstractEntity
 {
 
     /**
-     * @var TaskStep
+     * @var TaskStepPlan
      *
-     * @ORM\ManyToOne(targetEntity="App\Base\Entity\Processes\Steps\TaskStep")
+     * @ORM\ManyToOne(targetEntity="TaskStepPlan")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="task_step_id", referencedColumnName="id", nullable=false)
      * })
@@ -61,12 +61,12 @@ abstract class AbstractTask extends AbstractEntity
         $this->attempts = new ArrayCollection();
     }
 
-    public function getTaskStep(): ?TaskStep
+    public function getTaskStep(): ?TaskStepPlan
     {
         return $this->taskStep;
     }
 
-    public function setTaskStep(?TaskStep $taskStep): self
+    public function setTaskStep(?TaskStepPlan $taskStep): self
     {
         $this->taskStep = $taskStep;
         return $this;

@@ -28,14 +28,14 @@ class Loop extends AbstractEntity
     private $count;
 
     /**
-     * @var AbstractConcreteProcess
+     * @var AbstractProcess
      *
-     * @ORM\ManyToOne(targetEntity="AbstractConcreteProcess", inversedBy="loops")
+     * @ORM\ManyToOne(targetEntity="AbstractProcess", inversedBy="loops")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="concrete_process_id", referencedColumnName="id", nullable=false)
      * })
      */
-    private $concreteProcess;
+    private $process;
 
     public function getType(): ?string
     {
@@ -59,14 +59,14 @@ class Loop extends AbstractEntity
         return $this;
     }
 
-    public function getConcreteProcess(): ?AbstractConcreteProcess
+    public function getProcess(): ?AbstractProcess
     {
-        return $this->concreteProcess;
+        return $this->process;
     }
 
-    public function setConcreteProcess(?AbstractConcreteProcess $concreteProcess): self
+    public function setProcess(?AbstractProcess $process): self
     {
-        $this->concreteProcess = $concreteProcess;
+        $this->process = $process;
         return $this;
     }
 

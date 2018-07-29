@@ -1,7 +1,7 @@
 <?php
 namespace App\Base\Entity;
 
-use App\Base\Entity\ConcreteProcesses\WorkflowConcreteProcess;
+use App\Base\Entity\Processes\WorkflowProcess;
 use App\Base\Enums\Entities\ChatType;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
@@ -40,14 +40,14 @@ class Chat extends AbstractEntity
     /**
      * @var Collection
      *
-     * @ORM\OneToMany(targetEntity="App\Base\Entity\ConcreteProcesses\WorkflowConcreteProcess", mappedBy="chat")
+     * @ORM\OneToMany(targetEntity="App\Base\Entity\Processes\WorkflowProcess", mappedBy="chat")
      */
-    private $workflowConcreteProcesses;
+    private $workflowProcesses;
 
     public function __construct()
     {
         parent::__construct();
-        $this->workflowConcreteProcesses = new ArrayCollection();
+        $this->workflowProcesses = new ArrayCollection();
     }
 
     public function getType(): ?string
@@ -83,23 +83,23 @@ class Chat extends AbstractEntity
         return $this;
     }
 
-    public function getWorkflowConcreteProcesses(): Collection
+    public function getWorkflowProcesses(): Collection
     {
-        return $this->workflowConcreteProcesses;
+        return $this->workflowProcesses;
     }
 
-    public function addWorkflowConcreteProcess(WorkflowConcreteProcess $workflowConcreteProcess): self
+    public function addWorkflowProcess(WorkflowProcess $workflowProcess): self
     {
-        if (!$this->workflowConcreteProcesses->contains($workflowConcreteProcess)) {
-            $this->workflowConcreteProcesses[] = $workflowConcreteProcess;
+        if (!$this->workflowProcesses->contains($workflowProcess)) {
+            $this->workflowProcesses[] = $workflowProcess;
         }
         return $this;
     }
 
-    public function removeWorkflowConcreteProcess(WorkflowConcreteProcess $workflowConcreteProcess): self
+    public function removeWorkflowProcess(WorkflowProcess $workflowProcess): self
     {
-        if ($this->workflowConcreteProcesses->contains($workflowConcreteProcess)) {
-            $this->workflowConcreteProcesses->removeElement($workflowConcreteProcess);
+        if ($this->workflowProcesses->contains($workflowProcess)) {
+            $this->workflowProcesses->removeElement($workflowProcess);
         }
         return $this;
     }

@@ -1,7 +1,6 @@
 <?php
 namespace App\Base\Entity;
 
-use App\Base\Entity\MessageStacks\ProcessMessageStack;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
@@ -9,36 +8,35 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * AbstractProcess
  *
- * @ORM\Table(name="processes", uniqueConstraints={@ORM\UniqueConstraint(name="uq_unique_order_for_process", columns={"parent_id", "`order`"})}, indexes={@ORM\Index(name="fk_process_process_idx", columns={"parent_id"})})
+ * @ORM\Table(name="concrete_processes", indexes={
+ *     @ORM\Index(name="fk_concrete_process_concrete_process_idx", columns={"parent_id"})
+ * })
  * @ORM\Entity
  * @ORM\InheritanceType("JOINED")
  * @ORM\DiscriminatorColumn(name="type", type="string")
  * @ORM\DiscriminatorMap({
- *     "access" = "App\Base\Entity\Processes\Access",
- *     "completion" = "App\Base\Entity\Processes\Completion",
- *     "poi" = "App\Base\Entity\Processes\Poi",
- *     "scenario" = "App\Base\Entity\Processes\Scenario",
- *     "step" = "App\Base\Entity\Processes\AbstractStep",
- *     "info_step" = "App\Base\Entity\Processes\Steps\InfoStep",
- *     "place_step" = "App\Base\Entity\Processes\Steps\PlaceStep",
- *     "task_step" = "App\Base\Entity\Processes\Steps\TaskStep",
- *     "workflow" = "App\Base\Entity\Processes\Workflow",
+ *     "access" = "App\Base\Entity\Processes\AccessProcess",
+ *     "completion" = "App\Base\Entity\Processes\CompletionProcess",
+ *     "poi" = "App\Base\Entity\Processes\PoiProcess",
+ *     "scenario" = "App\Base\Entity\Processes\ScenarioProcess",
+ *     "step" = "App\Base\Entity\Processes\StepProcess",
+ *     "workflow" = "App\Base\Entity\Processes\WorkflowProcess",
  * })
  */
 abstract class AbstractProcess extends AbstractEntity
 {
 
     /**
-     * @var int
+     * @var string
      *
-     * @ORM\Column(name="`order`", type="integer", nullable=false)
+     * @ORM\Column(name="state", type="string", length=255, nullable=false, options={"default"="unknown"})
      */
-    private $order;
+    private $state = 'unknown';
 
     /**
      * @var AbstractProcess
      *
-     * @ORM\ManyToOne(targetEntity="AbstractProcess", inversedBy="children")
+     * @ORM\ManyToOne(targetEntity="AbstractProcess")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="parent_id", referencedColumnName="id")
      * })
@@ -46,41 +44,26 @@ abstract class AbstractProcess extends AbstractEntity
     private $parent;
 
     /**
-     * One Category has Many Categories.
-     * @ORM\OneToMany(targetEntity="AbstractProcess", mappedBy="parent")
-     */
-    private $children;
-
-    /**
      * @var Collection
      *
-     * @ORM\ManyToMany(targetEntity="App\Base\Entity\MessageStacks\ProcessMessageStack")
-     * @ORM\JoinTable(name="process_process_message_stack",
-     *   joinColumns={
-     *     @ORM\JoinColumn(name="process_id", referencedColumnName="id")
-     *   },
-     *   inverseJoinColumns={
-     *     @ORM\JoinColumn(name="process_message_stack_id", referencedColumnName="id")
-     *   }
-     * )
+     * @ORM\OneToMany(targetEntity="Loop", mappedBy="process")
      */
-    private $processMessageStacks;
+    private $loops;
 
     public function __construct()
     {
         parent::__construct();
-        $this->processMessageStacks = new ArrayCollection();
-        $this->children = new ArrayCollection();
+        $this->loops = new ArrayCollection();
     }
 
-    public function getOrder(): ?int
+    public function getState(): ?string
     {
-        return $this->order;
+        return $this->state;
     }
 
-    public function setOrder(int $order)
+    public function setState(string $state): self
     {
-        $this->order = $order;
+        $this->state = $state;
         return $this;
     }
 
@@ -95,50 +78,23 @@ abstract class AbstractProcess extends AbstractEntity
         return $this;
     }
 
-    /**
-     * @return Collection|ProcessMessageStack[]
-     */
-    public function getProcessMessageStacks(): Collection
+    public function getLoops(): Collection
     {
-        return $this->processMessageStacks;
+        return $this->loops;
     }
 
-    public function addProcessMessageStack(ProcessMessageStack $processMessageStack): self
+    public function addLoop(Loop $loop): self
     {
-        if (!$this->processMessageStacks->contains($processMessageStack)) {
-            $this->processMessageStacks[] = $processMessageStack;
+        if (!$this->loops->contains($loop)) {
+            $this->loops[] = $loop;
         }
         return $this;
     }
 
-    public function removeProcessMessageStack(ProcessMessageStack $processMessageStack): self
+    public function removeLoop(Loop $loop): self
     {
-        if ($this->processMessageStacks->contains($processMessageStack)) {
-            $this->processMessageStacks->removeElement($processMessageStack);
-        }
-        return $this;
-    }
-
-    /**
-     * @return Collection|AbstractProcess[]
-     */
-    public function getChildren(): Collection
-    {
-        return $this->children;
-    }
-
-    public function addChild(AbstractProcess $child): self
-    {
-        if (!$this->children->contains($child)) {
-            $this->children[] = $child;
-        }
-        return $this;
-    }
-
-    public function removeChild(AbstractProcess $child): self
-    {
-        if ($this->children->contains($child)) {
-            $this->children->removeElement($child);
+        if ($this->loops->contains($loop)) {
+            $this->loops->removeElement($loop);
         }
         return $this;
     }

@@ -2,10 +2,10 @@
 namespace App\Services\Process\Internal;
 
 use App\Base\Entity\Chat;
-use App\Base\Entity\ConcreteProcesses\WorkflowConcreteProcess;
+use App\Base\Entity\Processes\WorkflowProcess;
 use App\Base\Enums\Entities\ChatType;
 use App\Base\Repositories\ChatRepository;
-use App\Base\Repositories\ConcreteProcesses\WorkflowConcreteProcessRepository;
+use App\Base\Repositories\Processes\WorkflowProcessRepository;
 use App\Services\Process\ChatServiceInterface;
 use App\Services\Process\UserServiceInterface;
 
@@ -18,16 +18,16 @@ class ChatService implements ChatServiceInterface
 
     /** @var ChatRepository */
     private $chatRepository;
-    /** @var WorkflowConcreteProcessRepository */
-    private $workflowConcreteProcessRepository;
+    /** @var WorkflowProcessRepository */
+    private $workflowProcessRepository;
     /** @var UserServiceInterface */
     private $userService;
 
-    public function __construct(ChatRepository $chatRepository, UserServiceInterface $userService, WorkflowConcreteProcessRepository $workflowConcreteProcessRepository)
+    public function __construct(ChatRepository $chatRepository, UserServiceInterface $userService, WorkflowProcessRepository $workflowProcessRepository)
     {
         $this->chatRepository = $chatRepository;
         $this->userService = $userService;
-        $this->workflowConcreteProcessRepository = $workflowConcreteProcessRepository;
+        $this->workflowProcessRepository = $workflowProcessRepository;
     }
 
     /**
@@ -58,14 +58,14 @@ class ChatService implements ChatServiceInterface
     /**
      * @inheritdoc
      */
-    public function findActiveWorkflowConcreteProcessForChat(Chat $chat): ?WorkflowConcreteProcess
+    public function findActiveWorkflowProcessForChat(Chat $chat): ?WorkflowProcess
     {
-        /** @var WorkflowConcreteProcess $workflowConcreteProcess */
-        $workflowConcreteProcess = $this->workflowConcreteProcessRepository->findOneBy([
+        /** @var WorkflowProcess $workflowProcess */
+        $workflowProcess = $this->workflowProcessRepository->findOneBy([
             'chat' => $chat,
             // 'state' => IS NOT WorkflowState::FINISHED
         ]);
-        return $workflowConcreteProcess;
+        return $workflowProcess;
     }
 
 }

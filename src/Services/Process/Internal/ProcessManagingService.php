@@ -1,7 +1,7 @@
 <?php
 namespace App\Services\Process\Internal;
 
-use App\Base\Entity\AbstractConcreteProcess;
+use App\Base\Entity\AbstractProcess;
 use App\Base\Entity\Chat;
 use App\Base\Enums\ProcessName;
 use App\Base\Enums\ProcessStates\AccessState;
@@ -23,10 +23,10 @@ class ProcessManagingService implements ProcessManagingServiceInterface
 
     /**
      * @param Chat $chat
-     * @return AbstractConcreteProcess
+     * @return AbstractProcess
      * @todo Implement it and replace the iterating over all processes in the AbstractEventHandler#handle(...) by it!!!
      */
-    public function detectProperProcess(?Chat $chat): AbstractConcreteProcess
+    public function detectProperProcess(?Chat $chat): AbstractProcess
     {
         // todo Implement the method!
     }

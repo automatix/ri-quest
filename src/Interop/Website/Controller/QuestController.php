@@ -6,7 +6,7 @@ use App\Base\Enums\EventNames\GeneralEventName;
 use App\Base\Events\GenericEvent;
 use App\Services\Process\ChatServiceInterface;
 use App\Services\Process\ProcessManagingServiceInterface;
-use App\Services\Process\WorkflowConcreteProcessServiceInterface;
+use App\Services\Process\WorkflowProcessServiceInterface;
 use App\Services\RuntimeContext\RuntimeContextServiceInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\EventDispatcher\EventDispatcherInterface;
@@ -24,8 +24,8 @@ class QuestController extends Controller
     private $chatService;
     /** @var ProcessManagingServiceInterface */
     private $processManagingService;
-    /** @var WorkflowConcreteProcessServiceInterface */
-    private $workflowConcreteProcessService;
+    /** @var WorkflowProcessServiceInterface */
+    private $workflowProcessService;
 
     /**
      * QuestController constructor.
@@ -39,13 +39,13 @@ class QuestController extends Controller
         RuntimeContextServiceInterface $runtimeContextService,
         ChatServiceInterface $chatService,
         ProcessManagingServiceInterface $processManagingService,
-        WorkflowConcreteProcessServiceInterface $workflowConcreteProcessService
+        WorkflowProcessServiceInterface $workflowProcessService
     ) {
         $this->eventDispatcher = $eventDispatcher;
         $this->runtimeContextService = $runtimeContextService;
         $this->chatService = $chatService;
         $this->processManagingService = $processManagingService;
-        $this->workflowConcreteProcessService = $workflowConcreteProcessService;
+        $this->workflowProcessService = $workflowProcessService;
     }
 
     /**
@@ -59,8 +59,8 @@ class QuestController extends Controller
         $chat = $this->chatService->findOneByIdentifierAndType($chatId, ChatType::TELEGRAM())
             ?: $this->chatService->create($chatId, ChatType::TELEGRAM())
         ;
-        $workflowConcreteProcess = $this->chatService->findActiveWorkflowConcreteProcessForChat($chat)
-            ?: $this->workflowConcreteProcessService->create($chat)
+        $workflowProcess = $this->chatService->findActiveWorkflowProcessForChat($chat)
+            ?: $this->workflowProcessService->create($chat)
         ;
         $this->runtimeContextService->initializeRuntimeContext($chat);
 
