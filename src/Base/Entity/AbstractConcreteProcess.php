@@ -13,7 +13,7 @@ use Doctrine\ORM\Mapping as ORM;
  * })
  * @ORM\Entity
  * @ORM\InheritanceType("JOINED")
- * @ORM\DiscriminatorColumn(name="`type`", type="string")
+ * @ORM\DiscriminatorColumn(name="type", type="string")
  * @ORM\DiscriminatorMap({
  *     "access" = "App\Base\Entity\ConcreteProcesses\AccessConcreteProcess",
  *     "completion" = "App\Base\Entity\ConcreteProcesses\CompletionConcreteProcess",
