@@ -61,6 +61,16 @@ abstract class AbstractRepository
     abstract public function getEntitySelectorClass();
 
     /**
+     * @param AbstractEntity $entity
+     * @return void
+     */
+    public function createEntity(AbstractEntity $entity)
+    {
+        $this->entityManager->persist($entity);
+        $this->entityManager->flush($entity);
+    }
+
+    /**
      * @return EntityManagerInterface
      */
     protected function getEntityManager(): EntityManagerInterface
