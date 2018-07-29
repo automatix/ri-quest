@@ -21,4 +21,11 @@ interface ChatServiceInterface
      */
     function findOneByIdentifierAndType(int $identifier, ChatType $chatType): ?Chat;
 
+    /**
+     * @param int $identifier
+     * @param ChatType $chatType
+     * @return Chat
+     */
+    function create(int $identifier, ChatType $chatType): ?Chat;
+
 }
