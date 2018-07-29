@@ -23,7 +23,7 @@ class WorkflowConcreteProcess extends AbstractConcreteProcess
      *
      * @ORM\ManyToOne(targetEntity="App\Base\Entity\Processes\Workflow")
      * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="workflow_id", referencedColumnName="id", nullable=false)
+     *   @ORM\JoinColumn(name="workflow_id", referencedColumnName="id", nullable=true)
      * })
      */
     private $workflow;
