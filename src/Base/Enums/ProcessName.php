@@ -16,10 +16,10 @@ class ProcessName extends AbstractEnum
 {
 
     const WORKFLOW = 'workflow';
-    const ACCESS = 'access';
-    const SCENARIO = 'scenario';
-    const POI = 'poi';
-    const STEP = 'step';
-    const COMPLETION = 'completion';
+    const ACCESS = 'workflow.access';
+    const SCENARIO = 'workflow.scenario';
+    const POI = 'workflow.scenario.poi';
+    const STEP = 'workflow.scenario.poi.step';
+    const COMPLETION = 'workflow.completion';
 
 }
