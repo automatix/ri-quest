@@ -8,7 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
  * ImageContentBlock
  *
  * @ORM\Table(name="image_content_blocks")
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="App\Base\Repositories\ContentBlocks\ImageContentBlockRepository")
  */
 class ImageContentBlock extends AbstractContentBlock
 {

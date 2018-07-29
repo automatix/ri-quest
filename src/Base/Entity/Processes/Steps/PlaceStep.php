@@ -9,13 +9,13 @@ use Doctrine\ORM\Mapping as ORM;
  * PlaceStep
  *
  * @ORM\Table(name="place_steps")
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="App\Base\Repositories\Processes\Steps\PlaceStepRepository")
  */
 class PlaceStep extends Step
 {
 
     /**
-     * InfoStep constructor.
+     * PlaceStep constructor.
      */
     public function __construct()
     {

@@ -8,7 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
  * ProcessMessageStack
  *
  * @ORM\Table(name="process_message_stacks")
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="App\Base\Repositories\MessageStacks\ProcessMessageStackRepository")
  */
 class ProcessMessageStack extends AbstractMessageStack
 {

@@ -9,18 +9,18 @@ use Doctrine\ORM\Mapping as ORM;
  * TaskStep
  *
  * @ORM\Table(name="task_steps")
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="App\Base\Repositories\Processes\Steps\TaskStepRepository")
  */
-    class TaskStep extends Step
+class TaskStep extends Step
 {
 
-        /**
-         * InfoStep constructor.
-         */
-        public function __construct()
-        {
-            parent::__construct();
-            $this->setStepType(StepType::TASK());
-        }
+    /**
+     * TaskStep constructor.
+     */
+    public function __construct()
+    {
+        parent::__construct();
+        $this->setStepType(StepType::TASK());
+    }
 
 }

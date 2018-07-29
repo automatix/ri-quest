@@ -8,7 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
  * Poi
  *
  * @ORM\Table(name="accesses")
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="App\Base\Repositories\Processes\AccessRepository")
  */
 class Access extends AbstractProcess
 {

@@ -8,7 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
  * TextContentBlock
  *
  * @ORM\Table(name="text_content_blocks")
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="App\Base\Repositories\ContentBlocks\TextContentBlockRepository")
  */
 class TextContentBlock extends AbstractContentBlock
 {

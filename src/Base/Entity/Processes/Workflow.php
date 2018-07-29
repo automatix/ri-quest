@@ -8,7 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
  * Workflow
  *
  * @ORM\Table(name="workflows")
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="App\Base\Repositories\Processes\WorkflowRepository")
  */
 class Workflow extends AbstractProcess
 {

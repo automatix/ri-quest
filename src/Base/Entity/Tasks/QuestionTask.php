@@ -11,7 +11,7 @@ use Doctrine\ORM\Mapping as ORM;
  * QuestionTask
  *
  * @ORM\Table(name="question_tasks")
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="App\Base\Repositories\Tasks\QuestionTaskRepository")
  */
 class QuestionTask extends AbstractTask
 {

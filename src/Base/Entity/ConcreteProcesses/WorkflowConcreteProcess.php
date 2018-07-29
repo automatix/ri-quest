@@ -13,7 +13,7 @@ use Doctrine\ORM\Mapping as ORM;
  *     @ORM\Index(name="fk_workflow_concrete_process_workflow_idx", columns={"workflow_id"}),
  *     @ORM\Index(name="fk_workflow_concrete_process_chat_idx", columns={"chat_id"})
  * })
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="App\Base\Repositories\ConcreteProcesses\WorkflowConcreteProcessRepository")
  */
 class WorkflowConcreteProcess extends AbstractConcreteProcess
 {

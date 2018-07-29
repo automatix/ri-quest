@@ -9,7 +9,7 @@ use Doctrine\ORM\Mapping as ORM;
  * InfoStep
  *
  * @ORM\Table(name="info_steps")
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="App\Base\Repositories\Processes\Steps\InfoStepRepository")
  */
 class InfoStep extends Step
 {

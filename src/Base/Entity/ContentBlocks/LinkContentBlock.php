@@ -8,7 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
  * LinkContentBlock
  *
  * @ORM\Table(name="link_content_blocks")
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="App\Base\Repositories\ContentBlocks\LinkContentBlockRepository")
  */
 class LinkContentBlock extends AbstractContentBlock
 {

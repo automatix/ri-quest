@@ -8,7 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
  * Scenario
  *
  * @ORM\Table(name="scenarios")
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="App\Base\Repositories\Processes\ScenarioRepository")
  */
 class Scenario extends AbstractProcess
 {

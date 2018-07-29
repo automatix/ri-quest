@@ -8,7 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
  * PoiConcreteProcess
  *
  * @ORM\Table(name="poi_concrete_processes")
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="App\Base\Repositories\ConcreteProcesses\PoiConcreteProcessRepository")
  */
 class PoiConcreteProcess extends AbstractConcreteProcess
 {

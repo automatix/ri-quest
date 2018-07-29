@@ -8,7 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
  * SemanticalMessageStack
  *
  * @ORM\Table(name="semantical_message_stacks")
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="App\Base\Repositories\MessageStacks\SemanticalMessageStackRepository")
  */
 class SemanticalMessageStack extends AbstractMessageStack
 {
