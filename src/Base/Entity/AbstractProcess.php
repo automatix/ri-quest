@@ -18,7 +18,7 @@ use Doctrine\ORM\Mapping as ORM;
  *     "completion" = "App\Base\Entity\Processes\Completion",
  *     "poi" = "App\Base\Entity\Processes\Poi",
  *     "scenario" = "App\Base\Entity\Processes\Scenario",
- *     "step" = "App\Base\Entity\Processes\Step",
+ *     "step" = "App\Base\Entity\Processes\AbstractStep",
  *     "info_step" = "App\Base\Entity\Processes\Steps\InfoStep",
  *     "place_step" = "App\Base\Entity\Processes\Steps\PlaceStep",
  *     "task_step" = "App\Base\Entity\Processes\Steps\TaskStep",
