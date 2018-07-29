@@ -29,7 +29,7 @@ abstract class AbstractTask extends AbstractEntity
     /**
      * @var TaskStepPlan
      *
-     * @ORM\ManyToOne(targetEntity="TaskStepPlan")
+     * @ORM\ManyToOne(targetEntity="App\Base\Entity\Plans\Steps\TaskStepPlan")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="task_step_id", referencedColumnName="id", nullable=false)
      * })
