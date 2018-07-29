@@ -58,12 +58,12 @@ class WorkflowEventDispatcher implements WorkflowEventDispatcherInterface
         // The array index determines the priority and so the handling order!
         // Means: The the order in the list is actually the priority.
         return [
-            ProcessName::STEP => ProcessName::STEP(),
-            ProcessName::POI => ProcessName::POI(),
-            ProcessName::ACCESS => ProcessName::ACCESS(),
-            ProcessName::COMPLETION => ProcessName::COMPLETION(),
-            ProcessName::SCENARIO => ProcessName::SCENARIO(),
             ProcessName::WORKFLOW => ProcessName::WORKFLOW(),
+            ProcessName::ACCESS => ProcessName::ACCESS(),
+            ProcessName::SCENARIO => ProcessName::SCENARIO(),
+            ProcessName::POI => ProcessName::POI(),
+            ProcessName::STEP => ProcessName::STEP(),
+            ProcessName::COMPLETION => ProcessName::COMPLETION(),
         ];
     }
 

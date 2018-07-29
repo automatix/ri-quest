@@ -43,23 +43,23 @@ class ProcessManagingService implements ProcessManagingServiceInterface
     {
         $processState = null;
         switch ($processName) {
+            case ProcessName::WORKFLOW():
+                $processState = $this->detectWorkflowState();
+                break;
             case ProcessName::ACCESS():
                 $processState = $this->detectAccessState();
-                break;
-            case ProcessName::COMPLETION():
-                $processState = $this->detectCompletionState();
-                break;
-            case ProcessName::POI():
-                $processState = $this->detectPoiState();
                 break;
             case ProcessName::SCENARIO():
                 $processState = $this->detectScenarioState();
                 break;
+            case ProcessName::POI():
+                $processState = $this->detectPoiState();
+                break;
             case ProcessName::STEP():
                 $processState = $this->detectStepState();
                 break;
-            case ProcessName::WORKFLOW():
-                $processState = $this->detectWorkflowState();
+            case ProcessName::COMPLETION():
+                $processState = $this->detectCompletionState();
                 break;
         }
         return $processState;
