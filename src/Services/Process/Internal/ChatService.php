@@ -2,9 +2,10 @@
 namespace App\Services\Process\Internal;
 
 use App\Base\Entity\Chat;
-use App\Base\Entity\User;
+use App\Base\Entity\ConcreteProcesses\WorkflowConcreteProcess;
 use App\Base\Enums\Entities\ChatType;
 use App\Base\Repository\ChatRepository;
+use App\Base\Repository\WorkflowConcreteProcessRepository;
 use App\Services\Process\ChatServiceInterface;
 use App\Services\Process\UserServiceInterface;
 
@@ -17,13 +18,16 @@ class ChatService implements ChatServiceInterface
 
     /** @var ChatRepository */
     private $chatRepository;
+    /** @var WorkflowConcreteProcessRepository */
+    private $workflowConcreteProcessRepository;
     /** @var UserServiceInterface */
     private $userService;
 
-    public function __construct(ChatRepository $chatRepository, UserServiceInterface $userService)
+    public function __construct(ChatRepository $chatRepository, UserServiceInterface $userService, WorkflowConcreteProcessRepository $workflowConcreteProcessRepository)
     {
         $this->chatRepository = $chatRepository;
         $this->userService = $userService;
+        $this->workflowConcreteProcessRepository = $workflowConcreteProcessRepository;
     }
 
     /**
@@ -49,6 +53,19 @@ class ChatService implements ChatServiceInterface
         ;
         $this->chatRepository->createEntity($chat);
         return $chat;
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public function findActiveWorkflowConcreteProcessForChat(Chat $chat): ?WorkflowConcreteProcess
+    {
+        /** @var WorkflowConcreteProcess $workflowConcreteProcess */
+        $workflowConcreteProcess = $this->workflowConcreteProcessRepository->findOneBy([
+            'chat' => $chat,
+            // 'state' => IS NOT WorkflowState::FINISHED
+        ]);
+        return $workflowConcreteProcess;
     }
 
 }

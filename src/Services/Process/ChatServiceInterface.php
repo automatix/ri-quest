@@ -2,6 +2,7 @@
 namespace App\Services\Process;
 
 use App\Base\Entity\Chat;
+use App\Base\Entity\ConcreteProcesses\WorkflowConcreteProcess;
 use App\Base\Enums\Entities\ChatType;
 use App\Base\Enums\ProcessName;
 
@@ -27,5 +28,15 @@ interface ChatServiceInterface
      * @return Chat
      */
     function create(int $identifier, ChatType $chatType): ?Chat;
+
+    /**
+     * Provides the currently active WorkflowConcreteProcess
+     * for the given Chat.
+     * An "active" WorkflowConcreteProcess is one with state unequal WorkflowState::FINISHED.
+     *
+     * @param Chat $chat
+     * @return WorkflowConcreteProcess|null
+     */
+    function findActiveWorkflowConcreteProcessForChat(Chat $chat): ?WorkflowConcreteProcess;
 
 }
