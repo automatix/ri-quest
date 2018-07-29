@@ -2,7 +2,7 @@
 namespace App\Services\Process\Internal;
 
 use App\Base\Entity\User;
-use App\Base\Repository\UserRepository;
+use App\Base\Repositories\UserRepository;
 use App\Services\Process\UserServiceInterface;
 
 /**

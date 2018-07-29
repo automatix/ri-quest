@@ -4,8 +4,8 @@ namespace App\Services\Process\Internal;
 use App\Base\Entity\Chat;
 use App\Base\Entity\ConcreteProcesses\WorkflowConcreteProcess;
 use App\Base\Enums\Entities\ChatType;
-use App\Base\Repository\ChatRepository;
-use App\Base\Repository\WorkflowConcreteProcessRepository;
+use App\Base\Repositories\ChatRepository;
+use App\Base\Repositories\ConcreteProcesses\WorkflowConcreteProcessRepository;
 use App\Services\Process\ChatServiceInterface;
 use App\Services\Process\UserServiceInterface;
 
