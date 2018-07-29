@@ -56,12 +56,10 @@ class QuestController extends Controller
     {
         // todo It's just a mock. The Chat ID should be fetched from the ChatBotService.
         $chatId = $request->get('chat_id');
-        $chat = $this->chatService->findOneByIdentifierAndType($chatId, ChatType::TELEGRAM());
-        $chat = $chat
+        $chat = $this->chatService->findOneByIdentifierAndType($chatId, ChatType::TELEGRAM())
             ?: $this->chatService->create($chatId, ChatType::TELEGRAM())
         ;
-        $workflowConcreteProcess = $this->chatService->findActiveWorkflowConcreteProcessForChat($chat);
-        $workflowConcreteProcess = $workflowConcreteProcess
+        $workflowConcreteProcess = $this->chatService->findActiveWorkflowConcreteProcessForChat($chat)
             ?: $this->workflowConcreteProcessService->create($chat)
         ;
         $this->runtimeContextService->initializeRuntimeContext($chat);
