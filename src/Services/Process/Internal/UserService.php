@@ -15,7 +15,7 @@ class UserService implements UserServiceInterface
     /** @var UserRepository */
     private $userRepository;
 
-    public function __construct(UserRepository $userRepository, UserServiceInterface $userService)
+    public function __construct(UserRepository $userRepository)
     {
         $this->userRepository = $userRepository;
     }
