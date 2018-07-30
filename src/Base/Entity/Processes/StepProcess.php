@@ -7,7 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * StepProcess
  *
- * @ORM\Table(name="step_concrete_processes")
+ * @ORM\Table(name="step_processes")
  * @ORM\Entity(repositoryClass="App\Base\Repositories\Processes\StepProcessRepository")
  */
 class StepProcess extends AbstractProcess

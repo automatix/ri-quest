@@ -9,7 +9,7 @@ use Doctrine\ORM\Mapping as ORM;
  *
  * @ORM\Table(name="loops",
  *     indexes={
- *         @ORM\Index(name="fk_loop_concrete_process_idx", columns={"concrete_process_id"})
+ *         @ORM\Index(name="fk_loop_process_idx", columns={"process_id"})
  *     }
  * )
  * @ORM\Entity(repositoryClass="App\Base\Repositories\LoopRepository")
@@ -36,7 +36,7 @@ class Loop extends AbstractEntity
      *
      * @ORM\ManyToOne(targetEntity="AbstractProcess", inversedBy="loops")
      * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="concrete_process_id", referencedColumnName="id", nullable=false)
+     *   @ORM\JoinColumn(name="process_id", referencedColumnName="id", nullable=false)
      * })
      */
     private $process;

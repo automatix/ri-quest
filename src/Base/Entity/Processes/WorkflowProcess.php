@@ -9,9 +9,9 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * WorkflowProcess
  *
- * @ORM\Table(name="workflow_concrete_processes", indexes={
- *     @ORM\Index(name="fk_workflow_concrete_process_workflow_idx", columns={"workflow_id"}),
- *     @ORM\Index(name="fk_workflow_concrete_process_chat_idx", columns={"chat_id"})
+ * @ORM\Table(name="workflow_processes", indexes={
+ *     @ORM\Index(name="fk_workflow_process_workflow_idx", columns={"workflow_id"}),
+ *     @ORM\Index(name="fk_workflow_process_chat_idx", columns={"chat_id"})
  * })
  * @ORM\Entity(repositoryClass="App\Base\Repositories\Processes\WorkflowProcessRepository")
  */
