@@ -1,8 +1,8 @@
 <?php
 namespace App\Base\Repositories\Processes;
 
-use App\Base\Repositories\AbstractRepository;
 use App\Base\Entity\Processes\StepProcess;
+use App\Base\Repositories\AbstractRepository;
 use App\Base\Selectors\Processes\StepProcessSelector;
 
 class StepProcessRepository extends AbstractRepository

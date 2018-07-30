@@ -3,7 +3,6 @@ namespace App\Services\Process\Internal;
 
 use App\Base\Entity\Chat;
 use App\Base\Entity\Processes\WorkflowProcess;
-use App\Base\Repositories\UserRepository;
 use App\Base\Repositories\Plans\WorkflowPlanRepository;
 use App\Services\Process\WorkflowProcessServiceInterface;
 

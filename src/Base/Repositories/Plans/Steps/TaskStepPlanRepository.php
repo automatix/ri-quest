@@ -1,8 +1,8 @@
 <?php
 namespace App\Base\Repositories\Plans\Steps;
 
-use App\Base\Repositories\AbstractRepository;
 use App\Base\Entity\Plans\Steps\TaskStepPlan;
+use App\Base\Repositories\AbstractRepository;
 use App\Base\Selectors\Processes\Steps\TaskStepSelector;
 
 class TaskStepPlanRepository extends AbstractRepository

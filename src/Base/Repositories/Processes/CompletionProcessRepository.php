@@ -1,8 +1,8 @@
 <?php
 namespace App\Base\Repositories\Processes;
 
-use App\Base\Repositories\AbstractRepository;
 use App\Base\Entity\Processes\CompletionProcess;
+use App\Base\Repositories\AbstractRepository;
 use App\Base\Selectors\Processes\CompletionProcessSelector;
 
 class CompletionProcessRepository extends AbstractRepository

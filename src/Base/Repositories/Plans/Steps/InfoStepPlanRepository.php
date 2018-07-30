@@ -1,8 +1,8 @@
 <?php
 namespace App\Base\Repositories\Plans\Steps;
 
-use App\Base\Repositories\AbstractRepository;
 use App\Base\Entity\Plans\Steps\InfoStepPlan;
+use App\Base\Repositories\AbstractRepository;
 use App\Base\Selectors\Processes\Steps\InfoStepSelector;
 
 class InfoStepPlanRepository extends AbstractRepository

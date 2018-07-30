@@ -1,8 +1,8 @@
 <?php
 namespace App\Base\Repositories\Tasks;
 
-use App\Base\Repositories\AbstractRepository;
 use App\Base\Entity\Tasks\FunTask;
+use App\Base\Repositories\AbstractRepository;
 use App\Base\Selectors\Tasks\FunTaskSelector;
 
 class FunTaskRepository extends AbstractRepository

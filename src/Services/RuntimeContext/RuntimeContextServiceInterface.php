@@ -3,7 +3,6 @@ namespace App\Services\RuntimeContext;
 
 use App\Base\Entity\Chat;
 use App\Base\Entity\User;
-use App\Base\Selectors\ChatSelector;
 
 interface RuntimeContextServiceInterface
 {

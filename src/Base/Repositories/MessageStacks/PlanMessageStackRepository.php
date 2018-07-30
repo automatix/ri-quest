@@ -1,8 +1,8 @@
 <?php
 namespace App\Base\Repositories\MessageStacks;
 
-use App\Base\Repositories\AbstractRepository;
 use App\Base\Entity\MessageStacks\PlanMessageStack;
+use App\Base\Repositories\AbstractRepository;
 use App\Base\Selectors\MessageStacks\PlanMessageStackSelector;
 
 class PlanMessageStackRepository extends AbstractRepository

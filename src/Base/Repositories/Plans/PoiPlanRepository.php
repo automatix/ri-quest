@@ -1,8 +1,8 @@
 <?php
 namespace App\Base\Repositories\Plans;
 
-use App\Base\Repositories\AbstractRepository;
 use App\Base\Entity\Plans\PoiPlan;
+use App\Base\Repositories\AbstractRepository;
 use App\Base\Selectors\Processes\PoiSelector;
 
 class PoiPlanRepository extends AbstractRepository

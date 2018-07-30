@@ -1,8 +1,8 @@
 <?php
 namespace App\Base\Repositories\MessageStacks;
 
-use App\Base\Repositories\AbstractRepository;
 use App\Base\Entity\MessageStacks\SemanticalMessageStack;
+use App\Base\Repositories\AbstractRepository;
 use App\Base\Selectors\MessageStacks\SemanticalMessageStackSelector;
 
 class SemanticalMessageStackRepository extends AbstractRepository

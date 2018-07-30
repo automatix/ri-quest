@@ -1,8 +1,8 @@
 <?php
 namespace App\Base\Repositories\ContentBlocks;
 
-use App\Base\Repositories\AbstractRepository;
 use App\Base\Entity\ContentBlocks\ImageContentBlock;
+use App\Base\Repositories\AbstractRepository;
 use App\Base\Selectors\ContentBlocks\ImageContentBlockSelector;
 
 class ImageContentBlockRepository extends AbstractRepository

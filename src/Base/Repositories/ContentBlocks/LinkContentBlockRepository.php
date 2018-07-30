@@ -1,8 +1,8 @@
 <?php
 namespace App\Base\Repositories\ContentBlocks;
 
-use App\Base\Repositories\AbstractRepository;
 use App\Base\Entity\ContentBlocks\LinkContentBlock;
+use App\Base\Repositories\AbstractRepository;
 use App\Base\Selectors\ContentBlocks\LinkContentBlockSelector;
 
 class LinkContentBlockRepository extends AbstractRepository

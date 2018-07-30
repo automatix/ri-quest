@@ -1,8 +1,8 @@
 <?php
 namespace App\Base\Repositories\ContentBlocks;
 
-use App\Base\Repositories\AbstractRepository;
 use App\Base\Entity\ContentBlocks\VideoContentBlock;
+use App\Base\Repositories\AbstractRepository;
 use App\Base\Selectors\ContentBlocks\VideoContentBlockSelector;
 
 class VideoContentBlockRepository extends AbstractRepository

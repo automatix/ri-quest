@@ -1,8 +1,8 @@
 <?php
 namespace App\Base\Repositories\Processes;
 
-use App\Base\Repositories\AbstractRepository;
 use App\Base\Entity\Processes\ScenarioProcess;
+use App\Base\Repositories\AbstractRepository;
 use App\Base\Selectors\Processes\ScenarioProcessSelector;
 
 class ScenarioProcessRepository extends AbstractRepository

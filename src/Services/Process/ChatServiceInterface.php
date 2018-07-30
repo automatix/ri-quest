@@ -4,7 +4,6 @@ namespace App\Services\Process;
 use App\Base\Entity\Chat;
 use App\Base\Entity\Processes\WorkflowProcess;
 use App\Base\Enums\Entities\ChatType;
-use App\Base\Enums\ProcessName;
 
 /**
  * Interface ChatServiceInterface
