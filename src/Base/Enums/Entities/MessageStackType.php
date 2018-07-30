@@ -13,6 +13,6 @@ class MessageStackType extends AbstractEnum
 {
 
     const SEMANTICAL = 'semantical';
-    const PROCESS = 'process';
+    const PROCESS = 'plan';
 
 }

@@ -7,7 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Poi
  *
- * @ORM\Table(name="accesses")
+ * @ORM\Table(name="access_plans")
  * @ORM\Entity(repositoryClass="App\Base\Repositories\Plans\AccessPlanRepository")
  */
 class AccessPlan extends AbstractPlan

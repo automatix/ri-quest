@@ -8,7 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * PlaceStep
  *
- * @ORM\Table(name="place_steps")
+ * @ORM\Table(name="place_step_plans")
  * @ORM\Entity(repositoryClass="App\Base\Repositories\Plans\Steps\PlaceStepPlanRepository")
  */
 class PlaceStepPlan extends AbstractStepPlan

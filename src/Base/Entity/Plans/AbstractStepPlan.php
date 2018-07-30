@@ -8,7 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Step
  *
- * @ORM\Table(name="steps")
+ * @ORM\Table(name="step_plans")
  * @ORM\Entity
  */
 abstract class AbstractStepPlan extends AbstractPlan

@@ -1,7 +1,7 @@
 <?php
 namespace App\Base\Entity;
 
-use App\Base\Entity\MessageStacks\ProcessMessageStack;
+use App\Base\Entity\MessageStacks\PlanMessageStack;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
@@ -9,12 +9,12 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * AbstractPlan
  *
- * @ORM\Table(name="processes",
+ * @ORM\Table(name="plans",
  *     uniqueConstraints={
- *         @ORM\UniqueConstraint(name="uq_unique_order_for_process", columns={"parent_id", "`order`"})
+ *         @ORM\UniqueConstraint(name="uq_unique_order_for_plan", columns={"parent_id", "`order`"})
  *     },
  *     indexes={
- *         @ORM\Index(name="fk_process_process_idx", columns={"parent_id"})
+ *         @ORM\Index(name="fk_plan_plan_idx", columns={"parent_id"})
  *     }
  * )
  * @ORM\Entity
@@ -61,22 +61,22 @@ abstract class AbstractPlan extends AbstractEntity
     /**
      * @var Collection
      *
-     * @ORM\ManyToMany(targetEntity="App\Base\Entity\MessageStacks\ProcessMessageStack")
-     * @ORM\JoinTable(name="process_process_message_stack",
+     * @ORM\ManyToMany(targetEntity="App\Base\Entity\MessageStacks\PlanMessageStack")
+     * @ORM\JoinTable(name="plan_plan_message_stacks",
      *   joinColumns={
-     *     @ORM\JoinColumn(name="process_id", referencedColumnName="id")
+     *     @ORM\JoinColumn(name="plan_id", referencedColumnName="id")
      *   },
      *   inverseJoinColumns={
-     *     @ORM\JoinColumn(name="process_message_stack_id", referencedColumnName="id")
+     *     @ORM\JoinColumn(name="plan_message_stack_id", referencedColumnName="id")
      *   }
      * )
      */
-    private $processMessageStacks;
+    private $planMessageStacks;
 
     public function __construct()
     {
         parent::__construct();
-        $this->processMessageStacks = new ArrayCollection();
+        $this->planMessageStacks = new ArrayCollection();
         $this->children = new ArrayCollection();
     }
 
@@ -103,25 +103,25 @@ abstract class AbstractPlan extends AbstractEntity
     }
 
     /**
-     * @return Collection|ProcessMessageStack[]
+     * @return Collection|PlanMessageStack[]
      */
-    public function getProcessMessageStacks(): Collection
+    public function getPlanMessageStacks(): Collection
     {
-        return $this->processMessageStacks;
+        return $this->planMessageStacks;
     }
 
-    public function addProcessMessageStack(ProcessMessageStack $processMessageStack): self
+    public function addPlanMessageStack(PlanMessageStack $planMessageStack): self
     {
-        if (!$this->processMessageStacks->contains($processMessageStack)) {
-            $this->processMessageStacks[] = $processMessageStack;
+        if (!$this->planMessageStacks->contains($planMessageStack)) {
+            $this->planMessageStacks[] = $planMessageStack;
         }
         return $this;
     }
 
-    public function removeProcessMessageStack(ProcessMessageStack $processMessageStack): self
+    public function removePlanMessageStack(PlanMessageStack $planMessageStack): self
     {
-        if ($this->processMessageStacks->contains($processMessageStack)) {
-            $this->processMessageStacks->removeElement($processMessageStack);
+        if ($this->planMessageStacks->contains($planMessageStack)) {
+            $this->planMessageStacks->removeElement($planMessageStack);
         }
         return $this;
     }

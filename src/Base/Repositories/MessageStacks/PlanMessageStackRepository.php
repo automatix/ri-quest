@@ -2,10 +2,10 @@
 namespace App\Base\Repositories\MessageStacks;
 
 use App\Base\Repositories\AbstractRepository;
-use App\Base\Entity\MessageStacks\ProcessMessageStack;
-use App\Base\Selectors\MessageStacks\ProcessMessageStackSelector;
+use App\Base\Entity\MessageStacks\PlanMessageStack;
+use App\Base\Selectors\MessageStacks\PlanMessageStackSelector;
 
-class ProcessMessageStackRepository extends AbstractRepository
+class PlanMessageStackRepository extends AbstractRepository
 {
 
     /**
@@ -13,7 +13,7 @@ class ProcessMessageStackRepository extends AbstractRepository
      */
     public function getEntityClass()
     {
-        return ProcessMessageStack::class;
+        return PlanMessageStack::class;
     }
 
     /**
@@ -21,7 +21,7 @@ class ProcessMessageStackRepository extends AbstractRepository
      */
     public function getEntitySelectorClass()
     {
-        return ProcessMessageStackSelector::class;
+        return PlanMessageStackSelector::class;
     }
     
 }

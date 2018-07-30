@@ -7,17 +7,17 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * ProcessMessageStack
  *
- * @ORM\Table(name="process_message_stacks")
- * @ORM\Entity(repositoryClass="App\Base\Repositories\MessageStacks\ProcessMessageStackRepository")
+ * @ORM\Table(name="plan_message_stacks")
+ * @ORM\Entity(repositoryClass="App\Base\Repositories\MessageStacks\PlanMessageStackRepository")
  */
-class ProcessMessageStack extends AbstractMessageStack
+class PlanMessageStack extends AbstractMessageStack
 {
     /**
      * @var string
      *
-     * @ORM\Column(name="process", type="string", length=255, nullable=false)
+     * @ORM\Column(name="plan", type="string", length=255, nullable=false)
      */
-    private $process;
+    private $plan;
 
     /**
      * @var string
@@ -33,14 +33,14 @@ class ProcessMessageStack extends AbstractMessageStack
      */
     private $event;
 
-    public function getProcess(): ?string
+    public function getPlan(): ?string
     {
-        return $this->process;
+        return $this->plan;
     }
 
-    public function setProcess(string $process): self
+    public function setPlan(string $plan): self
     {
-        $this->process = $process;
+        $this->plan = $plan;
         return $this;
     }
 
