@@ -1,0 +1,3 @@
+No classes here. The part implemented as methods of the StateEventHandlers.
+Meant: The EventHandler for the Event BUZ of the Process FOO in the State BAR is the method
+App/Process/StateEventHandlers/Foo/BarStateHandler#onBuz(...).
