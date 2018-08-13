@@ -3,7 +3,8 @@ namespace App\Interop\Website\Controller;
 
 use App\Base\Enums\Entities\ChatType;
 use App\Base\Enums\EventNames\GeneralEventName;
-use App\Base\Events\GenericEvent;
+use App\Base\Events\WorkflowEvent;
+use App\Base\Exceptions\GeneralException;
 use App\Services\Process\ChatServiceInterface;
 use App\Services\Process\ProcessManagingServiceInterface;
 use App\Services\Process\WorkflowProcessServiceInterface;
@@ -51,23 +52,33 @@ class QuestController extends Controller
     /**
      * @param Request $request
      * @return Response
+     * @throws GeneralException
      */
     public function processUserMessageAction(Request $request)
     {
-        // todo It's just a mock. The Chat ID should be fetched from the ChatBotService.
         $chatId = $request->get('chat_id');
-        $chat = $this->chatService->findOneByIdentifierAndType($chatId, ChatType::TELEGRAM())
-            ?: $this->chatService->create($chatId, ChatType::TELEGRAM())
-        ;
+        $chat = $this->initializeRequestProcessing($chatId);
+
         $workflowProcess = $this->chatService->findActiveWorkflowProcessForChat($chat)
             ?: $this->workflowProcessService->create($chat)
         ;
-        $this->runtimeContextService->initializeRuntimeContext($chat);
 
         $message = $request->get('message');
-        $this->eventDispatcher->dispatch(GeneralEventName::USER_MESSAGE_RECEIVED, new GenericEvent($message));
+        $this->eventDispatcher->dispatch(GeneralEventName::USER_MESSAGE_RECEIVED, new WorkflowEvent(
+            $workflowProcess, ['message' => $message]
+        ));
 
         return new Response();
+    }
+
+    private function initializeRequestProcessing($chatId)
+    {
+        // todo It's just a mock. The Chat ID should be fetched from the ChatBotService.
+        $chat = $this->chatService->findOneByIdentifierAndType($chatId, ChatType::TELEGRAM())
+            ?: $this->chatService->create($chatId, ChatType::TELEGRAM())
+        ;
+        $this->runtimeContextService->initializeRuntimeContext($chat);
+        return $chat;
     }
 
 }
