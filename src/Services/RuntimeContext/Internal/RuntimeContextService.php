@@ -26,11 +26,19 @@ class RuntimeContextService implements RuntimeContextServiceInterface
         $this->chat = $chat;
     }
 
+    /**
+     * @inheritdoc
+     * @throws RuntimeContextException
+     */
     public function getCurrentUser(): User
     {
         return $this->getCurrentChat()->getUser();
     }
 
+    /**
+     * @inheritdoc
+     * @throws RuntimeContextException
+     */
     public function getCurrentChat(): Chat
     {
         if (! $this->chat) {
