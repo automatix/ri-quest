@@ -5,10 +5,6 @@
 /vendor/
 ###< symfony/framework-bundle ###
 
-###> Composer ###
-composer.lock
-###< Composer ###
-
 ###> generated ###
 /src/Base/Selectors
 !/src/Base/Selectors/AbstractSelector.php
