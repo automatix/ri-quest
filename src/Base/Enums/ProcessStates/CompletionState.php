@@ -3,7 +3,7 @@ namespace App\Base\Enums\ProcessStates;
 
 /**
  * @method static CompletionState STARTED()
- * @method static AccessState FINISHED()
+ * @method static CompletionState FINISHED()
  */
 class CompletionState extends AbstractProcessState
 {
